@@ -33,6 +33,7 @@ interface TrainingFormat {
   icon: LucideIcon
   meta: string
   image: string
+  categories: FilterKey[]
 }
 
 const formats: TrainingFormat[] = [
@@ -43,6 +44,7 @@ const formats: TrainingFormat[] = [
     icon: Users,
     meta: "Offline · Jamoa",
     image: formatOffline,
+    categories: ['offline'],
   },
   {
     title: "Online trening",
@@ -51,6 +53,7 @@ const formats: TrainingFormat[] = [
     icon: Monitor,
     meta: "Online · Masofaviy",
     image: formatOnline,
+    categories: ['online'],
   },
   {
     title: "Hybrid trening",
@@ -59,6 +62,7 @@ const formats: TrainingFormat[] = [
     icon: Layers,
     meta: "Offline + Online",
     image: formatHybrid,
+    categories: ['hybrid', 'offline', 'online'],
   },
   {
     title: "Intensiv workshop",
@@ -67,6 +71,7 @@ const formats: TrainingFormat[] = [
     icon: Zap,
     meta: "1–3 kun",
     image: formatWorkshop,
+    categories: ['short'],
   },
   {
     title: "Uzoq muddatli dastur",
@@ -75,6 +80,7 @@ const formats: TrainingFormat[] = [
     icon: CalendarDays,
     meta: "1–3 oy",
     image: formatProgram,
+    categories: ['long'],
   },
   {
     title: "Executive sessiya",
@@ -83,7 +89,18 @@ const formats: TrainingFormat[] = [
     icon: Briefcase,
     meta: "C-level",
     image: formatExecutive,
+    categories: ['executive'],
   },
+]
+
+const filters: { key: FilterKey; label: string }[] = [
+  { key: 'all', label: 'Barchasi' },
+  { key: 'offline', label: 'Offline' },
+  { key: 'online', label: 'Online' },
+  { key: 'hybrid', label: 'Hybrid' },
+  { key: 'short', label: '1–3 kun' },
+  { key: 'long', label: '1–3 oy' },
+  { key: 'executive', label: 'C-level' },
 ]
 
 export function Awards() {
