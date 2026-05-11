@@ -122,27 +122,29 @@ export function Services() {
                 key={service.id}
                 onMouseEnter={() => setHovered(service.id)}
                 onMouseLeave={() => setHovered(null)}
-                className="group relative bg-card border border-border rounded-3xl p-8 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_hsl(var(--secondary-foreground)/0.25)] hover:border-primary/40 overflow-hidden"
+                className="group relative bg-card border border-border rounded-3xl p-6 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_hsl(var(--secondary-foreground)/0.25)] hover:border-primary/40 overflow-hidden flex flex-col"
               >
-                {/* Subtle hover background */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  aria-hidden
-                />
-
-                {/* Number watermark */}
-                <span
-                  className="absolute -top-4 -right-2 text-[7rem] font-black leading-none text-primary/5 select-none transition-all duration-700 group-hover:text-primary/10"
-                  aria-hidden
-                >
-                  {service.number}
-                </span>
-
-                <div className="relative">
-                  {/* Icon */}
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 transition-all duration-700 group-hover:bg-primary group-hover:scale-110">
-                    <Icon className="w-7 h-7 text-primary transition-colors duration-700 group-hover:text-primary-foreground" />
+                {/* Image */}
+                <div className="relative aspect-[16/10] w-full mb-6 overflow-hidden rounded-2xl bg-primary/10">
+                  <ImageWithFallback
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
+                  />
+                  {/* Number badge */}
+                  <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-background/90 backdrop-blur px-3 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    <span className="text-[11px] font-bold tracking-wider uppercase text-secondary-foreground">
+                      {service.number} / 06
+                    </span>
                   </div>
+                  {/* Icon badge */}
+                  <div className="absolute bottom-3 right-3 w-12 h-12 rounded-2xl bg-background/95 backdrop-blur border border-border flex items-center justify-center transition-all duration-700 group-hover:bg-primary group-hover:border-primary">
+                    <Icon className="w-6 h-6 text-primary transition-colors duration-700 group-hover:text-primary-foreground" />
+                  </div>
+                </div>
+
+                <div className="relative px-2 flex-1 flex flex-col">
 
                   {/* Title */}
                   <h3 className="text-2xl font-black leading-tight mb-3 text-secondary-foreground">
