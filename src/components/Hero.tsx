@@ -1,14 +1,27 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { Volume2, VolumeX, Menu, X } from 'lucide-react'
-import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import heroImg1 from '../assets/hero-mentorship-1.jpg'
+import heroImg2 from '../assets/hero-mentorship-2.jpg'
+import heroImg3 from '../assets/hero-mentorship-3.jpg'
+import heroImg4 from '../assets/hero-mentorship-4.jpg'
+
+const heroImages = [heroImg1, heroImg2, heroImg3, heroImg4]
 
 export function Hero() {
-  const [isMuted, setIsMuted] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const [currentImage, setCurrentImage] = useState(0)
+
+  // Slideshow rotation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length)
+    }, 6000)
+    return () => clearInterval(interval)
+  }, [])
 
   // Scroll detection
   useEffect(() => {
