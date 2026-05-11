@@ -137,16 +137,16 @@ export function Team() {
 
       {/* Trainer Modal */}
       <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
-        <DialogContent className="max-w-4xl p-0 overflow-hidden bg-background border border-border rounded-3xl [&>button]:hidden">
+        <DialogContent className="max-w-4xl p-0 overflow-hidden bg-background border border-border rounded-3xl [&>button]:hidden duration-700 data-[state=open]:slide-in-from-bottom-8 data-[state=closed]:slide-out-to-bottom-8 data-[state=open]:zoom-in-100 data-[state=closed]:zoom-out-100">
           {active && (
             <div className="grid grid-cols-1 md:grid-cols-5">
               {/* Image side */}
               <div className="md:col-span-2 relative bg-primary/10 p-6 md:p-8 flex items-center justify-center">
-                <div className="w-full aspect-square rounded-2xl overflow-hidden bg-card">
+                <div className="w-full aspect-[4/5] rounded-2xl overflow-hidden bg-card flex items-center justify-center">
                   <ImageWithFallback
                     src={active.image}
                     alt={active.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </div>
