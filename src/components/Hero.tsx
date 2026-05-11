@@ -70,18 +70,28 @@ export function Hero() {
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black">
-      {/* MASSIVE VIDEO - Takes up 95% of space */}
-      <video
-        ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover scale-110"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source src="https://mojli.s3.us-east-2.amazonaws.com/Mojli+Website+upscaled+(12mb).webm" type="video/webm" />
-        Your browser does not support the video tag.
-      </video>
+      {/* Cinematic Slideshow Background */}
+      <div className="absolute inset-0">
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={currentImage}
+            initial={{ opacity: 0, scale: 1.15 }}
+            animate={{ opacity: 1, scale: 1.05 }}
+            exit={{ opacity: 0, scale: 1.1 }}
+            transition={{ opacity: { duration: 2 }, scale: { duration: 7, ease: 'linear' } }}
+            className="absolute inset-0"
+          >
+            <img
+              src={heroImages[currentImage]}
+              alt="Korporativ trening va mentorlik"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
+        {/* Cinematic gradient overlay for legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
+      </div>
 
       {/* Full-Width Navbar */}
       <motion.nav
