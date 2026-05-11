@@ -116,7 +116,11 @@ export function Hero() {
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }}
             >
-              <span className="font-bagel text-white text-xl tracking-wider">FINE SKILLS</span>
+              <img
+                src={logoFineSkills}
+                alt="Fine Skills Academy"
+                className="h-10 sm:h-11 w-auto bg-white rounded-lg px-3 py-1.5 shadow-sm"
+              />
             </motion.div>
 
             {/* Navigation Menu */}
