@@ -8,33 +8,33 @@
 :root {
   --font-size: 16px;
   --background: #ffffff;
-  --foreground: #0a0a0a;
-  --card: #fafafa;
-  --card-foreground: #0a0a0a;
+  --foreground: #2C325E;
+  --card: #ffffff;
+  --card-foreground: #2C325E;
   --popover: #ffffff;
-  --popover-foreground: #0a0a0a;
-  --primary: #0a0a0a;
+  --popover-foreground: #2C325E;
+  --primary: #799A96;
   --primary-foreground: #ffffff;
-  --secondary: #f4f4f5;
-  --secondary-foreground: #0a0a0a;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --accent: #f4f4f5;
-  --accent-foreground: #0a0a0a;
-  --destructive: #ef4444;
+  --secondary: #ffffff;
+  --secondary-foreground: #2C325E;
+  --muted: #ffffff;
+  --muted-foreground: #2C325E;
+  --accent: #799A96;
+  --accent-foreground: #ffffff;
+  --destructive: #2C325E;
   --destructive-foreground: #ffffff;
-  --border: #e4e4e7;
-  --input: #f4f4f5;
+  --border: #2C325E;
+  --input: #ffffff;
   --input-background: #ffffff;
-  --switch-background: #e4e4e7;
+  --switch-background: #799A96;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #a1a1aa;
+  --ring: #799A96;
   
-  /* Simplified accent colors */
-  --accent-blue: #2563eb;
-  --accent-emerald: #059669;
-  --accent-purple: #7c3aed;
+  /* Brand accent palette (only sage + navy) */
+  --accent-blue: #799A96;
+  --accent-emerald: #799A96;
+  --accent-purple: #2C325E;
   
   --radius: 0.75rem;
 }
