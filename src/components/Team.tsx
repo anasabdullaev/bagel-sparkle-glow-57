@@ -72,7 +72,7 @@ export function Team() {
   const [active, setActive] = useState<Trainer | null>(null)
 
   return (
-    <div className="relative py-32 bg-background w-full">
+    <div className="relative py-32 w-full" style={{ background: '#0B0D1A' }}>
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="text-center mb-20">
