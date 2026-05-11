@@ -104,6 +104,16 @@ const filters: { key: FilterKey; label: string }[] = [
 ]
 
 export function Awards() {
+  const [active, setActive] = useState<FilterKey>('all')
+
+  const visibleFormats = useMemo(
+    () =>
+      active === 'all'
+        ? formats
+        : formats.filter((f) => f.categories.includes(active)),
+    [active]
+  )
+
   return (
     <div
       className="relative py-24 overflow-hidden"
