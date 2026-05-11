@@ -7,6 +7,7 @@ import heroImg1 from '../assets/hero-mentorship-1.jpg'
 import heroImg2 from '../assets/hero-mentorship-2.jpg'
 import heroImg3 from '../assets/hero-mentorship-3.jpg'
 import heroImg4 from '../assets/hero-mentorship-4.jpg'
+import logoFineSkills from '../assets/logo-fineskills.jpg'
 
 const heroImages = [heroImg1, heroImg2, heroImg3, heroImg4]
 
