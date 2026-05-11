@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
 import {
   Users,
   Monitor,
@@ -10,12 +10,22 @@ import {
   Briefcase,
   type LucideIcon,
 } from 'lucide-react'
+import { useMemo, useState } from 'react'
 import formatOffline from '../assets/format-offline.jpg'
 import formatOnline from '../assets/format-online.jpg'
 import formatHybrid from '../assets/format-hybrid.jpg'
 import formatWorkshop from '../assets/format-workshop.jpg'
 import formatProgram from '../assets/format-program.jpg'
 import formatExecutive from '../assets/format-executive.jpg'
+
+type FilterKey =
+  | 'all'
+  | 'offline'
+  | 'online'
+  | 'hybrid'
+  | 'short'
+  | 'long'
+  | 'executive'
 
 interface TrainingFormat {
   title: string
