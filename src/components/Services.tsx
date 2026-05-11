@@ -157,7 +157,7 @@ export function Services() {
                   </p>
 
                   {/* Topics */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-6 mt-auto">
                     {service.topics.map((topic) => (
                       <span
                         key={topic}
@@ -171,7 +171,7 @@ export function Services() {
                   {/* Footer link */}
                   <div className="flex items-center justify-between pt-5 border-t border-border">
                     <span className="text-xs font-bold tracking-widest uppercase text-primary">
-                      {service.number} / 06
+                      Batafsil
                     </span>
                     <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary transition-all duration-700 group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-45">
                       <ArrowUpRight className="w-5 h-5" />
