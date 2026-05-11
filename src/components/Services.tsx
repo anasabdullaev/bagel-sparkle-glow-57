@@ -10,6 +10,13 @@ import {
   Megaphone,
   ArrowUpRight,
 } from 'lucide-react'
+import { ImageWithFallback } from './figma/ImageWithFallback'
+import serviceFinance from '../assets/service-finance.jpg'
+import serviceBanking from '../assets/service-banking.jpg'
+import serviceIfrs from '../assets/service-ifrs.jpg'
+import serviceData from '../assets/service-data.jpg'
+import serviceAi from '../assets/service-ai.jpg'
+import serviceSoftskills from '../assets/service-softskills.jpg'
 
 type Service = {
   id: string
@@ -18,6 +25,7 @@ type Service = {
   topics: string[]
   icon: React.ComponentType<{ className?: string }>
   number: string
+  image: string
 }
 
 const services: Service[] = [
