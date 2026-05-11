@@ -1,5 +1,7 @@
 'use client'
 
+import logoFineSkills from '../assets/logo-fineskills.jpg'
+
 export function Footer() {
   const directions = [
     'Moliya & Corporate finance',
@@ -20,9 +22,11 @@ export function Footer() {
           {/* Logo and Description */}
           <div className="col-span-12 md:col-span-4">
             <div>
-              <div className="font-bagel text-background text-3xl tracking-wider mb-4">
-                FINE SKILLS
-              </div>
+              <img
+                src={logoFineSkills}
+                alt="Fine Skills Academy"
+                className="h-14 w-auto bg-white rounded-xl px-4 py-2 mb-5 shadow-sm"
+              />
               <p className="text-background/70 leading-relaxed mb-6">
                 Korporativ jamoalar uchun zamonaviy kasbiy ta'lim. Banklar, kompaniyalar va institutlar uchun amaliy treninglar.
               </p>
