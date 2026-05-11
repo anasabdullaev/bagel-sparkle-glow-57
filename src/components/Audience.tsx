@@ -12,22 +12,31 @@ import {
   Store,
   type LucideIcon,
 } from 'lucide-react'
+import audienceBank from '../assets/audience-bank.jpg'
+import audienceInsurance from '../assets/audience-insurance.jpg'
+import audienceGovernment from '../assets/audience-government.jpg'
+import audienceCorporate from '../assets/audience-corporate.jpg'
+import audienceFinance from '../assets/audience-finance.jpg'
+import audienceMarketing from '../assets/audience-marketing.jpg'
+import audienceHR from '../assets/audience-hr.jpg'
+import audienceSMB from '../assets/audience-smb.jpg'
 
-interface Audience {
+interface AudienceItem {
   title: string
-  icon: LucideIcon
   tag: string
+  icon: LucideIcon
+  image: string
 }
 
-const audiences: Audience[] = [
-  { title: "Tijoriy banklar", icon: Landmark, tag: "Banking" },
-  { title: "Sug'urta kompaniyalari", icon: ShieldCheck, tag: "Insurance" },
-  { title: "Davlat tashkilotlari", icon: Building2, tag: "Public sector" },
-  { title: "Xususiy korporatsiyalar", icon: Briefcase, tag: "Corporate" },
-  { title: "Moliya va buxgalteriya", icon: Calculator, tag: "Finance" },
-  { title: "Marketing va PR jamoalari", icon: Megaphone, tag: "Marketing" },
-  { title: "HR va L&D bo'limlari", icon: Users2, tag: "People" },
-  { title: "Kichik va o'rta bizneslar", icon: Store, tag: "SMB" },
+const audiences: AudienceItem[] = [
+  { title: 'Tijoriy banklar', tag: 'Banking', icon: Landmark, image: audienceBank },
+  { title: "Sug'urta kompaniyalari", tag: 'Insurance', icon: ShieldCheck, image: audienceInsurance },
+  { title: 'Davlat tashkilotlari', tag: 'Public sector', icon: Building2, image: audienceGovernment },
+  { title: 'Xususiy korporatsiyalar', tag: 'Corporate', icon: Briefcase, image: audienceCorporate },
+  { title: 'Moliya va buxgalteriya', tag: 'Finance', icon: Calculator, image: audienceFinance },
+  { title: 'Marketing va PR jamoalari', tag: 'Marketing', icon: Megaphone, image: audienceMarketing },
+  { title: "HR va L&D bo'limlari", tag: 'People', icon: Users2, image: audienceHR },
+  { title: "Kichik va o'rta bizneslar", tag: 'SMB', icon: Store, image: audienceSMB },
 ]
 
 export function Audience() {
@@ -35,108 +44,95 @@ export function Audience() {
     <section
       id="audience"
       aria-label="Kimlar uchun mos"
-      className="relative py-24 bg-background overflow-hidden"
+      className="relative py-24 overflow-hidden"
+      style={{ background: '#0B0D1A' }}
     >
-      {/* Dotted grid backdrop */}
-      <div
-        className="absolute inset-0 opacity-[0.35] pointer-events-none"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle, hsl(var(--secondary) / 0.18) 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
-      />
-      {/* Soft ambient glows */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[36rem] h-[36rem] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+      {/* Soft ambient backdrop */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-32 -left-32 w-[28rem] h-[28rem] rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute -bottom-32 -right-32 w-[28rem] h-[28rem] rounded-full bg-secondary/20 blur-3xl" />
+      </div>
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left — Heading */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2 }}
-            className="lg:col-span-5 lg:sticky lg:top-28"
-          >
-            <div className="inline-flex items-center gap-3 mb-6">
-              <span className="h-px w-10 bg-primary/60" />
-              <span className="text-primary text-sm tracking-[0.3em] font-medium">
-                · KIMLAR UCHUN ·
-              </span>
-            </div>
-
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bagel text-secondary-foreground leading-[1.05]">
-              Qaysi <span className="text-primary">tashkilotlar</span>
-              <br />
-              uchun mos?
-            </h2>
-
-            <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-md">
-              Treninglarimiz turli sohalardagi jamoalar uchun moslashtirilgan —
-              kichik bizneslardan tortib yirik moliyaviy institutlargacha.
-            </p>
-
-            {/* Counter strip */}
-            <div className="mt-10 flex items-center gap-6">
-              <div className="font-bagel text-5xl text-secondary">
-                {audiences.length.toString().padStart(2, '0')}
-              </div>
-              <div className="text-sm text-muted-foreground leading-snug max-w-[14rem]">
-                tanlangan tashkilot turi
-                <br />
-                <span className="text-secondary-foreground/80">
-                  uchun amaliy yondashuv
-                </span>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right — Staircase grid */}
-          <div className="lg:col-span-7">
-            <div className="grid grid-cols-2 gap-4 sm:gap-5">
-              {audiences.map((a, i) => {
-                const Icon = a.icon
-                // Asymmetric staircase: every odd column item shifts down
-                const offset = i % 2 === 1 ? 'sm:mt-10' : ''
-                return (
-                  <motion.div
-                    key={a.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.9, delay: i * 0.08 }}
-                    whileHover={{ y: -6 }}
-                    className={`${offset} group relative rounded-2xl border border-border bg-white/70 backdrop-blur-xl p-5 sm:p-6 overflow-hidden hover:border-primary/40 hover:shadow-[0_18px_45px_-20px_hsl(var(--primary)/0.35)] transition-all duration-700`}
-                  >
-                    {/* Number */}
-                    <div className="absolute top-3 right-4 font-bagel text-xs text-secondary/30 tracking-widest">
-                      0{i + 1}
-                    </div>
-
-                    {/* Icon */}
-                    <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-700">
-                      <Icon className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-700" />
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-base sm:text-lg font-semibold text-secondary-foreground leading-snug mb-2">
-                      {a.title}
-                    </h3>
-
-                    {/* Tag */}
-                    <div className="inline-flex items-center gap-1.5 text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-                      <span className="w-1 h-1 rounded-full bg-primary" />
-                      {a.tag}
-                    </div>
-
-                    {/* Bottom accent */}
-                    <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-1000" />
-                  </motion.div>
-                )
-              })}
-            </div>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-3 mb-6">
+            <span className="h-px w-10 bg-primary/60" />
+            <span className="text-primary text-sm tracking-[0.3em] font-medium">
+              · KIMLAR UCHUN ·
+            </span>
+            <span className="h-px w-10 bg-primary/60" />
           </div>
+
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-tight">
+            Qaysi <span className="text-primary">tashkilotlar</span> uchun mos?
+          </h2>
+
+          <p className="mt-6 text-base sm:text-lg text-white/70 max-w-2xl mx-auto">
+            Treninglarimiz turli sohalardagi jamoalar uchun moslashtirilgan —
+            kichik bizneslardan tortib yirik moliyaviy institutlargacha.
+          </p>
+        </motion.div>
+
+        {/* Audience grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {audiences.map((item, index) => {
+            const Icon = item.icon
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: index * 0.1 }}
+                whileHover={{ y: -6 }}
+                className="group relative h-full rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-5 overflow-hidden hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.4)] hover:border-primary/40 hover:bg-white/[0.07] transition-all duration-700"
+              >
+                {/* Image header */}
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-black/40">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    width={768}
+                    height={512}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+                  {/* Number badge */}
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur text-white text-xs font-medium tracking-wider">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+
+                  {/* Icon badge */}
+                  <div className="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-primary/90 backdrop-blur flex items-center justify-center shadow-lg">
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+
+                {/* Tag */}
+                <div className="relative inline-flex items-center gap-2 mb-2 text-[10px] tracking-[0.2em] uppercase text-primary/90 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  {item.tag}
+                </div>
+
+                {/* Title */}
+                <h3 className="relative text-base sm:text-lg font-semibold tracking-tight text-white leading-snug">
+                  {item.title}
+                </h3>
+
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-1000" />
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>
