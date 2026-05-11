@@ -1,5 +1,7 @@
 'use client'
 
+import logoFineSkills from '../assets/logo-fineskills.jpg'
+
 export function Footer() {
   const directions = [
     'Moliya & Corporate finance',
