@@ -1,269 +1,227 @@
 'use client'
 
+import { useState } from 'react'
+import { Mail, Phone, GraduationCap, Briefcase, X } from 'lucide-react'
+import { Dialog, DialogContent } from './ui/dialog'
 import { ImageWithFallback } from './figma/ImageWithFallback'
 import trainer1 from '../assets/trainer-1.jpg'
 import trainer2 from '../assets/trainer-2.jpg'
 import trainer3 from '../assets/trainer-3.jpg'
 import trainer4 from '../assets/trainer-4.jpg'
 
-export function Team() {
-  const wantedCriminals = [
-    {
-      name: "Moliya Mutaxassisi",
-      crime: "MOLIYA · INVESTITSIYA · BOZOR TAHLILI",
-      bounty: "15+ YIL TAJRIBA",
-      description: "Korporativ moliya, investitsiya tahlili va kapital bozorlari bo'yicha amaliy treninglar olib boradi. Bank va investitsiya kompaniyalarida real loyihalar tajribasi.",
-      image: trainer1,
-      rotation: 'rotate-3',
-      mustacheStyle: "handlebar"
-    },
-    {
-      name: "Biznes va Marketing Trener",
-      crime: "MARKETING · BIZNES STRATEGIYA · PR",
-      bounty: "12+ YIL TAJRIBA",
-      description: "Brend boshqaruvi, marketing strategiyasi va korporativ kommunikatsiya bo'yicha amaliy keys-larga asoslangan treninglar olib boradi.",
-      image: trainer2,
-      rotation: '-rotate-2',
-      mustacheStyle: "thick"
-    },
-    {
-      name: "Data Analytics Trener",
-      crime: "DATA ANALYTICS · IT VOSITALAR · AI",
-      bounty: "10+ YIL TAJRIBA",
-      description: "Excel, Power BI, SQL va sun'iy intellekt vositalari yordamida ma'lumotlarni tahlil qilish va biznes qarorlar qabul qilish bo'yicha trener.",
-      image: trainer3,
-      rotation: 'rotate-2',
-      mustacheStyle: "curly"
-    },
-    {
-      name: "Xalqaro Ekspert",
-      crime: "IFRS · SOFT SKILLS · BUSINESS ENGLISH",
-      bounty: "20+ YIL TAJRIBA",
-      description: "Xalqaro moliyaviy hisobot standartlari, korporativ boshqaruv va biznes ingliz tili bo'yicha xalqaro tajribaga ega trener.",
-      image: trainer4,
-      rotation: '-rotate-1',
-      mustacheStyle: "artistic"
-    }
-  ]
+type Trainer = {
+  name: string
+  role: string
+  experience: string
+  shortBio: string
+  bio: string
+  directions: string[]
+  email: string
+  phone: string
+  image: string
+}
 
-  const Mustache = ({ style, className }: { style: string, className?: string }) => {
-    const mustaches = {
-      handlebar: "M12 16c-2 0-3-1-4-1s-2 1-4 1c0-1 1-2 4-2s4 1 4 2z M12 16c2 0 3-1 4-1s2 1 4 1c0-1-1-2-4-2s-4 1-4 2z",
-      thick: "M6 16c0-1 2-2 6-2s6 1 6 2c0 1-2 1-6 1s-6 0-6-1z",
-      villainous: "M8 15c-1 0-2 1-2 2s1 1 2 0c1-1 2-1 4-1s3 0 4 1c1 1 2 0 2-1s-1-2-2-2c-2 0-4 1-8 1z",
-      curly: "M6 16c0-2 1-2 2-1s1 1 2 0 1-1 2 0 1-1 2 0 2-1 2 1c0 1-1 1-2 1s-2 0-4 0-4 0-4-1z",
-      artistic: "M7 15c-1 1-1 2 0 2s2-1 3-1h4c1 0 2 1 3 1s1-1 0-2c-1-1-2-1-5-1s-4 0-5 1z"
-    }
-    
-    return (
-      <svg 
-        className={`absolute ${className}`}
-        width="24" 
-        height="24" 
-        viewBox="0 0 24 24" 
-        fill="none"
-      >
-        <path 
-          d={mustaches[style as keyof typeof mustaches]} 
-          fill="#2D1810" 
-          stroke="#1A0F08" 
-          strokeWidth="0.5"
-        />
-      </svg>
-    )
-  }
+const trainers: Trainer[] = [
+  {
+    name: "Moliya Mutaxassisi",
+    role: "Korporativ moliya · Investitsiya tahlili",
+    experience: "15+ yil tajriba",
+    shortBio: "Bank va investitsiya kompaniyalarida real loyihalar tajribasiga ega trener.",
+    bio: "Korporativ moliya, investitsiya tahlili va kapital bozorlari bo'yicha 15 yildan ortiq amaliy tajribaga ega. O'zbekiston va xorijdagi yetakchi banklar, investitsiya kompaniyalari hamda korporatsiyalar uchun moliyaviy modellashtirish, byudjetlashtirish va strategik moliyaviy boshqaruv bo'yicha treninglar tashkil etgan.",
+    directions: ["Korporativ moliya", "Investitsiya tahlili", "Moliyaviy modellashtirish", "Byudjetlashtirish", "Kapital bozorlari"],
+    email: "moliya@fineskills.uz",
+    phone: "+998 90 123 45 67",
+    image: trainer1,
+  },
+  {
+    name: "Biznes va Marketing Trener",
+    role: "Marketing · Biznes strategiya · PR",
+    experience: "12+ yil tajriba",
+    shortBio: "Brend boshqaruvi va korporativ kommunikatsiya bo'yicha amaliy keys-larga asoslangan treninglar.",
+    bio: "Marketing strategiyasi, brend boshqaruvi va korporativ kommunikatsiya yo'nalishlarida 12 yildan ortiq amaliy tajriba. Yirik FMCG, retail va xizmat ko'rsatish kompaniyalarida marketing direktori sifatida ishlagan, hozirda korporativ mijozlar uchun amaliy treninglar olib boradi.",
+    directions: ["Marketing strategiya", "Brend boshqaruvi", "PR va kommunikatsiya", "Digital marketing", "Sotuvlar"],
+    email: "marketing@fineskills.uz",
+    phone: "+998 90 123 45 68",
+    image: trainer2,
+  },
+  {
+    name: "Data Analytics Trener",
+    role: "Data Analytics · IT vositalar · AI",
+    experience: "10+ yil tajriba",
+    shortBio: "Excel, Power BI, SQL va AI vositalari yordamida ma'lumotlarni tahlil qilish bo'yicha trener.",
+    bio: "Ma'lumotlar tahlili va biznes intellekti yo'nalishida 10 yildan ortiq amaliy tajriba. Banklar va yirik korporatsiyalarda data-driven qarorlar qabul qilish tizimlarini joriy etgan. Sun'iy intellekt vositalaridan amaliyotda foydalanish bo'yicha mutaxassis.",
+    directions: ["Excel (Advanced)", "Power BI", "SQL", "Python for Analytics", "AI vositalari"],
+    email: "data@fineskills.uz",
+    phone: "+998 90 123 45 69",
+    image: trainer3,
+  },
+  {
+    name: "Xalqaro Ekspert",
+    role: "IFRS · Soft Skills · Business English",
+    experience: "20+ yil tajriba",
+    shortBio: "Xalqaro moliyaviy hisobot standartlari va biznes ingliz tili bo'yicha xalqaro tajribaga ega trener.",
+    bio: "20 yildan ortiq xalqaro tajriba. Big4 audit kompaniyalarida ishlagan, IFRS va korporativ boshqaruv bo'yicha xalqaro sertifikatlar egasi. Biznes ingliz tili va soft skills yo'nalishlarida ko'plab korporativ dasturlar tashkil etgan.",
+    directions: ["IFRS", "Korporativ boshqaruv", "Audit", "Business English", "Soft Skills"],
+    email: "international@fineskills.uz",
+    phone: "+998 90 123 45 70",
+    image: trainer4,
+  },
+]
+
+export function Team() {
+  const [active, setActive] = useState<Trainer | null>(null)
 
   return (
-    <div className="relative py-32 bg-background w-full" style={{ 
-      overflow: 'visible', 
-      height: 'auto', 
-      minHeight: '0', 
-      maxHeight: 'none' 
-    }}>
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12" style={{ 
-        overflow: 'visible', 
-        height: 'auto', 
-        minHeight: '0', 
-        maxHeight: 'none' 
-      }}>
-        
+    <div className="relative py-32 bg-background w-full">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <div className="inline-flex items-center gap-3 mb-6">
-            <div className="w-3 h-3 bg-accent-emerald rounded-full animate-pulse" />
-            <span className="text-sm font-semibold text-muted-foreground">
+            <div className="w-2 h-2 bg-primary rounded-full" />
+            <span className="text-sm font-semibold tracking-widest uppercase text-primary">
               Bizning mutaxassislar
             </span>
-            <div className="w-3 h-3 bg-accent-blue rounded-full animate-pulse" />
+            <div className="w-2 h-2 bg-primary rounded-full" />
           </div>
-          
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-8 text-foreground">
-            <span className="block mb-2">Treninglarni</span>
+
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] mb-8 text-secondary-foreground">
+            <span className="block">Treninglarni</span>
             <span className="block text-primary">amaliy tajribaga ega</span>
-            <span className="block text-foreground">MUTAXASSISLAR olib boradi</span>
+            <span className="block">MUTAXASSISLAR olib boradi</span>
           </h2>
-          
-          <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Har bir mavzu real biznes vaziyatlari va korporativ muhitga mos amaliy misollar asosida tushuntiriladi.
           </p>
         </div>
 
-        {/* Framed Wanted Board */}
-        <div className="max-w-7xl mx-auto" style={{ 
-          overflow: 'visible', 
-          height: 'auto', 
-          minHeight: '0', 
-          maxHeight: 'none' 
-        }}>
-          <div className="relative" style={{ 
-            overflow: 'visible', 
-            height: 'auto', 
-            minHeight: '0', 
-            maxHeight: 'none' 
-          }}>
-            
-            {/* Black Frame */}
-            <div className="bg-gradient-to-br from-black via-gray-900 to-black p-8 rounded-2xl shadow-2xl relative border border-gray-800/50" style={{ 
-              overflow: 'visible', 
-              height: 'auto', 
-              minHeight: '0', 
-              maxHeight: 'none' 
-            }}>
-              
-              {/* Black frame texture */}
-              <div className="absolute inset-0 opacity-15"
-                   style={{
-                     backgroundImage: `
-                       linear-gradient(135deg, rgba(55, 65, 81, 0.1) 0%, transparent 50%, rgba(0, 0, 0, 0.2) 100%),
-                       radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
-                       radial-gradient(circle at 75% 75%, rgba(0, 0, 0, 0.15) 0%, transparent 50%)
-                     `,
-                     backgroundSize: '60px 60px, 100px 100px, 80px 80px'
-                   }} />
-              
-              {/* Modern Board Background */}
-              <div className="bg-gradient-to-br from-slate-100 via-gray-50 to-slate-200 rounded-xl p-8 relative border border-slate-300/50" style={{ 
-                overflow: 'visible', 
-                height: 'auto', 
-                minHeight: '0', 
-                maxHeight: 'none' 
-              }}>
-                
-                {/* Modern subtle texture */}
-                <div className="absolute inset-0 opacity-30"
-                     style={{
-                       backgroundImage: `
-                         radial-gradient(circle at 30% 30%, rgba(71, 85, 105, 0.03) 1px, transparent 1px),
-                         radial-gradient(circle at 70% 70%, rgba(148, 163, 184, 0.02) 1px, transparent 1px),
-                         linear-gradient(135deg, rgba(226, 232, 240, 0.1) 0%, transparent 50%, rgba(241, 245, 249, 0.1) 100%)
-                       `,
-                       backgroundSize: '30px 30px, 45px 45px, 100% 100%'
-                     }} />
+        {/* Trainers Grid */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {trainers.map((t) => (
+            <button
+              key={t.name}
+              onClick={() => setActive(t)}
+              className="group text-left bg-card border border-border rounded-3xl p-6 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_hsl(var(--secondary-foreground)/0.25)] hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/40"
+            >
+              <div className="relative aspect-square w-full mb-6 overflow-hidden rounded-2xl bg-primary/10">
+                <ImageWithFallback
+                  src={t.image}
+                  alt={t.name}
+                  className="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
+                />
+                <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-background/90 backdrop-blur px-3 py-1 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <span className="text-[11px] font-bold tracking-wider uppercase text-secondary-foreground">
+                    {t.experience}
+                  </span>
+                </div>
+              </div>
 
-                {/* Wanted Posters Grid */}
-                <div className="relative z-10" style={{ 
-                  overflow: 'visible', 
-                  height: 'auto', 
-                  minHeight: '0', 
-                  maxHeight: 'none' 
-                }}>
-                  {/* First row - 4 posters */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mb-8" style={{ 
-                    overflow: 'visible', 
-                    height: 'auto', 
-                    minHeight: '0', 
-                    maxHeight: 'none' 
-                  }}>
-                    {wantedCriminals.slice(0, 4).map((criminal, index) => (
-                      <div
-                        key={criminal.name}
-                        className={`group transform ${criminal.rotation} hover:rotate-0 transition-all duration-500 hover:scale-105 hover:z-20`}
-                        style={{
-                          filter: 'drop-shadow(4px 4px 8px rgba(0,0,0,0.3))',
-                          overflow: 'visible',
-                          height: 'auto',
-                          minHeight: '0',
-                          maxHeight: 'none'
-                        }}
+              <h3 className="text-xl font-black leading-tight mb-2 text-secondary-foreground">
+                {t.name}
+              </h3>
+              <p className="text-sm font-semibold text-primary mb-3">
+                {t.role}
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                {t.shortBio}
+              </p>
+              <span className="inline-flex items-center gap-2 text-sm font-bold text-secondary-foreground border-b-2 border-primary pb-0.5 transition-all group-hover:gap-3">
+                Batafsil ko'rish
+                <span aria-hidden>→</span>
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Trainer Modal */}
+      <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
+        <DialogContent className="max-w-4xl p-0 overflow-hidden bg-background border border-border rounded-3xl [&>button]:hidden">
+          {active && (
+            <div className="grid grid-cols-1 md:grid-cols-5">
+              {/* Image side */}
+              <div className="md:col-span-2 relative bg-primary/10 p-6 md:p-8 flex items-center justify-center">
+                <div className="w-full aspect-square rounded-2xl overflow-hidden bg-card">
+                  <ImageWithFallback
+                    src={active.image}
+                    alt={active.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Content side */}
+              <div className="md:col-span-3 p-6 md:p-10 relative">
+                <button
+                  onClick={() => setActive(null)}
+                  aria-label="Yopish"
+                  className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center bg-card border border-border hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+
+                <span className="inline-block text-[11px] font-bold tracking-widest uppercase text-primary mb-3">
+                  {active.experience}
+                </span>
+                <h3 className="text-3xl md:text-4xl font-black text-secondary-foreground leading-tight mb-2">
+                  {active.name}
+                </h3>
+                <p className="text-base font-semibold text-primary mb-6">
+                  {active.role}
+                </p>
+
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Briefcase className="w-4 h-4 text-primary" />
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-secondary-foreground">Bio</h4>
+                  </div>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                    {active.bio}
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <GraduationCap className="w-4 h-4 text-primary" />
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-secondary-foreground">O'tilgan yo'nalishlar</h4>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {active.directions.map((d) => (
+                      <span
+                        key={d}
+                        className="px-3 py-1.5 text-xs font-semibold rounded-full bg-primary/10 text-secondary-foreground border border-primary/20"
                       >
-                        
-                        {/* Black Framed Wanted Poster */}
-                        <div className="bg-gradient-to-b from-white to-gray-50 border-4 border-black relative shadow-lg" style={{ 
-                          overflow: 'visible', 
-                          height: 'auto', 
-                          minHeight: '0', 
-                          maxHeight: 'none' 
-                        }}>
-                          
-                          {/* Modern push pins */}
-                          <div className="absolute -top-2 left-4 w-4 h-4 bg-gradient-to-br from-red-500 to-red-600 rounded-full shadow-lg border border-red-700" />
-                          <div className="absolute -top-2 right-4 w-4 h-4 bg-gradient-to-br from-red-500 to-red-600 rounded-full shadow-lg border border-red-700" />
-                          
-                          {/* Subtle modern paper effect */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-slate-50/30 via-transparent to-gray-100/20" />
-                          <div className="absolute top-4 right-4 w-6 h-6 bg-slate-200/40 rounded-full" />
-                          <div className="absolute bottom-6 left-4 w-4 h-4 bg-gray-300/30 rounded-full" />
-
-                          <div className="p-6 text-center relative z-10">
-                            
-                            {/* WANTED Header */}
-                            <div className="mb-4">
-                              <h3 className="text-3xl font-black text-black mb-2"
-                                  style={{ 
-                                    fontFamily: 'serif',
-                                    letterSpacing: '0.1em'
-                                  }}>
-                                WANTED
-                              </h3>
-                              <div className="w-full h-0.5 bg-black mb-2" />
-                            </div>
-
-                            {/* Photo */}
-                            <div className="relative mb-4 mx-auto w-32 h-32 border-2 border-black bg-gray-100 rounded-sm" style={{ 
-                              overflow: 'visible' 
-                            }}>
-                              <ImageWithFallback
-                                src={criminal.image}
-                                alt={criminal.name}
-                                className="w-full h-full object-cover rounded-sm"
-                                style={{
-                                  filter: 'sepia(20%) contrast(105%) brightness(100%) hue-rotate(5deg) saturate(90%)'
-                                }}
-                              />
-                              
-                              {/* Subtle modern overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-t from-slate-100/10 to-transparent rounded-sm" />
-                              
-                              {/* Mustache */}
-                              <Mustache 
-                                style={criminal.mustacheStyle} 
-                                className="bottom-4 left-1/2 -translate-x-1/2 opacity-80" 
-                              />
-                            </div>
-
-                            {/* Details */}
-                            <div className="text-left space-y-2" style={{ fontFamily: 'serif' }}>
-                              <div className="font-black text-lg text-black">{criminal.name}</div>
-                              <div className="font-bold text-red-600 text-base">TAJRIBA: {criminal.bounty}</div>
-                              <div className="text-sm text-gray-800 leading-relaxed bg-gray-50/50 p-3 border-l-2 border-black">
-                                {criminal.description}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                        {d}
+                      </span>
                     ))}
+                  </div>
+                </div>
+
+                <div className="pt-5 border-t border-border">
+                  <h4 className="text-sm font-bold uppercase tracking-wider text-secondary-foreground mb-3">Kontakt</h4>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <a
+                      href={`mailto:${active.email}`}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-secondary-foreground hover:text-primary transition-colors"
+                    >
+                      <Mail className="w-4 h-4 text-primary" />
+                      {active.email}
+                    </a>
+                    <a
+                      href={`tel:${active.phone.replace(/\s/g, '')}`}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-secondary-foreground hover:text-primary transition-colors"
+                    >
+                      <Phone className="w-4 h-4 text-primary" />
+                      {active.phone}
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
-            
-            {/* Black frame shadow */}
-            <div className="absolute -inset-4 bg-black/30 rounded-2xl -z-10 blur-xl" />
-          </div>
-        </div>
-
-      </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
