@@ -9,52 +9,52 @@ export function Services() {
 
   const services = [
     {
-      id: 'campaigns',
-      title: "Campaign & Ad Content",
-      description: "Multi-platform video campaigns ready for every channel—YouTube, TikTok, Instagram, and beyond.",
+      id: 'finance',
+      title: "Moliya va korporativ finance",
+      description: "Financial modelling, Budgeting, Corporate finance, Investment analysis.",
       color: 'accent-emerald',
       rotation: 'rotate-2',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&auto=format'
+      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop&auto=format'
     },
     {
-      id: 'brand-films',
-      title: "Brand Films & Stories", 
-      description: "Cinematic brand videos that capture your essence and connect with audiences on an emotional level.",
+      id: 'banking',
+      title: "Bank ishi va risk management",
+      description: "Risk management, Credit risk, Market risk, Basel concepts.",
       color: 'accent-blue',
       rotation: '-rotate-1',
-      image: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=400&h=300&fit=crop&auto=format'
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop&auto=format'
     },
     {
-      id: 'trailers',
-      title: "Trailers & Promos",
-      description: "High-impact teasers that hook viewers instantly—perfect for launches, events, and announcements.",
+      id: 'ifrs',
+      title: "MHXS / IFRS va hisobot",
+      description: "IFRS, Financial reporting, Accounting interpretation.",
       color: 'accent-purple',
       rotation: 'rotate-1',
-      image: 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=400&h=300&fit=crop&auto=format'
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&auto=format'
     },
     {
-      id: 'short-films',
-      title: "Short-Form Films",
-      description: "Festival-ready mini-movies up to 5 minutes—ideal for investors, events, and premium content.",
+      id: 'data',
+      title: "Data Analytics va avtomatlashtirish",
+      description: "Excel, Power BI, Python, Report automation.",
       color: 'accent-emerald',
       rotation: '-rotate-2',
-      image: 'https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=400&h=300&fit=crop&auto=format'
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&auto=format'
     },
     {
-      id: 'animation',
-      title: "Animation & Motion",
-      description: "Stylized animated content that explains complex ideas without needing live actors.",
+      id: 'ai',
+      title: "AI va zamonaviy ish vositalari",
+      description: "ChatGPT for business, AI tools, Workflow automation.",
       color: 'accent-blue',
       rotation: 'rotate-3',
-      image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=300&fit=crop&auto=format'
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop&auto=format'
     },
     {
-      id: 'social',
-      title: "Social Content",
-      description: "Thumb-stopping vertical videos delivered in batches to keep your feed consistently engaging.",
+      id: 'softskills',
+      title: "Marketing, PR va Soft skills",
+      description: "Digital marketing, PR strategy, Public speaking, Negotiation, Presentation skills.",
       color: 'accent-purple',
       rotation: '-rotate-1',
-      image: 'https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=400&h=300&fit=crop&auto=format'
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop&auto=format'
     }
   ]
 
@@ -93,7 +93,7 @@ export function Services() {
           }`}>
             <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse" />
             <span className="text-sm font-semibold text-amber-200/80">
-              Fresh from the Darkroom
+              Trening yo'nalishlari
             </span>
             <div className="w-3 h-3 bg-amber-500 rounded-full animate-pulse" />
           </div>
@@ -101,13 +101,13 @@ export function Services() {
           <h2 className={`text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6 text-amber-100 transform transition-all duration-1000 delay-200 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
           }`}>
-            What We Develop
+            Yo'nalishlarimiz
           </h2>
           
           <p className={`text-xl text-amber-200/90 leading-relaxed max-w-3xl mx-auto transform transition-all duration-1000 delay-400 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}>
-            Developed with precision, delivered with passion
+            Compliance, AML, Internal control va xalqaro sertifikatlar (ACCA, CFA, FRM) bo'yicha alohida dasturlar ham mavjud.
           </p>
         </div>
 
@@ -318,7 +318,7 @@ export function Services() {
                     
                     {/* Developer stamp */}
                     <div className="absolute bottom-2 right-2 text-xs text-gray-400 font-mono opacity-60">
-                      MOJJU LAB
+                      FINE SKILLS
                     </div>
                   </div>
                 </div>
@@ -521,7 +521,7 @@ export function Services() {
                     <div className="absolute bottom-8 left-3 w-2 h-8 bg-yellow-100/20 rounded-full transform rotate-15" />
                     
                     <div className="absolute bottom-2 right-2 text-xs text-gray-400 font-mono opacity-60">
-                      MOJJU LAB
+                      FINE SKILLS
                     </div>
                   </div>
                 </div>
@@ -529,10 +529,10 @@ export function Services() {
             </div>
           </div>
           
-          {/* Darkroom atmosphere note */}
+          {/* Closing note */}
           <div className="mt-16 text-center">
             <p className="text-sm text-amber-200/70 leading-relaxed max-w-2xl mx-auto">
-              Each piece is carefully developed in our creative darkroom, ensuring every detail captures the essence of your vision with precision and artistic flair.
+              Har bir mavzu real biznes tajribasi va korporativ muhitga mos misollar bilan tushuntiriladi. Dastur kompaniyangiz ehtiyojiga to'liq moslashtiriladi.
             </p>
           </div>
         </div>

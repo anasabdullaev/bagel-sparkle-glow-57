@@ -10,32 +10,32 @@ export function About() {
   const processSteps = [
     {
       number: "01",
-      title: "Concept & Script",
-      description: "Scene‑by‑scene draft with dialogues and time‑codes",
+      title: "Ehtiyojni aniqlaymiz",
+      description: "Kompaniya maqsadi va xodimlar darajasi o'rganiladi",
       color: "accent-blue"
     },
     {
-      number: "02", 
-      title: "Look & Storyboard",
-      description: "AI engine selection and visual testing",
+      number: "02",
+      title: "Dastur tuzamiz",
+      description: "Kompaniyaga moslashtirilgan trening rejasi tuziladi",
       color: "accent-emerald"
     },
     {
       number: "03",
-      title: "AI Production",
-      description: "Motion tests and multi-variant generation",
+      title: "Trening o'tkazamiz",
+      description: "Real biznes case'lar va amaliy mashqlar bilan darslar",
       color: "accent-purple"
     },
     {
       number: "04",
-      title: "Post‑production",
-      description: "VFX, color grading, and audio mixing",
+      title: "Natijani baholaymiz",
+      description: "Test va topshiriqlar orqali o'zlashtirish tekshiriladi",
       color: "accent-blue"
     },
     {
       number: "05",
-      title: "Master Delivery",
-      description: "Multi-format export and secure transfer",
+      title: "Hisobot beramiz",
+      description: "Kompaniya uchun natijalar va tavsiyalar taqdim etiladi",
       color: "accent-purple"
     }
   ]
@@ -75,17 +75,17 @@ export function About() {
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-3 h-3 bg-accent-emerald rounded-full animate-pulse" />
             <span className="text-sm font-semibold text-muted-foreground">
-              Behind the Scenes
+              Bizning jarayon
             </span>
             <div className="w-3 h-3 bg-accent-blue rounded-full animate-pulse" />
           </div>
           
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6 text-foreground">
-            How We Create Magic
+            Trening qanday tashkil etiladi
           </h2>
           
           <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Watch our process unfold frame by frame
+            Fine Skills Academy — korporativ jamoalar uchun strategik bilim va amaliy ko'nikmalar akademiyasi. Banklar · Moliyaviy institutlar · Korporatsiyalar · Davlat tashkilotlari · HR va L&D bo'limlari uchun.
           </p>
         </div>
 
@@ -271,26 +271,23 @@ export function About() {
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-6 bg-card/80 backdrop-blur-sm clean-border rounded-2xl px-8 py-4 subtle-shadow">
             
-            {/* Film Speed Indicator */}
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 bg-accent-emerald rounded-full animate-pulse" />
-              <span className="text-sm font-semibold text-foreground">24 FPS</span>
+              <span className="text-sm font-semibold text-foreground">9+ yo'nalish</span>
             </div>
             
             <div className="w-px h-6 bg-border" />
             
-            {/* Duration */}
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 bg-accent-blue rounded-full animate-pulse" style={{animationDelay: '0.5s'}} />
-              <span className="text-sm font-semibold text-foreground">5-7 Days</span>
+              <span className="text-sm font-semibold text-foreground">50+ mavzu</span>
             </div>
             
             <div className="w-px h-6 bg-border" />
             
-            {/* Quality */}
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 bg-accent-purple rounded-full animate-pulse" style={{animationDelay: '1s'}} />
-              <span className="text-sm font-semibold text-foreground">Cinema Quality</span>
+              <span className="text-sm font-semibold text-foreground">100% amaliy</span>
             </div>
           </div>
         </div>
@@ -299,7 +296,7 @@ export function About() {
         <div className="mt-20">
           <div className="text-center mb-8">
             <p className="text-muted-foreground">
-              A glimpse into our storyboard development process
+              Trening materiallari va amaliy mashqlar namunasi
             </p>
           </div>
           
@@ -334,7 +331,7 @@ export function About() {
             {/* Caption */}
             <div className="mt-6 text-center">
               <p className="text-sm text-muted-foreground italic">
-                "Diverse scenarios, characters, and styles — all generated through our AI pipeline"
+                "Real biznes case'lar, amaliy mashqlar va korporativ muhitga moslashtirilgan misollar"
               </p>
             </div>
           </div>

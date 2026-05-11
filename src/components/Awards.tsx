@@ -51,17 +51,17 @@ export function Awards() {
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-3 h-3 bg-accent-purple rounded-full animate-pulse" />
             <span className="text-sm font-semibold text-muted-foreground">
-              Recognition & Achievement
+              Xalqaro sertifikatlar va natijalar
             </span>
             <div className="w-3 h-3 bg-accent-blue rounded-full animate-pulse" />
           </div>
           
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6 text-foreground">
-            Awards & Recognition
+            Sertifikatlar va ko'rsatkichlar
           </h2>
           
           <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Celebrated excellence in AI-powered film production
+            9+ yo'nalish · 50+ korporativ trening mavzusi · 3 xalqaro sertifikat yo'nalishi (ACCA, CFA, FRM) · 100% amaliy yondashuv
           </p>
         </div>
 
