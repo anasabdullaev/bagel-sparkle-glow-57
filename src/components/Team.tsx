@@ -1,78 +1,48 @@
 'use client'
 
 import { ImageWithFallback } from './figma/ImageWithFallback'
-import marcusPhoto from '../assets/team-member-1.png'
-import sofiaPhoto from '../assets/team-member-2.png'
-import jakePhoto from '../assets/team-member-3.png'
-import mayaPhoto from '../assets/team-member-4.png'
-import connorPhoto from '../assets/team-member-5.png'
-import zaraPhoto from '../assets/team-member-6.png'
-import leoPhoto from '../assets/team-member-7.png'
+import trainer1 from '../assets/trainer-1.jpg'
+import trainer2 from '../assets/trainer-2.jpg'
+import trainer3 from '../assets/trainer-3.jpg'
+import trainer4 from '../assets/trainer-4.jpg'
 
 export function Team() {
   const wantedCriminals = [
     {
-      name: "Marcus 'The Pixel Bandit'",
-      crime: "ARMED CREATIVE ROBBERY",
-      bounty: "$8,500",
-      description: "Notorious for stealing ordinary footage and transforming it into extraordinary visual experiences. Approach with caution - carries dangerous levels of creative vision and technical expertise.",
-      image: marcusPhoto,
+      name: "Moliya Mutaxassisi",
+      crime: "MOLIYA · INVESTITSIYA · BOZOR TAHLILI",
+      bounty: "15+ YIL TAJRIBA",
+      description: "Korporativ moliya, investitsiya tahlili va kapital bozorlari bo'yicha amaliy treninglar olib boradi. Bank va investitsiya kompaniyalarida real loyihalar tajribasi.",
+      image: trainer1,
       rotation: 'rotate-3',
-      mustacheStyle: "artistic"
-    },
-    {
-      name: "Sofia 'The Frame Thief'",
-      crime: "GRAND THEFT OF IMAGINATION",
-      bounty: "$6,200",
-      description: "Wanted for stealing impossible creative briefs and turning them into award-winning masterpieces. Armed with strategic thinking and dangerous levels of project management skills.",
-      image: sofiaPhoto,
-      rotation: 'rotate-2',
       mustacheStyle: "handlebar"
     },
     {
-      name: "Jake 'The Render Rogue'",
-      crime: "MASTERMINDING TECHNICAL HEISTS",
-      bounty: "$11,800",
-      description: "Ringleader of rendering crimes, orchestrating elaborate computational operations. Wanted for leading sophisticated processing schemes that push hardware beyond its limits.",
-      image: jakePhoto,
-      rotation: 'rotate-2',
+      name: "Biznes va Marketing Trener",
+      crime: "MARKETING · BIZNES STRATEGIYA · PR",
+      bounty: "12+ YIL TAJRIBA",
+      description: "Brend boshqaruvi, marketing strategiyasi va korporativ kommunikatsiya bo'yicha amaliy keys-larga asoslangan treninglar olib boradi.",
+      image: trainer2,
+      rotation: '-rotate-2',
       mustacheStyle: "thick"
     },
     {
-      name: "Maya 'The Code Crusher'",
-      crime: "DIGITAL WIZARDRY & ALGORITHM SORCERY",
-      bounty: "$9,300",
-      description: "Wanted for conjuring flawless code from chaotic requirements using forbidden programming magic. Known to transform complex problems into elegant solutions with mysterious technical powers.",
-      image: mayaPhoto,
-      rotation: '-rotate-2',
+      name: "Data Analytics Trener",
+      crime: "DATA ANALYTICS · IT VOSITALAR · AI",
+      bounty: "10+ YIL TAJRIBA",
+      description: "Excel, Power BI, SQL va sun'iy intellekt vositalari yordamida ma'lumotlarni tahlil qilish va biznes qarorlar qabul qilish bo'yicha trener.",
+      image: trainer3,
+      rotation: 'rotate-2',
       mustacheStyle: "curly"
     },
     {
-      name: "Connor 'The Digital Desperado'",
-      crime: "PRODUCTION WITH INTENT TO AMAZE",
-      bounty: "$13,700",
-      description: "Mastermind behind revolutionary content creation operations. Wanted for disrupting traditional production methods and making competitors question their entire approach.",
-      image: connorPhoto,
-      rotation: 'rotate-1',
-      mustacheStyle: "villainous"
-    },
-    {
-      name: "Zara 'The Motion Maverick'",
-      crime: "ANIMATION MANIPULATION & EFFECT FORGERY",
-      bounty: "$7,900",
-      description: "Notorious for crafting motion graphics so smooth they defy the laws of physics. Armed with After Effects mastery and a dangerous eye for kinetic perfection.",
-      image: zaraPhoto,
+      name: "Xalqaro Ekspert",
+      crime: "IFRS · SOFT SKILLS · BUSINESS ENGLISH",
+      bounty: "20+ YIL TAJRIBA",
+      description: "Xalqaro moliyaviy hisobot standartlari, korporativ boshqaruv va biznes ingliz tili bo'yicha xalqaro tajribaga ega trener.",
+      image: trainer4,
       rotation: '-rotate-1',
       mustacheStyle: "artistic"
-    },
-    {
-      name: "Leo 'The Effect Enforcer'",
-      crime: "WANDERING VFX SYNTHESIS SCHEMES",
-      bounty: "$10,400",
-      description: "A nomadic visual effects outlaw who drifts from project to project, leaving behind a trail of jaw-dropping composites and impossible cinematic magic. Master of the digital realm.",
-      image: leoPhoto,
-      rotation: 'rotate-3',
-      mustacheStyle: "handlebar"
     }
   ]
 
@@ -273,95 +243,7 @@ export function Team() {
                             {/* Details */}
                             <div className="text-left space-y-2" style={{ fontFamily: 'serif' }}>
                               <div className="font-black text-lg text-black">{criminal.name}</div>
-                              <div className="font-bold text-red-600 text-base">BOUNTY: {criminal.bounty}</div>
-                              <div className="text-sm text-gray-800 leading-relaxed bg-gray-50/50 p-3 border-l-2 border-black">
-                                {criminal.description}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  {/* Second row - 3 posters centered */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-5xl mx-auto" style={{ 
-                    overflow: 'visible', 
-                    height: 'auto', 
-                    minHeight: '0', 
-                    maxHeight: 'none' 
-                  }}>
-                    {wantedCriminals.slice(4, 7).map((criminal, index) => (
-                      <div
-                        key={criminal.name}
-                        className={`group transform ${criminal.rotation} hover:rotate-0 transition-all duration-500 hover:scale-105 hover:z-20`}
-                        style={{
-                          filter: 'drop-shadow(4px 4px 8px rgba(0,0,0,0.3))',
-                          overflow: 'visible',
-                          height: 'auto',
-                          minHeight: '0',
-                          maxHeight: 'none'
-                        }}
-                      >
-                        
-                        {/* Black Framed Wanted Poster */}
-                        <div className="bg-gradient-to-b from-white to-gray-50 border-4 border-black relative shadow-lg" style={{ 
-                          overflow: 'visible', 
-                          height: 'auto', 
-                          minHeight: '0', 
-                          maxHeight: 'none' 
-                        }}>
-                          
-                          {/* Modern push pins */}
-                          <div className="absolute -top-2 left-4 w-4 h-4 bg-gradient-to-br from-red-500 to-red-600 rounded-full shadow-lg border border-red-700" />
-                          <div className="absolute -top-2 right-4 w-4 h-4 bg-gradient-to-br from-red-500 to-red-600 rounded-full shadow-lg border border-red-700" />
-                          
-                          {/* Subtle modern paper effect */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-slate-50/30 via-transparent to-gray-100/20" />
-                          <div className="absolute top-4 right-4 w-6 h-6 bg-slate-200/40 rounded-full" />
-                          <div className="absolute bottom-6 left-4 w-4 h-4 bg-gray-300/30 rounded-full" />
-
-                          <div className="p-6 text-center relative z-10">
-                            
-                            {/* WANTED Header */}
-                            <div className="mb-4">
-                              <h3 className="text-3xl font-black text-black mb-2"
-                                  style={{ 
-                                    fontFamily: 'serif',
-                                    letterSpacing: '0.1em'
-                                  }}>
-                                WANTED
-                              </h3>
-                              <div className="w-full h-0.5 bg-black mb-2" />
-                            </div>
-
-                            {/* Photo */}
-                            <div className="relative mb-4 mx-auto w-32 h-32 border-2 border-black bg-gray-100 rounded-sm" style={{ 
-                              overflow: 'visible' 
-                            }}>
-                              <ImageWithFallback
-                                src={criminal.image}
-                                alt={criminal.name}
-                                className="w-full h-full object-cover rounded-sm"
-                                style={{
-                                  filter: 'sepia(20%) contrast(105%) brightness(100%) hue-rotate(5deg) saturate(90%)'
-                                }}
-                              />
-                              
-                              {/* Subtle modern overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-t from-slate-100/10 to-transparent rounded-sm" />
-                              
-                              {/* Mustache */}
-                              <Mustache 
-                                style={criminal.mustacheStyle} 
-                                className="bottom-4 left-1/2 -translate-x-1/2 opacity-80" 
-                              />
-                            </div>
-
-                            {/* Details */}
-                            <div className="text-left space-y-2" style={{ fontFamily: 'serif' }}>
-                              <div className="font-black text-lg text-black">{criminal.name}</div>
-                              <div className="font-bold text-red-600 text-base">BOUNTY: {criminal.bounty}</div>
+                              <div className="font-bold text-red-600 text-base">TAJRIBA: {criminal.bounty}</div>
                               <div className="text-sm text-gray-800 leading-relaxed bg-gray-50/50 p-3 border-l-2 border-black">
                                 {criminal.description}
                               </div>
