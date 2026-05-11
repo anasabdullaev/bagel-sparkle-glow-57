@@ -98,12 +98,13 @@ export function Team() {
           </div>
           
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-8 text-foreground">
-            <span className="block mb-2">Treninglar amaliy tajribaga ega</span>
-            <span className="block text-foreground">MUTAXASSISLAR tomonidan</span>
+            <span className="block mb-2">Treninglarni</span>
+            <span className="block text-primary">amaliy tajribaga ega</span>
+            <span className="block text-foreground">MUTAXASSISLAR olib boradi</span>
           </h2>
           
           <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Har bir mavzu real biznes tajribasi va korporativ muhitga mos misollar bilan tushuntiriladi.
+            Har bir mavzu real biznes vaziyatlari va korporativ muhitga mos amaliy misollar asosida tushuntiriladi.
           </p>
         </div>
 
