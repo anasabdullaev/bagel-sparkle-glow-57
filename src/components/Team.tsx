@@ -243,7 +243,7 @@ export function Team() {
                             {/* Details */}
                             <div className="text-left space-y-2" style={{ fontFamily: 'serif' }}>
                               <div className="font-black text-lg text-black">{criminal.name}</div>
-                              <div className="font-bold text-red-600 text-base">BOUNTY: {criminal.bounty}</div>
+                              <div className="font-bold text-red-600 text-base">TAJRIBA: {criminal.bounty}</div>
                               <div className="text-sm text-gray-800 leading-relaxed bg-gray-50/50 p-3 border-l-2 border-black">
                                 {criminal.description}
                               </div>
@@ -252,7 +252,6 @@ export function Team() {
                         </div>
                       </div>
                     ))}
-                  </div>
                   </div>
                 </div>
               </div>
