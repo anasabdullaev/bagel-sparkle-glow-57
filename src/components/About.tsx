@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import storyboardImage from '@/assets/storyboard-image.avif'
+
 
 export function About() {
   const [activeFrame, setActiveFrame] = useState(-1)
