@@ -124,7 +124,7 @@ export function Hero() {
               <a href="#services" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Yo'nalishlar</a>
               <a href="#portfolio" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Treninglar</a>
               <a href="#about" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Jarayon</a>
-              <a href="#awards" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Sertifikatlar</a>
+              <a href="#awards" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Formatlar</a>
               <a href="#contact" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Aloqa</a>
             </div>
 
@@ -193,7 +193,7 @@ export function Hero() {
               <a href="#services" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Yo'nalishlar</a>
               <a href="#portfolio" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Treninglar</a>
               <a href="#about" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Jarayon</a>
-              <a href="#awards" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Sertifikatlar</a>
+              <a href="#awards" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Formatlar</a>
               <a href="#contact" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Aloqa</a>
             </div>
 
