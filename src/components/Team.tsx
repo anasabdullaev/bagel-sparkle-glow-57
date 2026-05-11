@@ -84,13 +84,13 @@ export function Team() {
             <div className="w-2 h-2 bg-primary rounded-full" />
           </div>
 
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] mb-8 text-secondary-foreground">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] mb-8 text-white">
             <span className="block">Treninglarni</span>
             <span className="block text-primary">amaliy tajribaga ega</span>
             <span className="block">MUTAXASSISLAR olib boradi</span>
           </h2>
 
-          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl lg:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed">
             Har bir mavzu real biznes vaziyatlari va korporativ muhitga mos amaliy misollar asosida tushuntiriladi.
           </p>
         </div>
@@ -101,7 +101,7 @@ export function Team() {
             <button
               key={t.name}
               onClick={() => setActive(t)}
-              className="group text-left bg-card border border-border rounded-3xl p-6 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_hsl(var(--secondary-foreground)/0.25)] hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/40"
+              className="group text-left bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-6 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.4)] hover:border-primary/50 hover:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-primary/40"
             >
               <div className="relative aspect-square w-full mb-6 overflow-hidden rounded-2xl bg-primary/10">
                 <ImageWithFallback
@@ -109,24 +109,24 @@ export function Team() {
                   alt={t.name}
                   className="w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-105"
                 />
-                <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-background/90 backdrop-blur px-3 py-1 rounded-full">
+                <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-black/60 backdrop-blur px-3 py-1 rounded-full border border-white/10">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  <span className="text-[11px] font-bold tracking-wider uppercase text-secondary-foreground">
+                  <span className="text-[11px] font-bold tracking-wider uppercase text-white">
                     {t.experience}
                   </span>
                 </div>
               </div>
 
-              <h3 className="text-xl font-black leading-tight mb-2 text-secondary-foreground">
+              <h3 className="text-xl font-black leading-tight mb-2 text-white">
                 {t.name}
               </h3>
               <p className="text-sm font-semibold text-primary mb-3">
                 {t.role}
               </p>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+              <p className="text-sm text-white/60 leading-relaxed mb-5">
                 {t.shortBio}
               </p>
-              <span className="inline-flex items-center gap-2 text-sm font-bold text-secondary-foreground border-b-2 border-primary pb-0.5 transition-all group-hover:gap-3">
+              <span className="inline-flex items-center gap-2 text-sm font-bold text-white border-b-2 border-primary pb-0.5 transition-all group-hover:gap-3">
                 Batafsil ko'rish
                 <span aria-hidden>→</span>
               </span>
