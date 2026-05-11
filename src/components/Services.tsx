@@ -36,6 +36,7 @@ const services: Service[] = [
     description: "Korporativ moliya, byudjetlashtirish va investitsiya qarorlarini amaliyotda qo'llash bo'yicha chuqur dastur.",
     topics: ['Financial Modelling', 'Budgeting', 'Corporate Finance', 'Investment Analysis'],
     icon: TrendingUp,
+    image: serviceFinance,
   },
   {
     id: 'banking',
@@ -44,6 +45,7 @@ const services: Service[] = [
     description: "Bank sektori uchun risklarni boshqarish, kredit va bozor risklari hamda Basel tamoyillari.",
     topics: ['Risk Management', 'Credit Risk', 'Market Risk', 'Basel Concepts'],
     icon: Landmark,
+    image: serviceBanking,
   },
   {
     id: 'ifrs',
@@ -52,6 +54,7 @@ const services: Service[] = [
     description: "Xalqaro moliyaviy hisobot standartlari va hisobotlarni to'g'ri talqin qilish bo'yicha amaliy trening.",
     topics: ['IFRS', 'Financial Reporting', 'Accounting Interpretation'],
     icon: FileSpreadsheet,
+    image: serviceIfrs,
   },
   {
     id: 'data',
@@ -60,6 +63,7 @@ const services: Service[] = [
     description: "Ma'lumotlar bilan ishlash, tahlil va hisobotlarni avtomatlashtirish uchun zamonaviy vositalar.",
     topics: ['Excel (Advanced)', 'Power BI', 'Python', 'Report Automation'],
     icon: BarChart3,
+    image: serviceData,
   },
   {
     id: 'ai',
@@ -68,6 +72,7 @@ const services: Service[] = [
     description: "Sun'iy intellekt va avtomatlashtirish vositalarini biznes jarayonlarda samarali qo'llash.",
     topics: ['ChatGPT for Business', 'AI Tools', 'Workflow Automation'],
     icon: Sparkles,
+    image: serviceAi,
   },
   {
     id: 'softskills',
@@ -76,6 +81,7 @@ const services: Service[] = [
     description: "Marketing strategiyasi, kommunikatsiya va shaxsiy samaradorlik ko'nikmalari bo'yicha treninglar.",
     topics: ['Digital Marketing', 'PR Strategy', 'Public Speaking', 'Negotiation', 'Presentation'],
     icon: Megaphone,
+    image: serviceSoftskills,
   },
 ]
 
