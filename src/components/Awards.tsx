@@ -152,65 +152,123 @@ export function Awards() {
           </p>
         </motion.div>
 
-        {/* Format grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {formats.map((format, index) => {
-            const Icon = format.icon
+        {/* Filter chips */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12"
+          role="tablist"
+          aria-label="Trening formatlari filtri"
+        >
+          {filters.map((f) => {
+            const isActive = active === f.key
+            const count =
+              f.key === 'all'
+                ? formats.length
+                : formats.filter((x) => x.categories.includes(f.key)).length
             return (
-              <motion.div
-                key={format.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: index * 0.15 }}
-                whileHover={{ y: -6 }}
-                className="group relative h-full rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-6 overflow-hidden hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.4)] hover:border-primary/40 hover:bg-white/[0.07] transition-all duration-700"
+              <button
+                key={f.key}
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActive(f.key)}
+                className={`relative px-4 sm:px-5 py-2 rounded-full text-sm font-medium border transition-all duration-500 ${
+                  isActive
+                    ? 'bg-primary text-white border-primary shadow-[0_10px_30px_-10px_hsl(var(--primary)/0.6)]'
+                    : 'bg-white/[0.04] text-white/70 border-white/10 hover:text-white hover:border-white/30 hover:bg-white/[0.08]'
+                }`}
               >
-                {/* Image header */}
-                <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden mb-5 bg-black/40">
-                  <img
-                    src={format.image}
-                    alt={format.title}
-                    loading="lazy"
-                    width={768}
-                    height={432}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-                  {/* Number badge */}
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur text-white text-xs font-medium tracking-wider">
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
-
-                  {/* Icon badge */}
-                  <div className="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-primary/90 backdrop-blur flex items-center justify-center shadow-lg">
-                    <Icon className="w-5 h-5 text-white" />
-                  </div>
-                </div>
-
-                {/* Meta tag */}
-                <div className="relative inline-flex items-center gap-2 mb-2 text-[10px] tracking-[0.2em] uppercase text-primary/90 font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  {format.meta}
-                </div>
-
-                {/* Title */}
-                <h3 className="relative text-lg sm:text-xl font-semibold tracking-tight text-white mb-2 leading-snug">
-                  {format.title}
-                </h3>
-
-                {/* Description */}
-                <p className="relative text-sm text-white/70 leading-relaxed">
-                  {format.description}
-                </p>
-
-                {/* Bottom accent line */}
-                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-1000" />
-              </motion.div>
+                <span className="inline-flex items-center gap-2">
+                  {f.label}
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                      isActive ? 'bg-white/20 text-white' : 'bg-white/10 text-white/60'
+                    }`}
+                  >
+                    {count}
+                  </span>
+                </span>
+              </button>
             )
           })}
-        </div>
+        </motion.div>
+
+        {/* Format grid */}
+        <LayoutGroup>
+          <motion.div
+            layout
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          >
+            <AnimatePresence mode="popLayout">
+              {visibleFormats.map((format, index) => {
+                const Icon = format.icon
+                return (
+                  <motion.div
+                    key={format.title}
+                    layout
+                    initial={{ opacity: 0, y: 30, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -20, scale: 0.96 }}
+                    transition={{ duration: 0.7, delay: index * 0.08 }}
+                    whileHover={{ y: -6 }}
+                    className="group relative h-full rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-6 overflow-hidden hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.4)] hover:border-primary/40 hover:bg-white/[0.07] transition-all duration-700"
+                  >
+                    {/* Image header */}
+                    <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden mb-5 bg-black/40">
+                      <img
+                        src={format.image}
+                        alt={format.title}
+                        loading="lazy"
+                        width={768}
+                        height={432}
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+                      {/* Number badge */}
+                      <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur text-white text-xs font-medium tracking-wider">
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
+
+                      {/* Icon badge */}
+                      <div className="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-primary/90 backdrop-blur flex items-center justify-center shadow-lg">
+                        <Icon className="w-5 h-5 text-white" />
+                      </div>
+                    </div>
+
+                    {/* Meta tag */}
+                    <div className="relative inline-flex items-center gap-2 mb-2 text-[10px] tracking-[0.2em] uppercase text-primary/90 font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      {format.meta}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="relative text-lg sm:text-xl font-semibold tracking-tight text-white mb-2 leading-snug">
+                      {format.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="relative text-sm text-white/70 leading-relaxed">
+                      {format.description}
+                    </p>
+
+                    {/* Bottom accent line */}
+                    <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-1000" />
+                  </motion.div>
+                )
+              })}
+            </AnimatePresence>
+          </motion.div>
+        </LayoutGroup>
+
+        {/* Empty state */}
+        {visibleFormats.length === 0 && (
+          <p className="text-center text-white/60 mt-10">
+            Bu filtr bo'yicha format topilmadi.
+          </p>
+        )}
       </div>
     </div>
   )
