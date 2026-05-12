@@ -148,14 +148,13 @@ const trainers: Trainer[] = [
   },
 ]
 
-const filters: { id: 'all' | Specialty; label: string }[] = [
-  { id: 'all', label: 'Barchasi' },
-  { id: 'marketing', label: 'Marketing' },
-  { id: 'finance', label: 'Finance' },
-  { id: 'data', label: 'Data' },
-  { id: 'acca', label: 'ACCA' },
-  { id: 'soft-skills', label: 'Soft Skills' },
-]
+const specialtyLabels: Record<Specialty, string> = {
+  marketing: 'Marketing',
+  finance: 'Finance',
+  data: 'Data',
+  acca: 'ACCA',
+  'soft-skills': 'Soft Skills',
+}
 
 function SocialLinks({ socials, size = 'sm' }: { socials: Social; size?: 'sm' | 'md' }) {
   const dim = size === 'md' ? 'w-11 h-11' : 'w-9 h-9'
