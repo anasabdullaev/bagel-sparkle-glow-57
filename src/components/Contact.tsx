@@ -65,7 +65,7 @@ export function Contact() {
             <form onSubmit={handleSubmit} className="p-8 space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">Ism va familiya / Kompaniya</label>
+                  <label htmlFor="name" className="block text-sm font-semibold text-foreground/60 mb-2">Ism va familiya / Kompaniya</label>
                   <input
                     id="name"
                     type="text"
