@@ -478,7 +478,7 @@ export function Team() {
                   <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/50">
                     Mutaxassis profili
                   </span>
-                  <h3 className="mt-2 text-3xl sm:text-4xl font-black uppercase leading-[1.05] mb-3">
+                  <h3 id="trainer-modal-title" className="mt-2 text-3xl sm:text-4xl font-black uppercase leading-[1.05] mb-3">
                     {expanded.name}
                   </h3>
                   <p className="text-base sm:text-lg font-semibold text-white mb-4">
