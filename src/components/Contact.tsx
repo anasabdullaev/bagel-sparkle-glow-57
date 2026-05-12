@@ -48,10 +48,10 @@ export function Contact() {
             <div className="bg-card/50 px-8 py-6 border-b border-border">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-xl font-black text-foreground mb-1">
+                  <h3 className="text-xl font-black text-foreground/60 mb-1">
                     Maslahat olish
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground/70">
                     Formani to'ldiring — 24 soat ichida siz bilan bog'lanamiz
                   </p>
                 </div>
