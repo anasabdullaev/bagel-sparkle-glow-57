@@ -4,9 +4,11 @@ import { useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ImageWithFallback } from './figma/ImageWithFallback'
+import trainerRahimov from '../assets/trainer-rahimov.jpg'
 import trainer1 from '../assets/trainer-1.jpg'
 import trainer2 from '../assets/trainer-2.jpg'
 import trainer3 from '../assets/trainer-3.jpg'
+import trainer4 from '../assets/trainer-4.jpg'
 
 type Trainer = {
   name: string
@@ -17,24 +19,37 @@ type Trainer = {
 
 const trainers: Trainer[] = [
   {
-    name: "MUTAXASSIS ISMI",
-    role: "Finance & Risk Management Trainer",
-    bio: "Moliya va risk boshqaruvi sohasida korporativ tajribaga ega mutaxassis. IFRS, financial modelling va bank risklari bo'yicha treninglar olib boradi.",
+    name: "MAMURJON RAHIMOV",
+    role: "Marketing Consultant & Business Trainer",
+    bio: "Marketing, biznes strategiya va korporativ boshqaruv bo'yicha xalqaro tajribaga ega mutaxassis. Webster University, MDIST va Westminster International University’da dars bergan; O'zbekiston banklari va yirik korporatsiyalar uchun amaliy treninglar olib boradi. Emory University (BBA) va University of Illinois at Chicago (MA Economics) bitiruvchisi.",
+    image: trainerRahimov,
+  },
+  {
+    name: "INOM GOFUROV",
+    role: "Finance & Risk Management Trainer · CFA, ACCA, FRM",
+    bio: "EBRD’da Energy Eurasia bo'yicha analitik, $340m+ portfelni boshqaradi. Asklepiy Group’da Finance Director va Internal Audit rahbari bo'lgan. Korporativ moliya, financial modelling, project finance va risk boshqaruvi yo'nalishlarida amaliy treninglar olib boradi. MDIS Tashkent’da CFA Quantitative Methods va Investments bo'yicha o'qituvchi.",
     image: trainer1,
   },
   {
-    name: "MUTAXASSIS ISMI",
-    role: "Data Analytics Trainer",
-    bio: "Excel, Power BI va Python sohasida amaliy tajribaga ega. Korporativ jamoalarga hisobot avtomatlashtirish va data storytelling bo'yicha o'qitadi.",
+    name: "SANJAR BEKOV",
+    role: "Data Analytics & IT Trainer",
+    bio: "Webster University va University of Digital Economics and Agrotechnologies’da Python va Software Design bo'yicha o'qituvchi. MDIS Tashkent’da banklar uchun Data Analytics treninglarini olib borgan. Janubiy Koreyaning University of Science and Technology bitiruvchisi (M.E.), 15+ yillik amaliy software muhandisligi tajribasiga ega.",
     image: trainer2,
   },
   {
-    name: "MUTAXASSIS ISMI",
-    role: "Soft Skills & Communications Trainer",
-    bio: "Biznes muzokaralari, ommaviy nutq va leadership kommunikatsiyasi bo'yicha treninglar olib boradi.",
+    name: "SHOIRAKHON BOLIEVA",
+    role: "ACCA & Financial Accounting Trainer",
+    bio: "MDIST va FBA Academy’da ACCA tutor sifatida ishlaydi. ACCA Financial Accounting bo'yicha jahon miqyosida 8-o'rinni egallagan, talabalari FA, FR va FM imtihonlarida yuqori natijalarga erishgan. Tashkent State University of Economics bitiruvchisi, IELTS 7.5+ darajasidagi ingliz tilida dars beradi.",
     image: trainer3,
   },
+  {
+    name: "TED ELDER",
+    role: "Soft Skills & Leadership Trainer",
+    bio: "30+ yillik xalqaro tajribaga ega trener. Global Training for Transformation’ning O'zbekistondagi vakili; leadership, jamoa qurish, kross-madaniy kommunikatsiya va shaxsiy rivojlanish bo'yicha treninglar olib boradi. Fuller Graduate Schools (MA Intercultural Studies) va Texas A&M University bitiruvchisi.",
+    image: trainer4,
+  },
 ]
+
 
 export function Team() {
   const [index, setIndex] = useState(0)
