@@ -86,7 +86,10 @@ export function About() {
       lockUntilRef.current = now + 600 // debounce: one step per ~0.6s
 
       const next = Math.max(0, Math.min(N - 1, cur + dir))
-      if (next !== cur) setActiveIndex(next)
+      if (next !== cur) {
+        setActiveIndex(next)
+        setShowHint(false)
+      }
     }
 
     const advance = (dir: number) => {
