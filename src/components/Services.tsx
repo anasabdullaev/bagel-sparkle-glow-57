@@ -118,11 +118,13 @@ export function Services() {
             const Icon = service.icon
             const isActive = hovered === service.id
             return (
-              <article
+              <a
                 key={service.id}
+                href="#contact"
                 onMouseEnter={() => setHovered(service.id)}
                 onMouseLeave={() => setHovered(null)}
-                className="group relative bg-card border border-border rounded-3xl p-6 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_hsl(var(--secondary-foreground)/0.25)] hover:border-primary/40 overflow-hidden flex flex-col"
+                className="group relative bg-card border border-border rounded-3xl p-6 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_hsl(var(--secondary-foreground)/0.25)] hover:border-primary/40 overflow-hidden flex flex-col cursor-pointer no-underline"
+                role="article"
               >
                 {/* Image */}
                 <div className="relative aspect-[16/10] w-full mb-6 overflow-hidden rounded-2xl bg-primary/10">
