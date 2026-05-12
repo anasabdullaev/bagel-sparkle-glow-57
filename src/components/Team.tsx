@@ -116,26 +116,27 @@ export function Team() {
       </div>
 
       {/* Prev button */}
-      {hasPrev && (
-        <button
-          onClick={prev}
-          aria-label="Oldingi mutaxassis"
-          className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-white/60 flex items-center justify-center text-white hover:bg-white/10 transition-colors z-10"
-        >
-          <ChevronLeft className="w-6 h-6" strokeWidth={1.5} />
-        </button>
-      )}
+      <button
+        onClick={prev}
+        disabled={!hasPrev}
+        aria-label="Oldingi mutaxassis"
+        aria-disabled={!hasPrev}
+        className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-white/60 flex items-center justify-center text-white hover:bg-white/10 transition-colors z-10 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+      >
+        <ChevronLeft className="w-6 h-6" strokeWidth={1.5} />
+      </button>
 
       {/* Next button */}
-      {hasNext && (
-        <button
-          onClick={next}
-          aria-label="Keyingi mutaxassis"
-          className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-white/60 flex items-center justify-center text-white hover:bg-white/10 transition-colors z-10"
-        >
-          <ChevronRight className="w-6 h-6" strokeWidth={1.5} />
-        </button>
-      )}
+      <button
+        onClick={next}
+        disabled={!hasNext}
+        aria-label="Keyingi mutaxassis"
+        aria-disabled={!hasNext}
+        className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-white/60 flex items-center justify-center text-white hover:bg-white/10 transition-colors z-10 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+      >
+        <ChevronRight className="w-6 h-6" strokeWidth={1.5} />
+      </button>
+
 
       {/* Counter */}
       <div className="absolute bottom-6 right-6 text-xs tracking-widest text-white/50 font-mono">
