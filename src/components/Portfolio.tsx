@@ -15,9 +15,9 @@ export function Portfolio() {
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-16 max-w-6xl">
-            <span className="text-foreground">PRACTICAL CORPORATE TRAINING </span>
-            <span className="text-muted-foreground/50">FOR THE NEW ERA OF FINANCE &amp; INSTITUTIONAL GROWTH </span>
-            <span className="text-foreground">IN UZBEKISTAN</span>
+            <span className="text-foreground">AMALIY KORPORATIV TRENINGLAR </span>
+            <span className="text-muted-foreground/50">MOLIYA VA INSTITUTSIONAL O‘SISHNING YANGI DAVRI UCHUN </span>
+            <span className="text-foreground">O‘ZBEKISTONDA</span>
             <span className="inline-block w-3 h-3 lg:w-5 lg:h-5 ml-3 align-middle rounded-full bg-primary" />
           </h2>
 
