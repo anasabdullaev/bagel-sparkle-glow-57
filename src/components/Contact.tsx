@@ -45,19 +45,19 @@ export function Contact() {
         {/* Contact Form */}
         <div className="max-w-3xl mx-auto">
           <div className="bg-background clean-border rounded-3xl overflow-hidden elevated-shadow">
-            <div className="bg-card/50 px-8 py-6 border-b border-border">
+            <div className="bg-card/50 px-8 py-6 border-b border-border group/header">
               <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-xl font-black text-foreground/60 mb-1">
+                <div className="opacity-60 blur-[0.4px] transition-all duration-500 hover:opacity-100 hover:blur-0 group-hover/header:opacity-100 group-hover/header:blur-0">
+                  <h3 className="text-xl font-black text-foreground mb-1">
                     Maslahat olish
                   </h3>
-                  <p className="text-muted-foreground/70">
+                  <p className="text-muted-foreground">
                     Formani to'ldiring — 24 soat ichida siz bilan bog'lanamiz
                   </p>
                 </div>
-                <div className="hidden sm:flex items-center space-x-2">
+                <div className="hidden sm:flex items-center space-x-2 opacity-60 blur-[0.4px] transition-all duration-500 hover:opacity-100 hover:blur-0">
                   <div className="w-3 h-3 bg-accent-emerald rounded-full" />
-                  <span className="text-sm text-muted-foreground/70 font-medium">Hozir mavjud</span>
+                  <span className="text-sm text-muted-foreground font-medium">Hozir mavjud</span>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@ export function Contact() {
             <form onSubmit={handleSubmit} className="p-8 space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-foreground/60 mb-2">Ism va familiya / Kompaniya</label>
+                  <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2 opacity-55 blur-[0.4px] transition-all duration-500 hover:opacity-100 hover:blur-0 focus-within:opacity-100 focus-within:blur-0">Ism va familiya / Kompaniya</label>
                   <input
                     id="name"
                     type="text"
@@ -77,7 +77,7 @@ export function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-foreground/60 mb-2">Email yoki telefon</label>
+                  <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2 opacity-55 blur-[0.4px] transition-all duration-500 hover:opacity-100 hover:blur-0 focus-within:opacity-100 focus-within:blur-0">Email yoki telefon</label>
                   <input
                     id="email"
                     type="text"
@@ -90,7 +90,7 @@ export function Contact() {
                 </div>
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-foreground/60 mb-2">Qiziqayotgan yo'nalish, xodimlar soni va izoh</label>
+                <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2 opacity-55 blur-[0.4px] transition-all duration-500 hover:opacity-100 hover:blur-0 focus-within:opacity-100 focus-within:blur-0">Qiziqayotgan yo'nalish, xodimlar soni va izoh</label>
                 <textarea
                   id="message"
                   rows={5}
