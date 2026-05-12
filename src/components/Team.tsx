@@ -308,38 +308,6 @@ export function Team() {
           Treninglarni amaliy tajribaga ega mutaxassislar olib boradi
         </h2>
 
-        <div className="mb-12 lg:mb-16 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex flex-wrap gap-2">
-            {filters.map((f) => {
-              const active = activeFilter === f.id
-              return (
-                <button
-                  key={f.id}
-                  onClick={() => handleFilter(f.id)}
-                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider border transition-colors ${
-                    active
-                      ? 'bg-white text-black border-white'
-                      : 'bg-transparent text-white/70 border-white/25 hover:text-white hover:border-white/60'
-                  }`}
-                >
-                  {f.label}
-                </button>
-              )
-            })}
-          </div>
-
-          <div className="relative w-full lg:w-72">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => handleQuery(e.target.value)}
-              placeholder="Ism bo'yicha qidirish..."
-              className="w-full pl-9 pr-3 py-2.5 rounded-full bg-white/5 border border-white/15 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors"
-            />
-          </div>
-        </div>
-
         <div className="relative min-h-[400px]">
           {filtered.length === 0 ? (
             <div className="text-center py-20 text-white/50">
@@ -360,22 +328,21 @@ export function Team() {
                   <h3 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-[1.05] mb-6 text-white">
                     {t.name}
                   </h3>
-                  <p className="text-lg lg:text-xl font-semibold text-white mb-4">
-                    {t.role}
-                  </p>
 
-                  <div className="flex items-center gap-2 mb-5 text-sm text-white/70">
-                    <Briefcase className="w-4 h-4" strokeWidth={1.8} />
-                    <span>{t.experience}</span>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {t.specialties.map((s) => (
+                      <span
+                        key={s}
+                        className="px-3 py-1 rounded-full border border-white/25 text-xs font-semibold uppercase tracking-wider text-white/80"
+                      >
+                        {specialtyLabels[s]}
+                      </span>
+                    ))}
                   </div>
 
-                  <p className="text-base lg:text-lg text-white/75 leading-relaxed max-w-2xl mb-6">
+                  <p className="text-base lg:text-lg text-white/75 leading-relaxed max-w-2xl mb-8">
                     {t.bio}
                   </p>
-
-                  <div className="flex flex-wrap items-center gap-4 mb-6">
-                    <SocialLinks socials={t.socials} />
-                  </div>
 
                   <button
                     onClick={() => setExpanded(t)}
