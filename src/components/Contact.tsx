@@ -90,7 +90,7 @@ export function Contact() {
                 </div>
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-foreground/60 mb-2">Qiziqayotgan yo'nalish, xodimlar soni va izoh</label>
+                <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2 opacity-55 blur-[0.4px] transition-all duration-500 hover:opacity-100 hover:blur-0 focus-within:opacity-100 focus-within:blur-0">Qiziqayotgan yo'nalish, xodimlar soni va izoh</label>
                 <textarea
                   id="message"
                   rows={5}
