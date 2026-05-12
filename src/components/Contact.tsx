@@ -57,7 +57,7 @@ export function Contact() {
                 </div>
                 <div className="hidden sm:flex items-center space-x-2">
                   <div className="w-3 h-3 bg-accent-emerald rounded-full" />
-                  <span className="text-sm text-muted-foreground font-medium">Hozir mavjud</span>
+                  <span className="text-sm text-muted-foreground/70 font-medium">Hozir mavjud</span>
                 </div>
               </div>
             </div>
