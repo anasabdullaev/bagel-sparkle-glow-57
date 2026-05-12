@@ -181,7 +181,7 @@ export function About() {
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-                className="mb-4 flex flex-col items-start gap-1"
+                className="-mt-10 mb-6 flex flex-col items-start gap-1"
                 aria-hidden="true"
               >
                 <svg width="34" height="50" viewBox="0 0 34 50" fill="none">
