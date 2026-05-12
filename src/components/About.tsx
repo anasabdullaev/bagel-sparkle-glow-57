@@ -1,299 +1,118 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
-
 export function About() {
-  const [activeFrame, setActiveFrame] = useState(-1)
-  const [animationStarted, setAnimationStarted] = useState(false)
-
   const processSteps = [
     {
       number: "01",
-      title: "Ehtiyojni aniqlaymiz",
-      description: "Kompaniya maqsadi va xodimlar darajasi o'rganiladi",
-      color: "accent-blue"
+      title: "EHTIYOJNI ANIQLAYMIZ",
+      description: "Kompaniya maqsadi, bo'lim vazifalari va xodimlar darajasi chuqur o'rganiladi. Qaysi ko'nikmalar kerakligi aniqlanadi.",
     },
     {
       number: "02",
-      title: "Dastur tuzamiz",
-      description: "Kompaniyaga moslashtirilgan trening rejasi tuziladi",
-      color: "accent-emerald"
+      title: "DASTUR TUZAMIZ",
+      description: "Kompaniyaga moslashtirilgan trening rejasi ishlab chiqiladi. Mavzular, davomiylik, format va amaliy mashqlar belgilanadi.",
     },
     {
       number: "03",
-      title: "Trening o'tkazamiz",
-      description: "Real biznes case'lar va amaliy mashqlar bilan darslar",
-      color: "accent-purple"
+      title: "TRENING O'TKAZAMIZ",
+      description: "Darslar real biznes case'lar, guruh ishlari, amaliy topshiriqlar va muhokamalar asosida olib boriladi.",
     },
     {
       number: "04",
-      title: "Natijani baholaymiz",
-      description: "Test va topshiriqlar orqali o'zlashtirish tekshiriladi",
-      color: "accent-blue"
+      title: "NATIJANI BAHOLAYMIZ",
+      description: "Test, topshiriq yoki yakuniy loyiha orqali har bir xodimning o'zlashtirish darajasi tekshiriladi.",
     },
     {
       number: "05",
-      title: "Hisobot beramiz",
-      description: "Kompaniya uchun natijalar va tavsiyalar taqdim etiladi",
-      color: "accent-purple"
-    }
+      title: "HISOBOT BERAMIZ",
+      description: "Kompaniya uchun umumiy natijalar, xodimlar bo'yicha tavsiyalar va keyingi rivojlanish yo'nalishlari taqdim etiladi.",
+    },
   ]
 
-  useEffect(() => {
-    // Start film animation after a 3 second pause
-    setTimeout(() => {
-      setAnimationStarted(true)
-      processSteps.forEach((_, index) => {
-        setTimeout(() => {
-          setActiveFrame(index)
-         
-        }, index * 2000 + 1000) // Ultra slow: Start after 24s, then every 72s
-      })
-    }, 3000) // 3 second pause after section loads
-  }, [])
-
   return (
-    <section id="about" className="relative py-20 bg-background overflow-hidden">
-      
-      {/* Cinematic Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
-      
-      {/* Film Grain Effect */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-        <div className="w-full h-full" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.8) 1px, transparent 0)`,
-          backgroundSize: '3px 3px',
-          animation: 'filmGrain 8s infinite'
-        }} />
-      </div>
-
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        
+    <section id="about" className="relative py-24 lg:py-32 bg-white">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 mb-6">
-            <div className="w-3 h-3 bg-accent-emerald rounded-full animate-pulse" />
-            <span className="text-sm font-semibold text-muted-foreground">
-              Bizning jarayon
-            </span>
-            <div className="w-3 h-3 bg-accent-blue rounded-full animate-pulse" />
-          </div>
-          
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6 text-foreground">
+        <div className="mb-20">
+          <span
+            className="block text-sm font-semibold uppercase tracking-[0.2em] mb-4"
+            style={{ color: '#799A96' }}
+          >
+            Jarayon
+          </span>
+          <h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-[1.05]"
+            style={{ color: '#2C325E' }}
+          >
             Trening qanday tashkil etiladi
           </h2>
-          
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Fine Skills Academy — korporativ jamoalar uchun strategik bilim va amaliy ko'nikmalar akademiyasi. Banklar · Moliyaviy institutlar · Korporatsiyalar · Davlat tashkilotlari · HR va L&D bo'limlari uchun.
-          </p>
         </div>
 
-        {/* Film Strip Container */}
-        <div className="relative max-w-7xl mx-auto">
-          
-          {/* Film Strip Background */}
-          <div className="relative bg-gradient-to-r from-gray-950 via-gray-900 to-gray-950 rounded-xl overflow-hidden"
-               style={{ boxShadow: '0 25px 50px rgba(0,0,0,0.5), inset 0 2px 0 rgba(255,255,255,0.05)' }}>
-            
-            {/* Film Perforations - Top - Now animated */}
-            <div className="absolute top-0 left-0 right-0 h-6 bg-black z-20 overflow-hidden">
-              <div className={`flex items-center justify-between px-12 h-full ${
-                animationStarted ? 'perforations-scroll-animation' : ''
-              }`} style={{ width: '200%' }}>
-                {/* First set of perforations */}
-                {[...Array(20)].map((_, i) => (
-                  <div key={`top-${i}`} className="w-4 h-3 bg-gray-800 rounded-sm border border-gray-700 flex-shrink-0" 
-                       style={{ boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.8)' }} />
-                ))}
-                {/* Duplicate set for seamless loop */}
-                {[...Array(20)].map((_, i) => (
-                  <div key={`top-dup-${i}`} className="w-4 h-3 bg-gray-800 rounded-sm border border-gray-700 flex-shrink-0" 
-                       style={{ boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.8)' }} />
-                ))}
-              </div>
-            </div>
-            
-            {/* Film Perforations - Bottom - Now animated */}
-            <div className="absolute bottom-0 left-0 right-0 h-6 bg-black z-20 overflow-hidden">
-              <div className={`flex items-center justify-between px-12 h-full ${
-                animationStarted ? 'perforations-scroll-animation' : ''
-              }`} style={{ width: '200%' }}>
-                {/* First set of perforations */}
-                {[...Array(20)].map((_, i) => (
-                  <div key={`bottom-${i}`} className="w-4 h-3 bg-gray-800 rounded-sm border border-gray-700 flex-shrink-0"
-                       style={{ boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.8)' }} />
-                ))}
-                {/* Duplicate set for seamless loop */}
-                {[...Array(20)].map((_, i) => (
-                  <div key={`bottom-dup-${i}`} className="w-4 h-3 bg-gray-800 rounded-sm border border-gray-700 flex-shrink-0"
-                       style={{ boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.8)' }} />
-                ))}
-              </div>
-            </div>
-
-            {/* Film Frames Container - Scrolling Animation */}
-            <div className="relative py-6 px-8 overflow-hidden h-64 max-w-full">
-              <div className={`flex transition-transform duration-1000 ease-in-out ${
-                animationStarted ? 'film-scroll-animation' : ''
-              }`} style={{ width: 'max-content', gap: '32px' }}>
-                
-                {/* Original sequence for seamless loop */}
-                {/* Start frame */}
-                <div className="flex-shrink-0 w-80 h-52 bg-gray-800 rounded-lg border-2 border-gray-700 opacity-60 flex items-center justify-center" 
-                     style={{ boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.4)' }}>
-                  <div className="text-gray-400 font-mono tracking-wider">● START</div>
-                </div>
-                
-                {/* Process Step Frames */}
-                {processSteps.map((step, index) => (
-                  <div
-                    key={step.number}
-                    className={`flex-shrink-0 w-80 h-52 bg-background rounded-lg border-4 ${
-                      activeFrame >= index 
-                        ? `border-${step.color}` 
-                        : 'border-gray-600'
-                    }`}
-                    style={{
-                      boxShadow: '0 8px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)'
-                    }}
-                  >
-                    
-                    {/* Frame Content */}
-                    <div className="relative h-full p-6 flex flex-col justify-between">
-                      
-                      {/* Frame Number Badge */}
-                      <div className="absolute -top-4 -left-4 w-12 h-12 bg-foreground text-background rounded-full flex items-center justify-center font-black z-10 border-3 border-white text-lg"
-                           style={{ boxShadow: '0 6px 12px rgba(0,0,0,0.4)' }}>
-                        {step.number}
-                      </div>
-                      
-                      {/* Content */}
-                      <div className="opacity-100">
-                        
-                        {/* Step Title */}
-                        <h3 className="font-black text-xl leading-tight mb-4 text-foreground">
-                          {step.title}
-                        </h3>
-                        
-                        {/* Step Description */}
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {step.description}
-                        </p>
-                      </div>
-                      
-                      {/* Film frame edge lines */}
-                      <div className="absolute left-1 top-1 bottom-1 w-px bg-gray-300/20" />
-                      <div className="absolute right-1 top-1 bottom-1 w-px bg-gray-300/20" />
-                      <div className="absolute top-1 left-1 right-1 h-px bg-gray-300/20" />
-                      <div className="absolute bottom-1 left-1 right-1 h-px bg-gray-300/20" />
+        {/* Steps */}
+        <div>
+          {processSteps.map((step, index) => {
+            const textLeft = index % 2 === 0
+            const isLast = index === processSteps.length - 1
+            return (
+              <div key={step.number}>
+                <div
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24 ${
+                    textLeft ? '' : ''
+                  }`}
+                >
+                  {/* Text */}
+                  <div className={`relative ${textLeft ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <div
+                      className="font-black leading-none mb-4"
+                      style={{
+                        fontSize: '72px',
+                        color: '#799A96',
+                        opacity: 0.4,
+                      }}
+                    >
+                      {step.number}
                     </div>
+                    <h3
+                      className="font-bold uppercase mb-4 tracking-tight"
+                      style={{ color: '#2C325E', fontSize: '22px' }}
+                    >
+                      {step.title}
+                    </h3>
+                    <p
+                      style={{
+                        color: '#6B7280',
+                        fontSize: '16px',
+                        lineHeight: 1.7,
+                      }}
+                    >
+                      {step.description}
+                    </p>
                   </div>
-                ))}
-                
-                {/* End frame */}
-                <div className="flex-shrink-0 w-80 h-52 bg-gray-800 rounded-lg border-2 border-gray-700 opacity-60 flex items-center justify-center"
-                     style={{ boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.4)' }}>
-                  <div className="text-gray-400 font-mono tracking-wider">● END</div>
+
+                  {/* Image placeholder */}
+                  <div className={textLeft ? 'lg:order-2' : 'lg:order-1'}>
+                    <div
+                      className="w-full rounded-2xl bg-gray-100"
+                      style={{
+                        aspectRatio: '4 / 3',
+                        boxShadow:
+                          'inset 0 2px 8px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(0,0,0,0.04)',
+                      }}
+                      aria-label={`${step.title} image placeholder`}
+                    />
+                  </div>
                 </div>
-                
-                {/* Duplicate set for seamless loop */}
-                {/* Start frame duplicate */}
-                <div className="flex-shrink-0 w-80 h-52 bg-gray-800 rounded-lg border-2 border-gray-700 opacity-60 flex items-center justify-center" 
-                     style={{ boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.4)' }}>
-                  <div className="text-gray-400 font-mono tracking-wider">● START</div>
-                </div>
-                
-                {/* Process Step Frames duplicate */}
-                {processSteps.map((step, index) => (
+                {!isLast && (
                   <div
-                    key={`duplicate-${step.number}`}
-                    className={`flex-shrink-0 w-80 h-52 bg-background rounded-lg border-4 ${
-                      activeFrame >= index 
-                        ? `border-${step.color}` 
-                        : 'border-gray-600'
-                    }`}
-                    style={{
-                      boxShadow: '0 8px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05)'
-                    }}
-                  >
-                    
-                    {/* Frame Content */}
-                    <div className="relative h-full p-6 flex flex-col justify-between">
-                      
-                      {/* Frame Number Badge */}
-                      <div className="absolute -top-4 -left-4 w-12 h-12 bg-foreground text-background rounded-full flex items-center justify-center font-black z-10 border-3 border-white text-lg"
-                           style={{ boxShadow: '0 6px 12px rgba(0,0,0,0.4)' }}>
-                        {step.number}
-                      </div>
-                      
-                      {/* Content */}
-                      <div className="opacity-100">
-                        
-                        {/* Step Title */}
-                        <h3 className="font-black text-xl leading-tight mb-4 text-foreground">
-                          {step.title}
-                        </h3>
-                        
-                        {/* Step Description */}
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {step.description}
-                        </p>
-                      </div>
-                      
-                      {/* Film frame edge lines */}
-                      <div className="absolute left-1 top-1 bottom-1 w-px bg-gray-300/20" />
-                      <div className="absolute right-1 top-1 bottom-1 w-px bg-gray-300/20" />
-                      <div className="absolute top-1 left-1 right-1 h-px bg-gray-300/20" />
-                      <div className="absolute bottom-1 left-1 right-1 h-px bg-gray-300/20" />
-                    </div>
-                  </div>
-                ))}
+                    className="w-full h-px mb-24"
+                    style={{ backgroundColor: '#e5e7eb' }}
+                  />
+                )}
               </div>
-            </div>
-          </div>
-          
-          {/* Enhanced Projector Light Effect */}
-          {activeFrame >= 0 && (
-            <div className="absolute inset-0 pointer-events-none">
-              <div 
-                className="absolute top-1/2 left-1/2 w-48 h-48 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-10"
-                style={{
-                  background: 'radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 20%, rgba(255,255,0,0.2) 40%, transparent 60%)',
-                  animation: 'projectorLight 12s ease-in-out infinite'
-                }}
-              />
-            </div>
-          )}
+            )
+          })}
         </div>
-
-        {/* Film Controls */}
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-6 bg-card/80 backdrop-blur-sm clean-border rounded-2xl px-8 py-4 subtle-shadow">
-            
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-accent-emerald rounded-full animate-pulse" />
-              <span className="text-sm font-semibold text-foreground">9+ yo'nalish</span>
-            </div>
-            
-            <div className="w-px h-6 bg-border" />
-            
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-accent-blue rounded-full animate-pulse" style={{animationDelay: '0.5s'}} />
-              <span className="text-sm font-semibold text-foreground">50+ mavzu</span>
-            </div>
-            
-            <div className="w-px h-6 bg-border" />
-            
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-accent-purple rounded-full animate-pulse" style={{animationDelay: '1s'}} />
-              <span className="text-sm font-semibold text-foreground">100% amaliy</span>
-            </div>
-          </div>
-        </div>
-
       </div>
-      
     </section>
   )
 }
