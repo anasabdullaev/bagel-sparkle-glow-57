@@ -4,6 +4,7 @@ import { About } from './components/About'
 import { Services } from './components/Services'
 import { Audience } from './components/Audience'
 import { Team } from './components/Team'
+import { TelegramBanner } from './components/TelegramBanner'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 
@@ -27,6 +28,7 @@ export default function App() {
         <section id="team" aria-label="Team section" style={{ overflow: 'visible', height: 'auto', minHeight: '0', maxHeight: 'none' }}>
           <Team />
         </section>
+        <TelegramBanner />
         <section id="contact" aria-label="Contact section">
           <Contact />
         </section>
