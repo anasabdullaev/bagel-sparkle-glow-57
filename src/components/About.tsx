@@ -1,7 +1,7 @@
 'use client'
 
-import { useRef, useState } from 'react'
-import { motion, useScroll, useTransform, AnimatePresence, useMotionValueEvent } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import process01 from '@/assets/process-01.jpg'
 import process02 from '@/assets/process-02.jpg'
 import process03 from '@/assets/process-03.jpg'
@@ -45,66 +45,83 @@ const processSteps = [
 ]
 
 export function About() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const boxRef = useRef<HTMLDivElement>(null)
   const N = processSteps.length
-  // Total scroll distance: one viewport per step + one extra viewport to "hold"
-  // step 05 visibly before unpinning. Total = (N + 1) * 100vh.
-  const TOTAL_VH = (N + 1) * 100
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  })
-
   const [activeIndex, setActiveIndex] = useState(0)
+  const activeRef = useRef(0)
+  const hoveringRef = useRef(false)
+  const lockUntilRef = useRef(0)
 
-  // Progress fills from 0% to 100% across steps 01..05 (ignoring the hold tail),
-  // so the bar reads "full" when step 05 is reached, matching dot indicators.
-  const progressHeight = useTransform(scrollYProgress, [0, N / (N + 1)], ['0%', '100%'])
+  useEffect(() => {
+    activeRef.current = activeIndex
+  }, [activeIndex])
 
-  useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    // Each step occupies 1/(N+1) of the scroll. The trailing 1/(N+1) is a hold
-    // window where step 05 stays visible before the section unpins.
-    const idx = Math.min(N - 1, Math.max(0, Math.floor(v * (N + 1))))
-    if (idx !== activeIndex) setActiveIndex(idx)
-  })
+  useEffect(() => {
+    const el = boxRef.current
+    if (!el) return
+
+    const onEnter = () => {
+      hoveringRef.current = true
+    }
+    const onLeave = () => {
+      hoveringRef.current = false
+    }
+
+    const onWheel = (e: WheelEvent) => {
+      if (!hoveringRef.current) return
+      const dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0
+      if (dir === 0) return
+      const cur = activeRef.current
+      // At the edges (last step scrolling down OR first step scrolling up),
+      // let the page scroll normally to escape the box.
+      if ((dir > 0 && cur >= N - 1) || (dir < 0 && cur <= 0)) return
+
+      e.preventDefault()
+      const now = performance.now()
+      if (now < lockUntilRef.current) return
+      lockUntilRef.current = now + 600 // debounce: one step per ~0.6s
+
+      const next = Math.max(0, Math.min(N - 1, cur + dir))
+      if (next !== cur) setActiveIndex(next)
+    }
+
+    el.addEventListener('mouseenter', onEnter)
+    el.addEventListener('mouseleave', onLeave)
+    el.addEventListener('wheel', onWheel, { passive: false })
+    return () => {
+      el.removeEventListener('mouseenter', onEnter)
+      el.removeEventListener('mouseleave', onLeave)
+      el.removeEventListener('wheel', onWheel)
+    }
+  }, [N])
 
   const step = processSteps[activeIndex]
 
   return (
-    <section
-      id="about"
-      ref={containerRef}
-      className="relative bg-white"
-      style={{ height: `${TOTAL_VH}vh` }}
-    >
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl relative">
-          {/* Header */}
-          <div className="mb-12">
-            <span
-              className="block text-sm font-semibold uppercase tracking-[0.2em] mb-3"
-              style={{ color: '#799A96' }}
-            >
-              Jarayon
-            </span>
-            <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase leading-[1.05]"
-              style={{ color: '#2C325E' }}
-            >
-              Trening qanday tashkil etiladi
-            </h2>
-          </div>
+    <section id="about" className="relative bg-white py-20 sm:py-28">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
+        {/* Header */}
+        <div className="mb-10">
+          <span
+            className="block text-sm font-semibold uppercase tracking-[0.2em] mb-3"
+            style={{ color: '#799A96' }}
+          >
+            Jarayon
+          </span>
+          <h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase leading-[1.05]"
+            style={{ color: '#2C325E' }}
+          >
+            Trening qanday tashkil etiladi
+          </h2>
+        </div>
 
-          {/* Progress bar (vertical, left of content) */}
-          <div className="absolute left-0 sm:left-2 top-44 bottom-8 w-[2px] bg-gray-200 rounded-full overflow-hidden hidden sm:block">
-            <motion.div
-              className="w-full"
-              style={{ height: progressHeight, backgroundColor: '#799A96' }}
-            />
-          </div>
-
-          {/* Content */}
+        {/* Interactive box: hijacks wheel only when hovered */}
+        <div
+          ref={boxRef}
+          className="relative rounded-3xl border border-gray-200 bg-white p-6 sm:p-10 lg:p-14"
+          style={{ boxShadow: '0 10px 40px -20px rgba(44,50,94,0.18)' }}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[420px]">
             {/* Text */}
             <div className="relative">
@@ -163,11 +180,13 @@ export function About() {
             </div>
           </div>
 
-          {/* Dot indicators */}
+          {/* Dot indicators (clickable) */}
           <div className="flex items-center gap-3 mt-10">
             {processSteps.map((s, i) => (
-              <div
+              <button
                 key={s.number}
+                onClick={() => setActiveIndex(i)}
+                aria-label={`Bosqich ${s.number}`}
                 className="h-2 rounded-full transition-all duration-300"
                 style={{
                   width: i === activeIndex ? 28 : 8,
