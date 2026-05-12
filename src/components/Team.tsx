@@ -295,7 +295,7 @@ export function Team() {
   const hasNext = safeIndex < filtered.length - 1
 
   return (
-    <div className="relative w-full bg-black text-white overflow-hidden" style={{ minHeight: '80vh' }}>
+    <div className="relative w-full text-white overflow-hidden" style={{ minHeight: '80vh', background: '#0B0D1A' }}>
       <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16 py-20 lg:py-28">
         <div className="mb-6">
           <span className="text-xs font-semibold tracking-[0.25em] uppercase text-white/50">
