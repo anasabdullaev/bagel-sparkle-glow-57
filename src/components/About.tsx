@@ -48,9 +48,13 @@ export function About() {
   const boxRef = useRef<HTMLDivElement>(null)
   const N = processSteps.length
   const [activeIndex, setActiveIndex] = useState(0)
+  const [showHint, setShowHint] = useState(true)
   const activeRef = useRef(0)
   const hoveringRef = useRef(false)
   const lockUntilRef = useRef(0)
+  const touchStartXRef = useRef<number | null>(null)
+  const touchStartYRef = useRef<number | null>(null)
+  const touchHandledRef = useRef(false)
 
   useEffect(() => {
     activeRef.current = activeIndex
