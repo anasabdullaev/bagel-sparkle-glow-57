@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, Search, Linkedin, Instagram, Send, Globe, Mail, Award, Briefcase, GraduationCap, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ImageWithFallback } from './figma/ImageWithFallback'
@@ -193,6 +193,67 @@ export function Team() {
   const [activeFilter, setActiveFilter] = useState<'all' | Specialty>('all')
   const [query, setQuery] = useState('')
   const [expanded, setExpanded] = useState<Trainer | null>(null)
+  const modalRef = useRef<HTMLDivElement | null>(null)
+  const lastFocusedRef = useRef<HTMLElement | null>(null)
+
+  useEffect(() => {
+    if (!expanded) return
+
+    lastFocusedRef.current = document.activeElement as HTMLElement | null
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const getFocusable = (): HTMLElement[] => {
+      if (!modalRef.current) return []
+      return Array.from(
+        modalRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => !el.hasAttribute('aria-hidden'))
+    }
+
+    // Initial focus
+    requestAnimationFrame(() => {
+      const focusables = getFocusable()
+      ;(focusables[0] ?? modalRef.current)?.focus()
+    })
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault()
+        setExpanded(null)
+        return
+      }
+      if (e.key !== 'Tab') return
+      const focusables = getFocusable()
+      if (focusables.length === 0) {
+        e.preventDefault()
+        modalRef.current?.focus()
+        return
+      }
+      const first = focusables[0]
+      const last = focusables[focusables.length - 1]
+      const active = document.activeElement as HTMLElement | null
+      if (e.shiftKey) {
+        if (active === first || !modalRef.current?.contains(active)) {
+          e.preventDefault()
+          last.focus()
+        }
+      } else {
+        if (active === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKey)
+    return () => {
+      document.removeEventListener('keydown', handleKey)
+      document.body.style.overflow = prevOverflow
+      lastFocusedRef.current?.focus?.()
+    }
+  }, [expanded])
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -380,14 +441,19 @@ export function Team() {
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
             onClick={() => setExpanded(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="trainer-modal-title"
           >
             <motion.div
+              ref={modalRef}
+              tabIndex={-1}
               initial={{ y: 30, opacity: 0, scale: 0.98 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: 20, opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-[24px] bg-neutral-950 border border-white/10 text-white"
+              className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-[24px] bg-neutral-950 border border-white/10 text-white outline-none"
             >
               <button
                 onClick={() => setExpanded(null)}
