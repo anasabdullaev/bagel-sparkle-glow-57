@@ -1,6 +1,5 @@
 import { Hero } from './components/Hero'
 import { Portfolio } from './components/Portfolio'
-import { Awards } from './components/Awards'
 import { About } from './components/About'
 import { Services } from './components/Services'
 import { Audience } from './components/Audience'
