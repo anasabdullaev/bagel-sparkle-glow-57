@@ -431,11 +431,12 @@ export function Team() {
 
               <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
                 <div className="md:col-span-5 relative">
-                  <div className="aspect-square md:aspect-auto md:h-full bg-[#799A96]">
+                  <div className="aspect-[4/5] md:aspect-[3/4] bg-[#799A96] overflow-hidden">
                     <ImageWithFallback
                       src={expanded.image}
                       alt={expanded.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top scale-110"
+                      style={{ objectPosition: '50% 15%' }}
                     />
                   </div>
                 </div>
