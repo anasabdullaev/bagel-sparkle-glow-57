@@ -1,8 +1,12 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence, useMotionValueEvent } from 'framer-motion'
-import { useState } from 'react'
+import process01 from '@/assets/process-01.jpg'
+import process02 from '@/assets/process-02.jpg'
+import process03 from '@/assets/process-03.jpg'
+import process04 from '@/assets/process-04.jpg'
+import process05 from '@/assets/process-05.jpg'
 
 const processSteps = [
   {
@@ -10,54 +14,70 @@ const processSteps = [
     title: 'EHTIYOJNI ANIQLAYMIZ',
     description:
       "Kompaniya maqsadi, bo'lim vazifalari va xodimlar darajasi chuqur o'rganiladi.",
+    image: process01,
   },
   {
     number: '02',
     title: 'DASTUR TUZAMIZ',
     description: 'Kompaniyaga moslashtirilgan trening rejasi ishlab chiqiladi.',
+    image: process02,
   },
   {
     number: '03',
     title: "TRENING O'TKAZAMIZ",
     description:
       "Darslar real biznes case'lar, guruh ishlari va amaliy topshiriqlar bilan olib boriladi.",
+    image: process03,
   },
   {
     number: '04',
     title: 'NATIJANI BAHOLAYMIZ',
     description: "Test yoki yakuniy loyiha orqali o'zlashtirish darajasi tekshiriladi.",
+    image: process04,
   },
   {
     number: '05',
     title: 'HISOBOT BERAMIZ',
     description:
       "Kompaniya uchun natijalar, tavsiyalar va keyingi yo'nalishlar taqdim etiladi.",
+    image: process05,
   },
 ]
 
 export function About() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const N = processSteps.length
+  // Total scroll distance: one viewport per step + one extra viewport to "hold"
+  // step 05 visibly before unpinning. Total = (N + 1) * 100vh.
+  const TOTAL_VH = (N + 1) * 100
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
   })
 
   const [activeIndex, setActiveIndex] = useState(0)
-  const progressHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
+
+  // Progress fills from 0% to 100% across steps 01..05 (ignoring the hold tail),
+  // so the bar reads "full" when step 05 is reached, matching dot indicators.
+  const progressHeight = useTransform(scrollYProgress, [0, N / (N + 1)], ['0%', '100%'])
 
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    const idx = Math.min(
-      processSteps.length - 1,
-      Math.max(0, Math.floor(v * processSteps.length - 0.0001)),
-    )
-    const safe = Math.min(processSteps.length - 1, Math.max(0, idx))
-    if (safe !== activeIndex) setActiveIndex(safe)
+    // Each step occupies 1/(N+1) of the scroll. The trailing 1/(N+1) is a hold
+    // window where step 05 stays visible before the section unpins.
+    const idx = Math.min(N - 1, Math.max(0, Math.floor(v * (N + 1))))
+    if (idx !== activeIndex) setActiveIndex(idx)
   })
 
   const step = processSteps[activeIndex]
 
   return (
-    <section id="about" ref={containerRef} className="relative bg-white" style={{ height: '500vh' }}>
+    <section
+      id="about"
+      ref={containerRef}
+      className="relative bg-white"
+      style={{ height: `${TOTAL_VH}vh` }}
+    >
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl relative">
           {/* Header */}
@@ -124,13 +144,21 @@ export function About() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 1.02 }}
                   transition={{ duration: 0.5, ease: 'easeOut' }}
-                  className="absolute inset-0 rounded-2xl bg-gray-100"
+                  className="absolute inset-0 rounded-2xl overflow-hidden bg-gray-100"
                   style={{
                     boxShadow:
                       'inset 0 2px 8px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(0,0,0,0.04)',
                   }}
-                  aria-label={`${step.title} image placeholder`}
-                />
+                >
+                  <img
+                    src={step.image}
+                    alt={`${step.title} bosqichi`}
+                    width={1024}
+                    height={768}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
               </AnimatePresence>
             </div>
           </div>
