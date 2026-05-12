@@ -77,7 +77,7 @@ export function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">Email yoki telefon</label>
+                  <label htmlFor="email" className="block text-sm font-semibold text-foreground/60 mb-2">Email yoki telefon</label>
                   <input
                     id="email"
                     type="text"
