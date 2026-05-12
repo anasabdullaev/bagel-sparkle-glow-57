@@ -45,9 +45,9 @@ export function Contact() {
         {/* Contact Form */}
         <div className="max-w-3xl mx-auto">
           <div className="bg-background clean-border rounded-3xl overflow-hidden elevated-shadow">
-            <div className="bg-card/50 px-8 py-6 border-b border-border group/header">
+            <div className="bg-card/50 px-8 py-6 border-b border-border">
               <div className="flex items-center justify-between">
-                <div className="opacity-60 blur-[0.4px] transition-all duration-500 hover:opacity-100 hover:blur-0 group-hover/header:opacity-100 group-hover/header:blur-0">
+                <div>
                   <h3 className="text-xl font-black text-foreground mb-1">
                     Maslahat olish
                   </h3>
@@ -55,7 +55,7 @@ export function Contact() {
                     Formani to'ldiring — 24 soat ichida siz bilan bog'lanamiz
                   </p>
                 </div>
-                <div className="hidden sm:flex items-center space-x-2 opacity-60 blur-[0.4px] transition-all duration-500 hover:opacity-100 hover:blur-0">
+                <div className="hidden sm:flex items-center space-x-2">
                   <div className="w-3 h-3 bg-accent-emerald rounded-full" />
                   <span className="text-sm text-muted-foreground font-medium">Hozir mavjud</span>
                 </div>
@@ -65,39 +65,39 @@ export function Contact() {
             <form onSubmit={handleSubmit} className="p-8 space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2 opacity-55 blur-[0.4px] transition-all duration-500 hover:opacity-100 hover:blur-0 focus-within:opacity-100 focus-within:blur-0">Ism va familiya / Kompaniya</label>
+                  <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">Ism va familiya / Kompaniya</label>
                   <input
                     id="name"
                     type="text"
                     maxLength={100}
                     value={formData.name}
                     onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent-blue/50 transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground/60 placeholder:blur-[0.5px] focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:placeholder:blur-0 focus:placeholder:opacity-100 transition-all"
                     placeholder="Ismingiz va kompaniya nomi"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2 opacity-55 blur-[0.4px] transition-all duration-500 hover:opacity-100 hover:blur-0 focus-within:opacity-100 focus-within:blur-0">Email yoki telefon</label>
+                  <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">Email yoki telefon</label>
                   <input
                     id="email"
                     type="text"
                     maxLength={255}
                     value={formData.email}
                     onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent-blue/50 transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground/60 placeholder:blur-[0.5px] focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:placeholder:blur-0 focus:placeholder:opacity-100 transition-all"
                     placeholder="email@kompaniya.uz yoki +998..."
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2 opacity-55 blur-[0.4px] transition-all duration-500 hover:opacity-100 hover:blur-0 focus-within:opacity-100 focus-within:blur-0">Qiziqayotgan yo'nalish, xodimlar soni va izoh</label>
+                <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2">Qiziqayotgan yo'nalish, xodimlar soni va izoh</label>
                 <textarea
                   id="message"
                   rows={5}
                   maxLength={1000}
                   value={formData.message}
                   onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent-blue/50 transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground/60 placeholder:blur-[0.5px] focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:placeholder:blur-0 focus:placeholder:opacity-100 transition-all resize-none"
                   placeholder="Masalan: IFRS bo'yicha 25 nafar xodim uchun korporativ trening..."
                 />
               </div>
