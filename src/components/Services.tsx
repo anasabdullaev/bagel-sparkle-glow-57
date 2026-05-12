@@ -180,7 +180,7 @@ export function Services() {
                     </span>
                   </div>
                 </div>
-              </article>
+              </a>
             )
           })}
         </div>
