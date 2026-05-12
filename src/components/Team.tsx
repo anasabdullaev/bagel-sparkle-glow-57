@@ -304,7 +304,7 @@ export function Team() {
         </div>
 
         <h2 className="max-w-5xl text-3xl sm:text-4xl lg:text-5xl font-black uppercase leading-[1.1] mb-10 lg:mb-12 text-white">
-          Treninglarni amaliy tajribaga ega mutaxassislar olib boradi
+          {"\n"}
         </h2>
 
         <div className="relative min-h-[400px]">
