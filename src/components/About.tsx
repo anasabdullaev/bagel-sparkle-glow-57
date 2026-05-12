@@ -247,6 +247,39 @@ export function About() {
               />
             ))}
           </div>
+
+          {/* Swipe hint: 3D finger emoji animating right→left */}
+          <AnimatePresence>
+            {showHint && activeIndex === 0 && (
+              <motion.div
+                key="swipe-hint"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.4 }}
+                className="pointer-events-none absolute inset-x-0 bottom-6 flex flex-col items-center gap-2"
+                aria-hidden="true"
+              >
+                <motion.div
+                  animate={{ x: [40, -40, 40] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+                  style={{
+                    fontSize: 44,
+                    filter:
+                      'drop-shadow(0 6px 10px rgba(44,50,94,0.25)) drop-shadow(0 2px 3px rgba(0,0,0,0.15))',
+                  }}
+                >
+                  👆
+                </motion.div>
+                <span
+                  className="text-xs font-semibold uppercase tracking-[0.2em]"
+                  style={{ color: '#799A96' }}
+                >
+                  Swipe / Scroll
+                </span>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </section>
