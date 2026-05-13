@@ -50,20 +50,20 @@ export function Portfolio() {
           </div>
 
           {/* Visual Column */}
-          <div className="relative">
+          <div className="relative flex justify-center">
             {/* Cinematic glows */}
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-20 -left-10 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
 
             {/* Main image wrapper */}
-            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-white/50">
+            <div className="relative z-10 w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/50">
               <img
                 src={aboutImage}
                 alt="Fine Skills Academy korporativ trening"
                 width={800}
                 height={1000}
                 loading="lazy"
-                className="w-full aspect-[4/5] object-cover transition-transform duration-[2000ms] hover:scale-105"
+                className="w-full aspect-[4/5] object-cover object-center transition-transform duration-[2000ms] hover:scale-105"
               />
 
               {/* Subtle grain overlay */}
