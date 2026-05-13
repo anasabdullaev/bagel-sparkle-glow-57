@@ -83,7 +83,7 @@ export function About() {
       e.preventDefault()
       const now = performance.now()
       if (now < lockUntilRef.current) return
-      lockUntilRef.current = now + 600 // debounce: one step per ~0.6s
+      lockUntilRef.current = now + 1500 // debounce: one step per ~1.5s
 
       const next = Math.max(0, Math.min(N - 1, cur + dir))
       if (next !== cur) {
