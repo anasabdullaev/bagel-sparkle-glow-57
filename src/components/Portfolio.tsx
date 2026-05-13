@@ -63,7 +63,7 @@ export function Portfolio() {
                 width={800}
                 height={1000}
                 loading="lazy"
-                className="w-full aspect-[4/5] object-cover object-center transition-transform duration-[2000ms] hover:scale-105"
+                className="w-full aspect-[4/5] object-cover object-top transition-transform duration-[2000ms] hover:scale-105"
               />
 
               {/* Subtle grain overlay */}
