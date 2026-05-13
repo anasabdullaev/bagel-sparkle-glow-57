@@ -172,7 +172,7 @@ export function About() {
         <div
           ref={boxRef}
           className="relative rounded-3xl border border-gray-200 bg-white p-6 sm:p-10 lg:p-14"
-          style={{ boxShadow: '0 10px 40px -20px rgba(44,50,94,0.18)' }}
+          style={{ boxShadow: '0 10px 40px -20px rgba(44,50,94,0.18)', overscrollBehavior: 'contain' }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[420px]">
             {/* Text */}
