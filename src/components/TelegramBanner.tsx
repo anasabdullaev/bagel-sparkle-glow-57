@@ -5,7 +5,7 @@ export function TelegramBanner() {
     <section
       aria-label="Telegram kanalimizga qo'shiling"
       className="relative w-full overflow-hidden py-28 md:py-36"
-      style={{ backgroundColor: "#6B7280" }}
+      style={{ backgroundColor: "#2C325E" }}
     >
       {/* Dot/grain texture overlay */}
       <div
@@ -37,7 +37,7 @@ export function TelegramBanner() {
         <div
           aria-hidden
           className="absolute -top-10 left-6 z-20 flex h-24 w-24 items-center justify-center rounded-full shadow-2xl md:left-24 md:h-28 md:w-28"
-          style={{ backgroundColor: "#2a2a2a" }}
+          style={{ backgroundColor: "#799A96" }}
         >
           <Send className="h-10 w-10 -translate-x-0.5 text-white md:h-12 md:w-12" strokeWidth={1.5} />
         </div>
@@ -60,7 +60,7 @@ export function TelegramBanner() {
               target="_blank"
               rel="noopener noreferrer"
               className="shrink-0 rounded-lg px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.03]"
-              style={{ backgroundColor: "#1a1a1a" }}
+              style={{ backgroundColor: "#799A96" }}
             >
               Obuna bo'lish
             </a>
@@ -71,7 +71,7 @@ export function TelegramBanner() {
         <div
           aria-hidden
           className="absolute -bottom-8 right-6 z-20 flex h-16 w-16 items-center justify-center rounded-full shadow-2xl md:right-24 md:h-20 md:w-20"
-          style={{ backgroundColor: "#2a2a2a" }}
+          style={{ backgroundColor: "#799A96" }}
         >
           <Send className="h-7 w-7 -translate-x-0.5 text-white md:h-8 md:w-8" strokeWidth={1.5} />
         </div>
