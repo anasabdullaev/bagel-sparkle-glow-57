@@ -150,7 +150,7 @@ export function About() {
   const step = processSteps[activeIndex]
 
   return (
-    <section id="about" className="relative bg-white py-20 sm:py-28">
+    <section id="about" className="relative py-20 sm:py-28" style={{ backgroundColor: '#F2F5F4' }}>
       <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-6xl">
         {/* Header */}
         <div className="mb-10">
