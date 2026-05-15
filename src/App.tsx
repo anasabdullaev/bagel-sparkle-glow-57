@@ -29,6 +29,7 @@ export default function App() {
         <section id="team" aria-label="Team section" style={{ overflow: 'visible', height: 'auto', minHeight: '0', maxHeight: 'none' }}>
           <Team />
         </section>
+        <Certificates />
         <TelegramBanner />
         <section id="contact" aria-label="Contact section">
           <Contact />
