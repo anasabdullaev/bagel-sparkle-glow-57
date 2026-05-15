@@ -5,6 +5,10 @@ import cert4 from '@/assets/cert-4.jpeg'
 import cert5 from '@/assets/cert-5.png'
 import cert6 from '@/assets/cert-6.png'
 import cert7 from '@/assets/cert-7.png'
+import cert8 from '@/assets/cert-8.png'
+import cert9 from '@/assets/cert-9.png'
+import cert10 from '@/assets/cert-10.png'
+import cert11 from '@/assets/cert-11.png'
 
 const certificates = [
   { src: cert1, alt: 'ACCA Certificate of Achievement' },
@@ -14,6 +18,10 @@ const certificates = [
   { src: cert5, alt: 'Emory Goizueta Business School' },
   { src: cert6, alt: 'University of Illinois Diploma' },
   { src: cert7, alt: 'Emory Goizueta Marketing Certificate' },
+  { src: cert8, alt: 'University of Illinois Teaching of Economics' },
+  { src: cert9, alt: 'Handong Global University Certificate of Completion' },
+  { src: cert10, alt: 'ESMT Berlin Corporate Governance Certificate' },
+  { src: cert11, alt: 'JICA Japan Trainers Training Certificate' },
 ]
 
 export function Certificates() {
