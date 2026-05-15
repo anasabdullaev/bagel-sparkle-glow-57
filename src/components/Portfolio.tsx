@@ -1,6 +1,6 @@
 'use client'
 
-import aboutImage from '@/assets/about-academy.jpg'
+import aboutImage from '@/assets/logo-fineskills.jpg'
 
 export function Portfolio() {
   return (
@@ -56,14 +56,14 @@ export function Portfolio() {
             <div className="absolute -bottom-20 -left-10 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
 
             {/* Main image wrapper */}
-            <div className="relative z-10 w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/50">
+            <div className="relative z-10 w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/50 bg-white flex items-center justify-center p-12">
               <img
                 src={aboutImage}
-                alt="Fine Skills Academy korporativ trening"
+                alt="Fine Skills Academy logo"
                 width={800}
                 height={1000}
                 loading="lazy"
-                className="w-full aspect-[4/5] object-cover object-top transition-transform duration-[2000ms] hover:scale-105"
+                className="w-full aspect-square object-contain transition-transform duration-[2000ms] hover:scale-105"
               />
 
               {/* Subtle grain overlay */}
