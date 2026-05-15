@@ -56,14 +56,14 @@ export function Portfolio() {
             <div className="absolute -bottom-20 -left-10 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
 
             {/* Main image wrapper */}
-            <div className="relative z-10 w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/50 bg-white flex items-center justify-center p-12">
+            <div className="relative z-10 w-full max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/50 bg-white flex items-center justify-center aspect-square p-8 sm:p-12 lg:p-16">
               <img
                 src={aboutImage}
                 alt="Fine Skills Academy logo"
                 width={800}
-                height={1000}
+                height={800}
                 loading="lazy"
-                className="w-full aspect-square object-contain transition-transform duration-[2000ms] hover:scale-105"
+                className="w-full h-full object-contain transition-transform duration-[2000ms] hover:scale-105"
               />
 
               {/* Subtle grain overlay */}
