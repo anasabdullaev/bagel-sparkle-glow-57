@@ -50,17 +50,8 @@ const services: Service[] = [
     image: serviceBanking,
   },
   {
-    id: 'ifrs',
-    number: '03',
-    title: "MHXS / IFRS va hisobot",
-    description: "Xalqaro moliyaviy hisobot standartlari va hisobotlarni to'g'ri talqin qilish bo'yicha amaliy trening.",
-    topics: ['IFRS', 'Financial Reporting', 'Accounting Interpretation'],
-    icon: FileSpreadsheet,
-    image: serviceIfrs,
-  },
-  {
     id: 'data',
-    number: '04',
+    number: '03',
     title: "Data Analytics va avtomatlashtirish",
     description: "Ma'lumotlar bilan ishlash, tahlil va hisobotlarni avtomatlashtirish uchun zamonaviy vositalar.",
     topics: ['Excel (Advanced)', 'Power BI', 'Python', 'Report Automation'],
@@ -69,7 +60,7 @@ const services: Service[] = [
   },
   {
     id: 'ai',
-    number: '05',
+    number: '04',
     title: "AI va zamonaviy ish vositalari",
     description: "Sun'iy intellekt va avtomatlashtirish vositalarini biznes jarayonlarda samarali qo'llash.",
     topics: ['ChatGPT for Business', 'AI Tools', 'Workflow Automation'],
@@ -78,7 +69,7 @@ const services: Service[] = [
   },
   {
     id: 'softskills',
-    number: '06',
+    number: '05',
     title: "Soft skills va kommunikatsiya",
     description: "Tanqidiy fikrlash, ommaviy nutq va biznes muzokaralari bo'yicha amaliy treninglar.",
     topics: ['Tanqidiy fikrlash', "Ommaviy nutq san'ati", 'Biznes muzokaralari', 'Presentation'],
@@ -87,7 +78,7 @@ const services: Service[] = [
   },
   {
     id: 'certificates',
-    number: '07',
+    number: '06',
     title: "Xalqaro sertifikatlar",
     description: "Xalqaro darajadagi professional sertifikatlarga tayyorgarlik dasturlari — to'liq imtihon yo'l xaritasi bilan.",
     topics: ['ACCA F3 F7 F9', 'CFA Level 1-3', 'FRM Level 1-2'],
