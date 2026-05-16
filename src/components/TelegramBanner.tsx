@@ -42,23 +42,6 @@ export function TelegramBanner() {
       />
 
       <div className="relative mx-auto max-w-5xl px-6">
-        {/* Large Telegram badge centered above the card */}
-        <div
-          aria-hidden
-          className="relative z-20 mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-full shadow-2xl md:h-28 md:w-28"
-          style={{
-            background: TELEGRAM_GRADIENT,
-            boxShadow:
-              "0 20px 60px -10px rgba(42,171,238,0.55), 0 0 0 6px rgba(255,255,255,0.06)",
-          }}
-        >
-          <Send
-            className="h-10 w-10 -translate-x-0.5 text-white md:h-12 md:w-12"
-            strokeWidth={1.8}
-            fill="white"
-          />
-        </div>
-
         {/* Frosted glass card */}
         <div
           className="relative rounded-2xl border px-8 py-12 backdrop-blur-xl md:px-12 md:py-14"
