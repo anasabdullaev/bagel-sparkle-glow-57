@@ -2,6 +2,35 @@ import { Send } from "lucide-react";
 
 const TELEGRAM_GRADIENT = "linear-gradient(135deg, #2AABEE 0%, #229ED9 100%)";
 
+const TG_ANIMATIONS = `
+@keyframes tg-glow-pulse {
+  0%, 100% { opacity: 0.18; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.32; transform: translate(-50%, -50%) scale(1.08); }
+}
+@keyframes tg-gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes tg-fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes tg-badge-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.tg-glow { animation: tg-glow-pulse 10s ease-in-out infinite; }
+.tg-shift {
+  background-size: 200% 200%;
+  animation: tg-gradient-shift 14s ease-in-out infinite;
+}
+.tg-fade-up { animation: tg-fade-up 1.6s ease-out both; }
+.tg-badge-float { animation: tg-badge-float 8s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .tg-glow, .tg-shift, .tg-fade-up, .tg-badge-float { animation: none !important; }
+}
+`;
+
 export function TelegramBanner() {
   return (
     <section
@@ -9,6 +38,7 @@ export function TelegramBanner() {
       className="relative w-full overflow-hidden py-28 md:py-36"
       style={{ backgroundColor: "#2C325E" }}
     >
+      <style>{TG_ANIMATIONS}</style>
       {/* Dot/grain texture overlay */}
       <div
         aria-hidden
