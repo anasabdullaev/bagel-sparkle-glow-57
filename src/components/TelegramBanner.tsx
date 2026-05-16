@@ -2,6 +2,35 @@ import { Send } from "lucide-react";
 
 const TELEGRAM_GRADIENT = "linear-gradient(135deg, #2AABEE 0%, #229ED9 100%)";
 
+const TG_ANIMATIONS = `
+@keyframes tg-glow-pulse {
+  0%, 100% { opacity: 0.18; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.32; transform: translate(-50%, -50%) scale(1.08); }
+}
+@keyframes tg-gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes tg-fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes tg-badge-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.tg-glow { animation: tg-glow-pulse 10s ease-in-out infinite; }
+.tg-shift {
+  background-size: 200% 200%;
+  animation: tg-gradient-shift 14s ease-in-out infinite;
+}
+.tg-fade-up { animation: tg-fade-up 1.6s ease-out both; }
+.tg-badge-float { animation: tg-badge-float 8s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .tg-glow, .tg-shift, .tg-fade-up, .tg-badge-float { animation: none !important; }
+}
+`;
+
 export function TelegramBanner() {
   return (
     <section
@@ -9,6 +38,7 @@ export function TelegramBanner() {
       className="relative w-full overflow-hidden py-28 md:py-36"
       style={{ backgroundColor: "#2C325E" }}
     >
+      <style>{TG_ANIMATIONS}</style>
       {/* Dot/grain texture overlay */}
       <div
         aria-hidden
@@ -31,7 +61,7 @@ export function TelegramBanner() {
       {/* Soft Telegram-blue glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-25 blur-3xl"
+        className="tg-glow pointer-events-none absolute left-1/2 top-1/2 h-[480px] w-[480px] rounded-full blur-3xl"
         style={{ background: TELEGRAM_GRADIENT }}
       />
 
@@ -44,7 +74,7 @@ export function TelegramBanner() {
       <div className="relative mx-auto max-w-5xl px-6">
         {/* Frosted glass card */}
         <div
-          className="relative rounded-2xl border px-8 py-12 backdrop-blur-xl md:px-12 md:py-14"
+          className="tg-fade-up relative rounded-2xl border px-8 py-12 backdrop-blur-xl md:px-12 md:py-14"
           style={{
             backgroundColor: "rgba(255,255,255,0.08)",
             borderColor: "rgba(42,171,238,0.25)",
@@ -86,9 +116,10 @@ export function TelegramBanner() {
               href="https://t.me/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex shrink-0 items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.04] hover:shadow-xl md:text-base"
+              className="tg-shift group inline-flex shrink-0 items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.04] hover:shadow-xl md:text-base"
               style={{
-                background: TELEGRAM_GRADIENT,
+                backgroundImage:
+                  "linear-gradient(135deg, #2AABEE 0%, #229ED9 50%, #2AABEE 100%)",
                 boxShadow: "0 12px 32px -8px rgba(42,171,238,0.6)",
                 fontFamily:
                   "'Manrope', 'Inter', system-ui, -apple-system, sans-serif",
@@ -108,7 +139,7 @@ export function TelegramBanner() {
         {/* Smaller Telegram badge below-right */}
         <div
           aria-hidden
-          className="absolute -bottom-8 right-6 z-20 flex h-16 w-16 items-center justify-center rounded-full shadow-2xl md:right-24 md:h-20 md:w-20"
+          className="tg-badge-float absolute -bottom-8 right-6 z-20 flex h-16 w-16 items-center justify-center rounded-full shadow-2xl md:right-24 md:h-20 md:w-20"
           style={{
             background: TELEGRAM_GRADIENT,
             boxShadow:
