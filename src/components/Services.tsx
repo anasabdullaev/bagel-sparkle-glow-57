@@ -43,9 +43,9 @@ const services: Service[] = [
   {
     id: 'banking',
     number: '02',
-    title: "Bank ishi va risk management",
-    description: "Bank sektori uchun risklarni boshqarish, kredit va bozor risklari hamda Basel tamoyillari.",
-    topics: ['Risk Management', 'Credit Risk', 'Market Risk', 'Basel Concepts'],
+    title: "Tijoriy banklar uchun",
+    description: "Bank sektori uchun komplayens, MHXS/IFRS hisobot va risklarni boshqarish bo'yicha kompleks dastur.",
+    topics: ['Komplayens tizimi', 'MHXS / IFRS', 'Risklarni boshqarish', 'Basel Concepts'],
     icon: Landmark,
     image: serviceBanking,
   },
@@ -79,11 +79,20 @@ const services: Service[] = [
   {
     id: 'softskills',
     number: '06',
-    title: "Marketing, PR va Soft skills",
-    description: "Marketing strategiyasi, kommunikatsiya va shaxsiy samaradorlik ko'nikmalari bo'yicha treninglar.",
-    topics: ['Digital Marketing', 'PR Strategy', 'Public Speaking', 'Negotiation', 'Presentation'],
+    title: "Soft skills va kommunikatsiya",
+    description: "Tanqidiy fikrlash, ommaviy nutq va biznes muzokaralari bo'yicha amaliy treninglar.",
+    topics: ['Tanqidiy fikrlash', "Ommaviy nutq san'ati", 'Biznes muzokaralari', 'Presentation'],
     icon: Megaphone,
     image: serviceSoftskills,
+  },
+  {
+    id: 'certificates',
+    number: '07',
+    title: "Xalqaro sertifikatlar",
+    description: "Xalqaro darajadagi professional sertifikatlarga tayyorgarlik dasturlari — to'liq imtihon yo'l xaritasi bilan.",
+    topics: ['ACCA F3 F7 F9', 'CFA Level 1-3', 'FRM Level 1-2'],
+    icon: Award,
+    image: serviceCertificates,
   },
 ]
 
