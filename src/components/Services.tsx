@@ -113,13 +113,13 @@ export function Services() {
           </div>
 
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] mb-8 text-secondary-foreground">
-            <span className="block">Yo'nalishlarimiz</span>
+            <span className="block">Xalqaro darajadagi <span className="text-primary">sohalar</span></span>
           </h2>
 
           <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Compliance, AML, Internal control va xalqaro sertifikatlar
-            <span className="text-primary font-semibold"> (ACCA, CFA, FRM) </span>
-            bo'yicha alohida dasturlar ham mavjud.
+            Tijoriy banklar, moliya va soft skills yo'nalishlarida amaliy treninglar —
+            <span className="text-primary font-semibold"> ACCA, CFA, FRM </span>
+            xalqaro sertifikatlariga tayyorgarlik dasturlari bilan birga.
           </p>
         </div>
 
