@@ -139,7 +139,7 @@ export function TelegramBanner() {
         {/* Smaller Telegram badge below-right */}
         <div
           aria-hidden
-          className="absolute -bottom-8 right-6 z-20 flex h-16 w-16 items-center justify-center rounded-full shadow-2xl md:right-24 md:h-20 md:w-20"
+          className="tg-badge-float absolute -bottom-8 right-6 z-20 flex h-16 w-16 items-center justify-center rounded-full shadow-2xl md:right-24 md:h-20 md:w-20"
           style={{
             background: TELEGRAM_GRADIENT,
             boxShadow:
