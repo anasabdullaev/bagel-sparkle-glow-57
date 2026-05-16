@@ -4,7 +4,7 @@ import { useState } from 'react'
 import {
   TrendingUp,
   Landmark,
-  FileSpreadsheet,
+  
   BarChart3,
   Sparkles,
   Megaphone,
