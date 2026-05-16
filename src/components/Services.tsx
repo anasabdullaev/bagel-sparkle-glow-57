@@ -8,6 +8,7 @@ import {
   BarChart3,
   Sparkles,
   Megaphone,
+  Award,
   ArrowUpRight,
 } from 'lucide-react'
 import { ImageWithFallback } from './figma/ImageWithFallback'
@@ -17,6 +18,7 @@ import serviceIfrs from '../assets/service-ifrs.jpg'
 import serviceData from '../assets/service-data.jpg'
 import serviceAi from '../assets/service-ai.jpg'
 import serviceSoftskills from '../assets/service-softskills.jpg'
+import serviceCertificates from '../assets/service-certificates.jpg'
 
 type Service = {
   id: string
