@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, Search, Linkedin, Instagram, Send, Globe, Mail, Award, Briefcase, GraduationCap, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ImageWithFallback } from './figma/ImageWithFallback'
-import trainerRahimov from '../assets/trainer-rahimov.jpg'
+
 import trainer1 from '../assets/trainer-1.jpg'
 import trainer2 from '../assets/trainer-2.jpg'
 import trainer3 from '../assets/trainer-3.jpg'
