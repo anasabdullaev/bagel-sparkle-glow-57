@@ -361,7 +361,8 @@ export function Team() {
                     <ImageWithFallback
                       src={t.image}
                       alt={t.name}
-                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      style={{ objectPosition: '50% 22%' }}
                     />
                   </div>
                 </div>
@@ -435,8 +436,8 @@ export function Team() {
                     <ImageWithFallback
                       src={expanded.image}
                       alt={expanded.name}
-                      className="w-full h-full object-cover object-top scale-110"
-                      style={{ objectPosition: '50% 15%' }}
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: '50% 22%' }}
                     />
                   </div>
                 </div>
