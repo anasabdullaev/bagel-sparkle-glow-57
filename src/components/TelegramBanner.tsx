@@ -1,5 +1,7 @@
 import { Send } from "lucide-react";
 
+const TELEGRAM_GRADIENT = "linear-gradient(135deg, #2AABEE 0%, #229ED9 100%)";
+
 export function TelegramBanner() {
   return (
     <section
@@ -26,6 +28,13 @@ export function TelegramBanner() {
         }}
       />
 
+      {/* Soft Telegram-blue glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-25 blur-3xl"
+        style={{ background: TELEGRAM_GRADIENT }}
+      />
+
       {/* Decorative empty circle, top right */}
       <div
         aria-hidden
@@ -37,31 +46,77 @@ export function TelegramBanner() {
         <div
           aria-hidden
           className="absolute -top-10 left-6 z-20 flex h-24 w-24 items-center justify-center rounded-full shadow-2xl md:left-24 md:h-28 md:w-28"
-          style={{ backgroundColor: "#799A96" }}
+          style={{
+            background: TELEGRAM_GRADIENT,
+            boxShadow:
+              "0 20px 60px -10px rgba(42,171,238,0.55), 0 0 0 6px rgba(255,255,255,0.06)",
+          }}
         >
-          <Send className="h-10 w-10 -translate-x-0.5 text-white md:h-12 md:w-12" strokeWidth={1.5} />
+          <Send
+            className="h-10 w-10 -translate-x-0.5 text-white md:h-12 md:w-12"
+            strokeWidth={1.8}
+            fill="white"
+          />
         </div>
 
         {/* Frosted glass card */}
         <div
-          className="relative rounded-2xl border px-8 py-10 backdrop-blur-xl md:px-12 md:py-12"
+          className="relative rounded-2xl border px-8 py-12 backdrop-blur-xl md:px-12 md:py-14"
           style={{
-            backgroundColor: "rgba(255,255,255,0.10)",
-            borderColor: "rgba(255,255,255,0.15)",
+            backgroundColor: "rgba(255,255,255,0.08)",
+            borderColor: "rgba(42,171,238,0.25)",
           }}
         >
           <div className="flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between md:gap-12">
-            <p className="max-w-2xl text-base leading-relaxed text-white md:text-lg">
-              Telegram kanalimizga qo'shiling. Fine Skills Academy kanalida treninglar,
-              foydali materiallar va maxsus takliflar haqida birinchilardan bo'lib xabardor bo'ling.
-            </p>
+            <div className="max-w-2xl">
+              <h3
+                className="mb-3 text-3xl font-extrabold tracking-tight text-white md:text-4xl"
+                style={{
+                  fontFamily:
+                    "'Manrope', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                <span
+                  style={{
+                    background: TELEGRAM_GRADIENT,
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  Telegram
+                </span>{" "}
+                kanalimizga qo'shiling
+              </h3>
+              <p
+                className="text-base leading-relaxed text-white/85 md:text-lg"
+                style={{
+                  fontFamily:
+                    "'Manrope', 'Inter', system-ui, -apple-system, sans-serif",
+                }}
+              >
+                Fine Skills Academy kanalida treninglar, foydali materiallar va maxsus takliflar haqida birinchilardan bo'lib xabardor bo'ling.
+              </p>
+            </div>
             <a
               href="https://t.me/"
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 rounded-lg px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.03]"
-              style={{ backgroundColor: "#799A96" }}
+              className="group inline-flex shrink-0 items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.04] hover:shadow-xl md:text-base"
+              style={{
+                background: TELEGRAM_GRADIENT,
+                boxShadow: "0 12px 32px -8px rgba(42,171,238,0.6)",
+                fontFamily:
+                  "'Manrope', 'Inter', system-ui, -apple-system, sans-serif",
+                letterSpacing: "-0.01em",
+              }}
             >
+              <Send
+                className="h-4 w-4 -translate-x-0.5 transition-transform group-hover:translate-x-0.5"
+                strokeWidth={2}
+                fill="white"
+              />
               Obuna bo'lish
             </a>
           </div>
@@ -71,9 +126,17 @@ export function TelegramBanner() {
         <div
           aria-hidden
           className="absolute -bottom-8 right-6 z-20 flex h-16 w-16 items-center justify-center rounded-full shadow-2xl md:right-24 md:h-20 md:w-20"
-          style={{ backgroundColor: "#799A96" }}
+          style={{
+            background: TELEGRAM_GRADIENT,
+            boxShadow:
+              "0 16px 40px -8px rgba(42,171,238,0.55), 0 0 0 5px rgba(255,255,255,0.05)",
+          }}
         >
-          <Send className="h-7 w-7 -translate-x-0.5 text-white md:h-8 md:w-8" strokeWidth={1.5} />
+          <Send
+            className="h-7 w-7 -translate-x-0.5 text-white md:h-8 md:w-8"
+            strokeWidth={1.8}
+            fill="white"
+          />
         </div>
       </div>
     </section>
