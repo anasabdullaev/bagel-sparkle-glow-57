@@ -4,7 +4,7 @@ import { useState } from 'react'
 import {
   TrendingUp,
   Landmark,
-  FileSpreadsheet,
+  
   BarChart3,
   Sparkles,
   Megaphone,
@@ -14,7 +14,7 @@ import {
 import { ImageWithFallback } from './figma/ImageWithFallback'
 import serviceFinance from '../assets/service-finance.jpg'
 import serviceBanking from '../assets/service-banking.jpg'
-import serviceIfrs from '../assets/service-ifrs.jpg'
+
 import serviceData from '../assets/service-data.jpg'
 import serviceAi from '../assets/service-ai.jpg'
 import serviceSoftskills from '../assets/service-softskills.jpg'
@@ -50,17 +50,8 @@ const services: Service[] = [
     image: serviceBanking,
   },
   {
-    id: 'ifrs',
-    number: '03',
-    title: "MHXS / IFRS va hisobot",
-    description: "Xalqaro moliyaviy hisobot standartlari va hisobotlarni to'g'ri talqin qilish bo'yicha amaliy trening.",
-    topics: ['IFRS', 'Financial Reporting', 'Accounting Interpretation'],
-    icon: FileSpreadsheet,
-    image: serviceIfrs,
-  },
-  {
     id: 'data',
-    number: '04',
+    number: '03',
     title: "Data Analytics va avtomatlashtirish",
     description: "Ma'lumotlar bilan ishlash, tahlil va hisobotlarni avtomatlashtirish uchun zamonaviy vositalar.",
     topics: ['Excel (Advanced)', 'Power BI', 'Python', 'Report Automation'],
@@ -69,7 +60,7 @@ const services: Service[] = [
   },
   {
     id: 'ai',
-    number: '05',
+    number: '04',
     title: "AI va zamonaviy ish vositalari",
     description: "Sun'iy intellekt va avtomatlashtirish vositalarini biznes jarayonlarda samarali qo'llash.",
     topics: ['ChatGPT for Business', 'AI Tools', 'Workflow Automation'],
@@ -78,7 +69,7 @@ const services: Service[] = [
   },
   {
     id: 'softskills',
-    number: '06',
+    number: '05',
     title: "Soft skills va kommunikatsiya",
     description: "Tanqidiy fikrlash, ommaviy nutq va biznes muzokaralari bo'yicha amaliy treninglar.",
     topics: ['Tanqidiy fikrlash', "Ommaviy nutq san'ati", 'Biznes muzokaralari', 'Presentation'],
@@ -87,7 +78,7 @@ const services: Service[] = [
   },
   {
     id: 'certificates',
-    number: '07',
+    number: '06',
     title: "Xalqaro sertifikatlar",
     description: "Xalqaro darajadagi professional sertifikatlarga tayyorgarlik dasturlari — to'liq imtihon yo'l xaritasi bilan.",
     topics: ['ACCA F3 F7 F9', 'CFA Level 1-3', 'FRM Level 1-2'],
@@ -148,7 +139,7 @@ export function Services() {
                   <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-background/90 backdrop-blur px-3 py-1 rounded-full">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                     <span className="text-[11px] font-bold tracking-wider uppercase text-secondary-foreground">
-                      {service.number} / 07
+                      {service.number} / 06
                     </span>
                   </div>
                   {/* Icon badge */}
