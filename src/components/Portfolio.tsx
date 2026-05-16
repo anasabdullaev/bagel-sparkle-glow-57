@@ -23,29 +23,6 @@ export function Portfolio() {
               <p>
                 Fine Skills Academy 2016-yilda tashkil etilgan bo'lib, bugungi kunda O'zbekistondagi banklar, korporatsiyalar va xalqaro institutlar uchun amaliy treninglar olib boradigan yetakchi platformaga aylangan. Biz 50+ kurs va 10 ta yo'nalishni — moliya, IFRS, data analytics, AI va soft skills'ni — bir joyga jamlaganmiz.
               </p>
-              <p>
-                7 yil ichida 25 000+ mutaxassis bizning treninglarimizdan o'tdi. CFA, ACCA va FRM sertifikatiga ega 150+ trener jamoasi har bir dasturni real biznes case'lar va kompaniya maqsadlariga moslab tuzadi.
-              </p>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6">
-              <div className="border-l-2 border-primary/30 pl-4">
-                <div className="text-3xl font-bold text-secondary">7+</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Yillik tajriba</div>
-              </div>
-              <div className="border-l-2 border-primary/30 pl-4">
-                <div className="text-3xl font-bold text-secondary">25k+</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Bitiruvchilar</div>
-              </div>
-              <div className="border-l-2 border-primary/30 pl-4">
-                <div className="text-3xl font-bold text-secondary">150+</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Trenerlar</div>
-              </div>
-              <div className="border-l-2 border-primary/30 pl-4">
-                <div className="text-3xl font-bold text-secondary">50+</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">Kurslar</div>
-              </div>
             </div>
           </div>
 
