@@ -436,8 +436,8 @@ export function Team() {
                     <ImageWithFallback
                       src={expanded.image}
                       alt={expanded.name}
-                      className="w-full h-full object-cover object-top scale-110"
-                      style={{ objectPosition: '50% 15%' }}
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: '50% 22%' }}
                     />
                   </div>
                 </div>
