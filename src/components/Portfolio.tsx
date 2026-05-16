@@ -15,13 +15,13 @@ export function Portfolio() {
               </span>
               <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight text-secondary">
                 Fine Skills <br />
-                <span className="text-primary">Academy</span>
+                <span className="text-primary">FINE SKILLS</span>
               </h2>
             </div>
 
             <div className="space-y-6 text-base lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
               <p>
-                Fine Skills Academy 2016-yilda tashkil etilgan bo'lib, bugungi kunda O'zbekistondagi banklar, korporatsiyalar va xalqaro institutlar uchun amaliy treninglar olib boradigan yetakchi platformaga aylangan. Biz 50+ kurs va 10 ta yo'nalishni — moliya, IFRS, data analytics, AI va soft skills'ni — bir joyga jamlaganmiz.
+                Fine Skills Academy 2026-yilda tashkil etilgan bo'lib, bugungi kunda O'zbekistondagi banklar, korporatsiyalar va xalqaro institutlar uchun amaliy treninglar olib boradigan yetakchi platformaga aylangan. Biz 10+ yo'nalishni — moliya, IFRS, data analytics, AI va soft skills'ni — bir joyga jamlaganmiz.
               </p>
             </div>
           </div>
