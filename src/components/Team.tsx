@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, Search, Linkedin, Instagram, Send, Globe, Mail, Award, Briefcase, GraduationCap, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ImageWithFallback } from './figma/ImageWithFallback'
-import trainerRahimov from '../assets/trainer-rahimov.jpg'
+
 import trainer1 from '../assets/trainer-1.jpg'
 import trainer2 from '../assets/trainer-2.jpg'
 import trainer3 from '../assets/trainer-3.jpg'
@@ -34,29 +34,6 @@ type Trainer = {
 }
 
 const trainers: Trainer[] = [
-  {
-    name: "MAMURJON RAHIMOV",
-    role: "Marketing Consultant & Business Trainer",
-    bio: "Marketing, biznes strategiya va korporativ boshqaruv bo'yicha xalqaro tajribaga ega mutaxassis. Webster University, MDIST va Westminster International University’da dars bergan; O'zbekiston banklari va yirik korporatsiyalar uchun amaliy treninglar olib boradi.",
-    image: trainerRahimov,
-    specialties: ['marketing'],
-    experience: "15+ yillik tajriba",
-    highlights: [
-      "Webster University, MDIST va WIUT’da o'qituvchi",
-      "O'zbekiston banklari uchun korporativ treninglar",
-      "Marketing strategiya va brending bo'yicha maslahatchi",
-    ],
-    education: [
-      "Emory University — BBA",
-      "University of Illinois at Chicago — MA Economics",
-    ],
-    gallery: [trainerRahimov],
-    socials: {
-      linkedin: "https://www.linkedin.com/",
-      telegram: "https://t.me/",
-      email: "mailto:info@fineskills.uz",
-    },
-  },
   {
     name: "INOM GOFUROV",
     role: "Finance & Risk Management Trainer · CFA, ACCA, FRM",
