@@ -116,9 +116,10 @@ export function TelegramBanner() {
               href="https://t.me/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex shrink-0 items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.04] hover:shadow-xl md:text-base"
+              className="tg-shift group inline-flex shrink-0 items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.04] hover:shadow-xl md:text-base"
               style={{
-                background: TELEGRAM_GRADIENT,
+                backgroundImage:
+                  "linear-gradient(135deg, #2AABEE 0%, #229ED9 50%, #2AABEE 100%)",
                 boxShadow: "0 12px 32px -8px rgba(42,171,238,0.6)",
                 fontFamily:
                   "'Manrope', 'Inter', system-ui, -apple-system, sans-serif",
