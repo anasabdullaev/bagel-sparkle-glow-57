@@ -60,87 +60,13 @@ export function About() {
     activeRef.current = activeIndex
   }, [activeIndex])
 
+  // Auto-advance through steps (no scroll hijacking)
   useEffect(() => {
-    const el = boxRef.current
-    if (!el) return
-
-    const onEnter = () => {
-      hoveringRef.current = true
-    }
-    const onLeave = () => {
-      hoveringRef.current = false
-    }
-
-    const onWheel = (e: WheelEvent) => {
-      if (!hoveringRef.current) return
-      const dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0
-      if (dir === 0) return
-      const cur = activeRef.current
-      // At the edges (last step scrolling down OR first step scrolling up),
-      // let the page scroll normally to escape the box.
-      if ((dir > 0 && cur >= N - 1) || (dir < 0 && cur <= 0)) return
-
-      e.preventDefault()
-      const now = performance.now()
-      if (now < lockUntilRef.current) return
-      lockUntilRef.current = now + 1500 // debounce: one step per ~1.5s
-
-      const next = Math.max(0, Math.min(N - 1, cur + dir))
-      if (next !== cur) {
-        setActiveIndex(next)
-        setShowHint(false)
-      }
-    }
-
-    const advance = (dir: number) => {
-      const cur = activeRef.current
-      const next = Math.max(0, Math.min(N - 1, cur + dir))
-      if (next !== cur) {
-        setActiveIndex(next)
-        setShowHint(false)
-      }
-    }
-
-    const onTouchStart = (e: TouchEvent) => {
-      if (e.touches.length !== 1) return
-      touchStartXRef.current = e.touches[0].clientX
-      touchStartYRef.current = e.touches[0].clientY
-      touchHandledRef.current = false
-    }
-    const onTouchMove = (e: TouchEvent) => {
-      if (touchHandledRef.current || touchStartXRef.current == null) return
-      const dx = e.touches[0].clientX - touchStartXRef.current
-      const dy = e.touches[0].clientY - (touchStartYRef.current ?? 0)
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-        const cur = activeRef.current
-        const dir = dx < 0 ? 1 : -1
-        // Allow vertical page scroll at edges
-        if ((dir > 0 && cur >= N - 1) || (dir < 0 && cur <= 0)) return
-        e.preventDefault()
-        touchHandledRef.current = true
-        advance(dir)
-      }
-    }
-    const onTouchEnd = () => {
-      touchStartXRef.current = null
-      touchStartYRef.current = null
-      touchHandledRef.current = false
-    }
-
-    el.addEventListener('mouseenter', onEnter)
-    el.addEventListener('mouseleave', onLeave)
-    el.addEventListener('wheel', onWheel, { passive: false })
-    el.addEventListener('touchstart', onTouchStart, { passive: true })
-    el.addEventListener('touchmove', onTouchMove, { passive: false })
-    el.addEventListener('touchend', onTouchEnd)
-    return () => {
-      el.removeEventListener('mouseenter', onEnter)
-      el.removeEventListener('mouseleave', onLeave)
-      el.removeEventListener('wheel', onWheel)
-      el.removeEventListener('touchstart', onTouchStart)
-      el.removeEventListener('touchmove', onTouchMove)
-      el.removeEventListener('touchend', onTouchEnd)
-    }
+    const id = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % N)
+      setShowHint(false)
+    }, 5000)
+    return () => clearInterval(id)
   }, [N])
 
   useEffect(() => {
