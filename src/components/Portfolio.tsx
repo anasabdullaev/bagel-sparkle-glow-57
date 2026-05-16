@@ -26,75 +26,53 @@ export function Portfolio() {
             </div>
           </div>
 
-          {/* Visual Column */}
-          <div className="relative flex justify-center">
-            {/* Ambient glows */}
-            <div className="absolute -top-24 -right-16 w-72 h-72 bg-primary/25 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
-            <div className="absolute -bottom-24 -left-16 w-64 h-64 bg-secondary/15 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '10s' }} />
-
-            {/* Gradient ring frame */}
-            <div
-              className="relative z-10 w-full max-w-md mx-auto aspect-square rounded-[2rem] p-[2px]"
-              style={{
-                background:
-                  'linear-gradient(135deg, #799A96 0%, rgba(121,154,150,0.2) 35%, rgba(44,50,94,0.2) 65%, #2C325E 100%)',
-                boxShadow:
-                  '0 30px 80px -30px rgba(44,50,94,0.35), 0 10px 30px -15px rgba(121,154,150,0.4)',
-              }}
-            >
-              <div className="relative w-full h-full rounded-[1.9rem] overflow-hidden bg-white flex items-center justify-center p-10 sm:p-14 lg:p-16 group">
-                {/* Soft inner gradient wash */}
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background:
-                      'radial-gradient(circle at 30% 20%, rgba(121,154,150,0.10), transparent 60%), radial-gradient(circle at 70% 90%, rgba(44,50,94,0.08), transparent 55%)',
-                  }}
-                />
-
-                {/* Corner accents */}
-                <span className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-primary/40 rounded-tl-lg" />
-                <span className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-primary/40 rounded-tr-lg" />
-                <span className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-primary/40 rounded-bl-lg" />
-                <span className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-primary/40 rounded-br-lg" />
-
-                <img
-                  src={aboutImage}
-                  alt="Fine Skills Academy logo"
-                  width={800}
-                  height={800}
-                  loading="lazy"
-                  className="relative z-10 w-full h-full object-contain transition-transform duration-[2000ms] ease-out group-hover:scale-105"
-                />
-
-                {/* Shine sweep on hover */}
-                <div
-                  className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-[1500ms]"
-                  style={{
-                    background:
-                      'linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.5) 50%, transparent 60%)',
-                  }}
-                />
-
-                {/* Subtle grain overlay */}
-                <div
-                  className="absolute inset-0 pointer-events-none opacity-[0.06] mix-blend-overlay"
-                  style={{
-                    backgroundImage:
-                      "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
-                  }}
-                />
-              </div>
+          {/* Visual Column — concentric squircle frames */}
+          <div className="relative flex justify-center items-center min-h-[520px]">
+            {/* Soft ambient halo */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-[80%] h-[80%] rounded-[40%] bg-primary/15 blur-3xl" />
             </div>
 
-            {/* Decorative rings */}
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] border-2 border-primary/10 rounded-full pointer-events-none" />
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[125%] h-[125%] border border-secondary/10 rounded-full pointer-events-none" />
+            {/* Concentric squircle rings */}
+            {[
+              { size: 480, opacity: 0.15 },
+              { size: 420, opacity: 0.22 },
+              { size: 360, opacity: 0.32 },
+              { size: 300, opacity: 0.45 },
+              { size: 240, opacity: 0.6 },
+            ].map((ring, i) => (
+              <div
+                key={i}
+                className="absolute rounded-[28%] border pointer-events-none"
+                style={{
+                  width: `${ring.size}px`,
+                  height: `${ring.size}px`,
+                  borderColor: `rgba(121,154,150,${ring.opacity})`,
+                  borderWidth: '1.5px',
+                  boxShadow: `inset 0 0 40px rgba(121,154,150,${ring.opacity * 0.25})`,
+                }}
+              />
+            ))}
 
-            {/* Floating badge */}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 z-20 px-5 py-2 rounded-full bg-white border border-primary/20 shadow-lg flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-secondary">Since 2016</span>
+            {/* Center logo tile */}
+            <div
+              className="relative z-10 w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] rounded-[28%] flex items-center justify-center group"
+              style={{
+                background:
+                  'radial-gradient(circle at 30% 25%, rgba(255,255,255,0.85), rgba(255,255,255,0.55) 60%, rgba(255,255,255,0.35) 100%)',
+                backdropFilter: 'blur(8px)',
+                boxShadow:
+                  '0 20px 60px -20px rgba(121,154,150,0.55), 0 8px 24px -10px rgba(44,50,94,0.25), inset 0 1px 0 rgba(255,255,255,0.8), inset 0 0 0 1px rgba(121,154,150,0.25)',
+              }}
+            >
+              <img
+                src={aboutImage}
+                alt="Fine Skills Academy logo"
+                width={400}
+                height={400}
+                loading="lazy"
+                className="w-[75%] h-[75%] object-contain transition-transform duration-[2000ms] ease-out group-hover:scale-105"
+              />
             </div>
           </div>
         </div>
