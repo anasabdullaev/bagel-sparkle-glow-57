@@ -139,7 +139,7 @@ export function Services() {
                   <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-background/90 backdrop-blur px-3 py-1 rounded-full">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                     <span className="text-[11px] font-bold tracking-wider uppercase text-secondary-foreground">
-                      {service.number} / 07
+                      {service.number} / 06
                     </span>
                   </div>
                   {/* Icon badge */}
