@@ -74,7 +74,7 @@ export function TelegramBanner() {
       <div className="relative mx-auto max-w-5xl px-6">
         {/* Frosted glass card */}
         <div
-          className="relative rounded-2xl border px-8 py-12 backdrop-blur-xl md:px-12 md:py-14"
+          className="tg-fade-up relative rounded-2xl border px-8 py-12 backdrop-blur-xl md:px-12 md:py-14"
           style={{
             backgroundColor: "rgba(255,255,255,0.08)",
             borderColor: "rgba(42,171,238,0.25)",
