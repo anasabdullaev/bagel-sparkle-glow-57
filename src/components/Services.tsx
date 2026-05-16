@@ -8,6 +8,7 @@ import {
   BarChart3,
   Sparkles,
   Megaphone,
+  Award,
   ArrowUpRight,
 } from 'lucide-react'
 import { ImageWithFallback } from './figma/ImageWithFallback'
@@ -17,6 +18,7 @@ import serviceIfrs from '../assets/service-ifrs.jpg'
 import serviceData from '../assets/service-data.jpg'
 import serviceAi from '../assets/service-ai.jpg'
 import serviceSoftskills from '../assets/service-softskills.jpg'
+import serviceCertificates from '../assets/service-certificates.jpg'
 
 type Service = {
   id: string
@@ -41,9 +43,9 @@ const services: Service[] = [
   {
     id: 'banking',
     number: '02',
-    title: "Bank ishi va risk management",
-    description: "Bank sektori uchun risklarni boshqarish, kredit va bozor risklari hamda Basel tamoyillari.",
-    topics: ['Risk Management', 'Credit Risk', 'Market Risk', 'Basel Concepts'],
+    title: "Tijoriy banklar uchun",
+    description: "Bank sektori uchun komplayens, MHXS/IFRS hisobot va risklarni boshqarish bo'yicha kompleks dastur.",
+    topics: ['Komplayens tizimi', 'MHXS / IFRS', 'Risklarni boshqarish', 'Basel Concepts'],
     icon: Landmark,
     image: serviceBanking,
   },
@@ -77,11 +79,20 @@ const services: Service[] = [
   {
     id: 'softskills',
     number: '06',
-    title: "Marketing, PR va Soft skills",
-    description: "Marketing strategiyasi, kommunikatsiya va shaxsiy samaradorlik ko'nikmalari bo'yicha treninglar.",
-    topics: ['Digital Marketing', 'PR Strategy', 'Public Speaking', 'Negotiation', 'Presentation'],
+    title: "Soft skills va kommunikatsiya",
+    description: "Tanqidiy fikrlash, ommaviy nutq va biznes muzokaralari bo'yicha amaliy treninglar.",
+    topics: ['Tanqidiy fikrlash', "Ommaviy nutq san'ati", 'Biznes muzokaralari', 'Presentation'],
     icon: Megaphone,
     image: serviceSoftskills,
+  },
+  {
+    id: 'certificates',
+    number: '07',
+    title: "Xalqaro sertifikatlar",
+    description: "Xalqaro darajadagi professional sertifikatlarga tayyorgarlik dasturlari — to'liq imtihon yo'l xaritasi bilan.",
+    topics: ['ACCA F3 F7 F9', 'CFA Level 1-3', 'FRM Level 1-2'],
+    icon: Award,
+    image: serviceCertificates,
   },
 ]
 
@@ -102,13 +113,13 @@ export function Services() {
           </div>
 
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] mb-8 text-secondary-foreground">
-            <span className="block">Yo'nalishlarimiz</span>
+            <span className="block">Xalqaro darajadagi <span className="text-primary">sohalar</span></span>
           </h2>
 
           <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Compliance, AML, Internal control va xalqaro sertifikatlar
-            <span className="text-primary font-semibold"> (ACCA, CFA, FRM) </span>
-            bo'yicha alohida dasturlar ham mavjud.
+            Tijoriy banklar, moliya va soft skills yo'nalishlarida amaliy treninglar —
+            <span className="text-primary font-semibold"> ACCA, CFA, FRM </span>
+            xalqaro sertifikatlariga tayyorgarlik dasturlari bilan birga.
           </p>
         </div>
 
@@ -137,7 +148,7 @@ export function Services() {
                   <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-background/90 backdrop-blur px-3 py-1 rounded-full">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                     <span className="text-[11px] font-bold tracking-wider uppercase text-secondary-foreground">
-                      {service.number} / 06
+                      {service.number} / 07
                     </span>
                   </div>
                   {/* Icon badge */}
