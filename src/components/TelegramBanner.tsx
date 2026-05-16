@@ -42,10 +42,10 @@ export function TelegramBanner() {
       />
 
       <div className="relative mx-auto max-w-5xl px-6">
-        {/* Large Telegram badge above-left */}
+        {/* Large Telegram badge centered above the card */}
         <div
           aria-hidden
-          className="absolute -top-10 left-6 z-20 flex h-24 w-24 items-center justify-center rounded-full shadow-2xl md:left-24 md:h-28 md:w-28"
+          className="relative z-20 mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-full shadow-2xl md:h-28 md:w-28"
           style={{
             background: TELEGRAM_GRADIENT,
             boxShadow:
