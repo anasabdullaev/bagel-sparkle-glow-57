@@ -35,29 +35,6 @@ type Trainer = {
 
 const trainers: Trainer[] = [
   {
-    name: "MAMURJON RAHIMOV",
-    role: "Marketing Consultant & Business Trainer",
-    bio: "Marketing, biznes strategiya va korporativ boshqaruv bo'yicha xalqaro tajribaga ega mutaxassis. Webster University, MDIST va Westminster International University’da dars bergan; O'zbekiston banklari va yirik korporatsiyalar uchun amaliy treninglar olib boradi.",
-    image: trainerRahimov,
-    specialties: ['marketing'],
-    experience: "15+ yillik tajriba",
-    highlights: [
-      "Webster University, MDIST va WIUT’da o'qituvchi",
-      "O'zbekiston banklari uchun korporativ treninglar",
-      "Marketing strategiya va brending bo'yicha maslahatchi",
-    ],
-    education: [
-      "Emory University — BBA",
-      "University of Illinois at Chicago — MA Economics",
-    ],
-    gallery: [trainerRahimov],
-    socials: {
-      linkedin: "https://www.linkedin.com/",
-      telegram: "https://t.me/",
-      email: "mailto:info@fineskills.uz",
-    },
-  },
-  {
     name: "INOM GOFUROV",
     role: "Finance & Risk Management Trainer · CFA, ACCA, FRM",
     bio: "EBRD’da Energy Eurasia bo'yicha analitik, $340m+ portfelni boshqaradi. Asklepiy Group’da Finance Director va Internal Audit rahbari bo'lgan. Korporativ moliya, financial modelling va risk boshqaruvi bo'yicha treninglar olib boradi.",
