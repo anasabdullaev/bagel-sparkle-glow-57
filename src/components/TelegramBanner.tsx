@@ -113,7 +113,7 @@ export function TelegramBanner() {
               </p>
             </div>
             <a
-              href="https://t.me/"
+              href="https://t.me/fine_skills_academy"
               target="_blank"
               rel="noopener noreferrer"
               className="tg-shift group inline-flex shrink-0 items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.04] hover:shadow-xl md:text-base"
