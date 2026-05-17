@@ -54,7 +54,7 @@ export function Footer() {
 
                 {/* Telegram */}
                 <a
-                  href="#"
+                  href="https://t.me/fine_skills_academy"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Telegram"
