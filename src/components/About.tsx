@@ -118,34 +118,7 @@ export function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[420px]">
             {/* Text */}
             <div className="relative">
-              {/* Animated scroll-mouse icon above step number */}
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-                className="-mt-10 mb-6 flex flex-col items-start gap-1"
-                aria-hidden="true"
-              >
-                <svg width="34" height="50" viewBox="0 0 34 50" fill="none">
-                  <rect
-                    x="2"
-                    y="2"
-                    width="30"
-                    height="42"
-                    rx="15"
-                    stroke="#2C325E"
-                    strokeWidth="2.5"
-                  />
-                  <motion.rect
-                    x="15"
-                    y="9"
-                    width="4"
-                    height="9"
-                    rx="2"
-                    fill="#2C325E"
-                    animate={{ y: [0, 6, 0], opacity: [1, 0.4, 1] }}
-                    transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-                  />
-                </svg>
+              {/* Animated horizontal scroll-mouse icon */}
               {/* Animated horizontal scroll-mouse icon */}
               <motion.div
                 animate={{ x: [0, 6, 0] }}
