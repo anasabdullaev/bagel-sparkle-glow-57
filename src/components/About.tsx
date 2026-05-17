@@ -50,7 +50,7 @@ export function About() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [showHint, setShowHint] = useState(true)
 
-  // Auto-advance through steps (no scroll hijacking)
+  // Auto-advance through steps
   useEffect(() => {
     const id = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % N)
@@ -58,6 +58,31 @@ export function About() {
     }, 5000)
     return () => clearInterval(id)
   }, [N])
+
+  // Hijack wheel scroll when hovering box: convert to horizontal step navigation
+  useEffect(() => {
+    const el = boxRef.current
+    if (!el) return
+    let lock = false
+    const onWheel = (e: WheelEvent) => {
+      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX
+      const goingForward = delta > 0
+      const atStart = activeIndex === 0 && !goingForward
+      const atEnd = activeIndex === N - 1 && goingForward
+      if (atStart || atEnd) return // let page scroll
+      e.preventDefault()
+      if (lock) return
+      if (Math.abs(delta) < 8) return
+      lock = true
+      setShowHint(false)
+      setActiveIndex((prev) => Math.min(N - 1, Math.max(0, prev + (goingForward ? 1 : -1))))
+      setTimeout(() => {
+        lock = false
+      }, 550)
+    }
+    el.addEventListener('wheel', onWheel, { passive: false })
+    return () => el.removeEventListener('wheel', onWheel)
+  }, [activeIndex, N])
 
   useEffect(() => {
     if (activeIndex > 0) setShowHint(false)
@@ -93,45 +118,46 @@ export function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[420px]">
             {/* Text */}
             <div className="relative">
-              {/* Animated scroll-mouse icon above step number */}
+              {/* Animated horizontal scroll-mouse icon */}
+              {/* Animated horizontal scroll-mouse icon */}
               <motion.div
-                animate={{ y: [0, -6, 0] }}
+                animate={{ x: [0, 6, 0] }}
                 transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-                className="-mt-10 mb-6 flex flex-col items-start gap-1"
+                className="-mt-10 mb-6 flex items-center gap-2"
                 aria-hidden="true"
               >
-                <svg width="34" height="50" viewBox="0 0 34 50" fill="none">
+                {/* Sideways mouse */}
+                <svg width="50" height="34" viewBox="0 0 50 34" fill="none">
                   <rect
                     x="2"
                     y="2"
-                    width="30"
-                    height="42"
+                    width="42"
+                    height="30"
                     rx="15"
                     stroke="#2C325E"
                     strokeWidth="2.5"
                   />
                   <motion.rect
-                    x="15"
-                    y="9"
-                    width="4"
-                    height="9"
+                    x="9"
+                    y="15"
+                    width="9"
+                    height="4"
                     rx="2"
                     fill="#2C325E"
-                    animate={{ y: [0, 6, 0], opacity: [1, 0.4, 1] }}
+                    animate={{ x: [0, 6, 0], opacity: [1, 0.4, 1] }}
                     transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
                   />
                 </svg>
                 <motion.svg
-                  width="20"
-                  height="12"
-                  viewBox="0 0 20 12"
+                  width="14"
+                  height="22"
+                  viewBox="0 0 12 20"
                   fill="none"
-                  animate={{ y: [0, 4, 0], opacity: [0.4, 1, 0.4] }}
+                  animate={{ x: [0, 4, 0], opacity: [0.4, 1, 0.4] }}
                   transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-                  style={{ marginLeft: 7 }}
                 >
                   <path
-                    d="M2 2 L10 9 L18 2"
+                    d="M2 2 L9 10 L2 18"
                     stroke="#799A96"
                     strokeWidth="2.5"
                     strokeLinecap="round"
@@ -143,9 +169,9 @@ export function About() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={step.number}
-                  initial={{ y: 40, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -40, opacity: 0 }}
+                  initial={{ x: 40, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -40, opacity: 0 }}
                   transition={{ duration: 0.5, ease: 'easeOut' }}
                 >
                   <div
@@ -227,7 +253,7 @@ export function About() {
                   className="text-xs font-semibold uppercase tracking-[0.2em]"
                   style={{ color: '#799A96' }}
                 >
-                  Scroll
+                  Scroll →
                 </span>
               </motion.div>
             )}
