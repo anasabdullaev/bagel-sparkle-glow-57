@@ -146,17 +146,45 @@ export function About() {
                     transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
                   />
                 </svg>
+              {/* Animated horizontal scroll-mouse icon */}
+              <motion.div
+                animate={{ x: [0, 6, 0] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+                className="-mt-10 mb-6 flex items-center gap-2"
+                aria-hidden="true"
+              >
+                {/* Sideways mouse */}
+                <svg width="50" height="34" viewBox="0 0 50 34" fill="none">
+                  <rect
+                    x="2"
+                    y="2"
+                    width="42"
+                    height="30"
+                    rx="15"
+                    stroke="#2C325E"
+                    strokeWidth="2.5"
+                  />
+                  <motion.rect
+                    x="9"
+                    y="15"
+                    width="9"
+                    height="4"
+                    rx="2"
+                    fill="#2C325E"
+                    animate={{ x: [0, 6, 0], opacity: [1, 0.4, 1] }}
+                    transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                  />
+                </svg>
                 <motion.svg
-                  width="20"
-                  height="12"
-                  viewBox="0 0 20 12"
+                  width="14"
+                  height="22"
+                  viewBox="0 0 12 20"
                   fill="none"
-                  animate={{ y: [0, 4, 0], opacity: [0.4, 1, 0.4] }}
+                  animate={{ x: [0, 4, 0], opacity: [0.4, 1, 0.4] }}
                   transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-                  style={{ marginLeft: 7 }}
                 >
                   <path
-                    d="M2 2 L10 9 L18 2"
+                    d="M2 2 L9 10 L2 18"
                     stroke="#799A96"
                     strokeWidth="2.5"
                     strokeLinecap="round"
@@ -168,9 +196,9 @@ export function About() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={step.number}
-                  initial={{ y: 40, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -40, opacity: 0 }}
+                  initial={{ x: 40, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -40, opacity: 0 }}
                   transition={{ duration: 0.5, ease: 'easeOut' }}
                 >
                   <div
