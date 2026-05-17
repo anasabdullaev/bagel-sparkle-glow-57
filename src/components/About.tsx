@@ -253,7 +253,7 @@ export function About() {
                   className="text-xs font-semibold uppercase tracking-[0.2em]"
                   style={{ color: '#799A96' }}
                 >
-                  Scroll
+                  Scroll →
                 </span>
               </motion.div>
             )}
