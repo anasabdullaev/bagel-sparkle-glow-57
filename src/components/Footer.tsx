@@ -34,7 +34,7 @@ export function Footer() {
               <div className="flex items-center space-x-6">
                 {/* Instagram */}
                 <a
-                  href="#"
+                  href="https://www.instagram.com/fine_skills_academy/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
