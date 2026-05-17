@@ -110,6 +110,17 @@ export function Contact() {
               </button>
             </form>
           </div>
+
+          {/* Direct contact */}
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-base">
+            <a href="tel:+998946962699" className="font-semibold text-foreground hover:text-accent-blue transition-colors">
+              +998 94 696 26 99
+            </a>
+            <span className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground/40" />
+            <a href="mailto:info@fineskills.uz" className="font-semibold text-foreground hover:text-accent-blue transition-colors">
+              info@fineskills.uz
+            </a>
+          </div>
         </div>
 
         {/* Bottom Info */}
