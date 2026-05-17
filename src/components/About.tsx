@@ -50,7 +50,7 @@ export function About() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [showHint, setShowHint] = useState(true)
 
-  // Auto-advance through steps (no scroll hijacking)
+  // Auto-advance through steps
   useEffect(() => {
     const id = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % N)
@@ -58,6 +58,31 @@ export function About() {
     }, 5000)
     return () => clearInterval(id)
   }, [N])
+
+  // Hijack wheel scroll when hovering box: convert to horizontal step navigation
+  useEffect(() => {
+    const el = boxRef.current
+    if (!el) return
+    let lock = false
+    const onWheel = (e: WheelEvent) => {
+      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX
+      const goingForward = delta > 0
+      const atStart = activeIndex === 0 && !goingForward
+      const atEnd = activeIndex === N - 1 && goingForward
+      if (atStart || atEnd) return // let page scroll
+      e.preventDefault()
+      if (lock) return
+      if (Math.abs(delta) < 8) return
+      lock = true
+      setShowHint(false)
+      setActiveIndex((prev) => Math.min(N - 1, Math.max(0, prev + (goingForward ? 1 : -1))))
+      setTimeout(() => {
+        lock = false
+      }, 550)
+    }
+    el.addEventListener('wheel', onWheel, { passive: false })
+    return () => el.removeEventListener('wheel', onWheel)
+  }, [activeIndex, N])
 
   useEffect(() => {
     if (activeIndex > 0) setShowHint(false)
