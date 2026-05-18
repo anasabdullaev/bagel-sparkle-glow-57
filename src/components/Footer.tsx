@@ -66,6 +66,16 @@ export function Footer() {
                 </a>
 
               </div>
+
+              {/* Contacts */}
+              <div className="mt-6 space-y-2">
+                <a href="mailto:info@fineskills.uz" className="block text-background/80 hover:text-background gentle-animation text-sm">
+                  info@fineskills.uz
+                </a>
+                <a href="tel:+998946962699" className="block text-background/80 hover:text-background gentle-animation text-sm">
+                  +998 94 696 26 99
+                </a>
+              </div>
             </div>
           </div>
 
