@@ -1,0 +1,17 @@
+# Fine Skills Academy
+
+> Korporativ jamoalar uchun zamonaviy kasbiy ta'lim. Banklar, kompaniyalar va institutlar uchun amaliy treninglar (Toshkent, O'zbekiston).
+
+Fine Skills Academy delivers corporate training programs for banks, companies, and institutions in Uzbekistan. Focus areas include finance, IFRS, risk management, data analytics, AI tools, marketing, PR, and soft skills.
+
+## Pages
+
+- [Home](/): Overview of Fine Skills Academy — directions, audience, team, certificates, and contact.
+
+## Sections
+
+- [About](/#about): How trainings are organized (5-step process).
+- [Services](/#services): Training directions (Finance, IFRS, Risk, Data Analytics, AI, Marketing/PR, Soft Skills, ACCA/CFA/FRM).
+- [Team](/#team): Trainers and their specializations.
+- [Certificates](/#certificates): Issued certificates and recognitions.
+- [Contact](/#contact): Contact form, email info@fineskills.uz, phone +998 94 696 26 99.
