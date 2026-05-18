@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://bagel-sparkle-glow-57.lovable.app/sitemap.xml
