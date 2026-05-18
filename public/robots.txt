@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://bagel-sparkle-glow-57.lovable.app/sitemap.xml
+Sitemap: https://fineskills.uz/sitemap.xml
