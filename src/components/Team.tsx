@@ -423,7 +423,7 @@ export function Team() {
                   </div>
                 </div>
 
-                <div className="md:col-span-7 p-6 sm:p-8 lg:p-10">
+                <div className="flex-1 p-6 sm:p-8 lg:p-10">
                   <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/50">
                     Mutaxassis profili
                   </span>
