@@ -412,8 +412,8 @@ export function Team() {
               </button>
 
               <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
-                <div className="md:col-span-5 relative">
-                  <div className="aspect-[4/5] md:aspect-[3/4] bg-[#799A96] overflow-hidden">
+                <div className="md:col-span-5 relative md:sticky md:top-0 md:self-start md:h-[90vh] bg-[#799A96]">
+                  <div className="w-full h-full aspect-[4/5] md:aspect-auto overflow-hidden">
                     <ImageWithFallback
                       src={expanded.image}
                       alt={expanded.name}
