@@ -411,9 +411,9 @@ export function Team() {
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
-                <div className="md:col-span-5 relative md:sticky md:top-0 md:self-start md:h-[90vh] bg-[#799A96]">
-                  <div className="w-full h-full aspect-[4/5] md:aspect-auto overflow-hidden">
+              <div className="flex flex-col md:flex-row items-stretch">
+                <div className="md:w-[42%] md:shrink-0 bg-[#799A96] relative">
+                  <div className="aspect-[4/5] md:aspect-auto md:absolute md:inset-0 overflow-hidden">
                     <ImageWithFallback
                       src={expanded.image}
                       alt={expanded.name}
@@ -423,7 +423,7 @@ export function Team() {
                   </div>
                 </div>
 
-                <div className="md:col-span-7 p-6 sm:p-8 lg:p-10">
+                <div className="flex-1 p-6 sm:p-8 lg:p-10">
                   <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/50">
                     Mutaxassis profili
                   </span>
