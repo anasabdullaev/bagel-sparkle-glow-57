@@ -69,11 +69,19 @@ export function Footer() {
 
               {/* Contacts */}
               <div className="mt-6 space-y-2">
-                <a href="mailto:info@fineskills.uz" className="block text-background/80 hover:text-background gentle-animation text-sm">
-                  info@fineskills.uz
+                <a href="mailto:support@fineskills.uz" className="block text-background/80 hover:text-background gentle-animation text-sm">
+                  support@fineskills.uz
                 </a>
-                <a href="tel:+998946962699" className="block text-background/80 hover:text-background gentle-animation text-sm">
-                  +998 94 696 26 99
+                <a href="tel:+998947777227" className="block text-background/80 hover:text-background gentle-animation text-sm">
+                  +998 94 777 72 27
+                </a>
+                <a
+                  href="https://t.me/fineskills_support"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2 px-4 py-2 rounded-full bg-background text-foreground text-sm font-semibold hover:opacity-90 gentle-animation"
+                >
+                  Support (Telegram)
                 </a>
               </div>
             </div>
