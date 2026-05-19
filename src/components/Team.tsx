@@ -35,27 +35,31 @@ type Trainer = {
 
 const trainers: Trainer[] = [
   {
-    name: "INOM GOFUROV",
-    role: "Finance & Risk Management Trainer · CFA, ACCA, FRM",
-    bio: "EBRD’da Energy Eurasia bo'yicha analitik, $340m+ portfelni boshqaradi. Asklepiy Group’da Finance Director va Internal Audit rahbari bo'lgan. Korporativ moliya, financial modelling va risk boshqaruvi bo'yicha treninglar olib boradi.",
+    name: "MAMURJON M. RAHIMOV",
+    role: "Marketing Consultant, Business Trainer & Lecturer",
+    bio: "Xalqaro tajribaga ega marketing konsultanti, biznes trener va o'qituvchi. 2015 yildan beri SOE, SME va startaplarga marketing tadqiqotlari, strategiya va biznes rivojlantirishda yordam beradi. Uztelecom, Almalyk MMC, Navoi MMC, ARTEL va Caffelito Coffee kabi yirik kompaniyalar uchun korporativ treninglar olib borgan.",
     image: trainer1,
-    specialties: ['finance', 'acca'],
-    experience: "12+ yillik moliya tajribasi",
+    specialties: ['marketing'],
+    experience: "20+ yillik marketing va o'qituvchilik tajribasi",
     highlights: [
-      "EBRD — Energy Eurasia analitik, $340m+ portfel",
-      "Asklepiy Group — Finance Director va Internal Audit rahbari",
-      "MDIS Tashkent — CFA Quantitative Methods o'qituvchisi",
+      "Freelance Marketing Consultant — Uztelecom, Almalyk MMC, Navoi MMC, ARTEL",
+      "Webster University Tashkent — MBA Marketing 5000 Adjunct Lecturer (2020–hozirgi)",
+      "MDIS Tashkent — banklar uchun korporativ treninglar dizayneri (2010–hozirgi)",
+      "Westminster International University — Marketing bo'limi lektori (2009–2023)",
+      "YES loyihasi — 8–11 sinflar uchun milliy ta'lim dasturi mualliflaridan biri",
     ],
     education: [
-      "CFA Charterholder",
-      "ACCA Member",
-      "FRM Certified",
+      "MA in Economics — University of Illinois at Chicago (2005)",
+      "BBA Marketing — Emory University, Goizueta Business School (1999)",
+      "Certificate in Teaching Economics — UIC (2004)",
+      "ESMT Berlin — Specialized certificate for top managers (2017)",
     ],
     gallery: [trainer1],
     socials: {
       linkedin: "https://www.linkedin.com/",
       telegram: "https://t.me/",
     },
+
   },
   {
     name: "SANJAR BEKOV",
