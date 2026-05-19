@@ -113,12 +113,21 @@ export function Contact() {
 
           {/* Direct contact */}
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-base">
-            <a href="tel:+998946962699" className="font-semibold text-foreground hover:text-accent-blue transition-colors">
-              +998 94 696 26 99
+            <a href="tel:+998947777227" className="font-semibold text-foreground hover:text-accent-blue transition-colors">
+              +998 94 777 72 27
             </a>
             <span className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground/40" />
-            <a href="mailto:info@fineskills.uz" className="font-semibold text-foreground hover:text-accent-blue transition-colors">
-              info@fineskills.uz
+            <a href="mailto:support@fineskills.uz" className="font-semibold text-foreground hover:text-accent-blue transition-colors">
+              support@fineskills.uz
+            </a>
+            <span className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground/40" />
+            <a
+              href="https://t.me/fineskills_support"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-blue text-background font-semibold hover:opacity-90 transition-opacity"
+            >
+              Support (Telegram)
             </a>
           </div>
         </div>
