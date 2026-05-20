@@ -326,7 +326,7 @@ export function Team() {
                 {/* Image */}
                 <div className="lg:col-span-5 lg:order-2">
                   <div
-                    className="relative w-full aspect-[4/5] sm:aspect-square max-h-[55vh] lg:max-h-none mx-auto rounded-[24px] overflow-hidden cursor-pointer group"
+                    className="relative w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] lg:w-full lg:h-auto lg:aspect-square lg:max-h-none mx-auto rounded-full lg:rounded-[24px] overflow-hidden cursor-pointer group"
                     style={{ backgroundColor: '#799A96', maxWidth: '420px' }}
                     onClick={() => setExpanded(t)}
                   >
