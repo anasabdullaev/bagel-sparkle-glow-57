@@ -505,6 +505,14 @@ export function Team() {
                     </div>
                     <SocialLinks socials={expanded.socials} size="md" />
                   </div>
+
+                  <button
+                    onClick={() => setExpanded(null)}
+                    className="mt-8 w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-black text-sm font-semibold uppercase tracking-wider hover:bg-white/90 transition-colors"
+                  >
+                    <ChevronLeft className="w-4 h-4" strokeWidth={2} />
+                    Orqaga
+                  </button>
                 </div>
               </div>
             </motion.div>
