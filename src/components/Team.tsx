@@ -193,9 +193,11 @@ export function Team() {
     }
 
     // Reset scroll then focus modal container without auto-scrolling
+    const scrollY = window.scrollY
     requestAnimationFrame(() => {
       if (modalRef.current) modalRef.current.scrollTop = 0
       modalRef.current?.focus({ preventScroll: true })
+      window.scrollTo(0, scrollY)
     })
 
     const handleKey = (e: KeyboardEvent) => {
