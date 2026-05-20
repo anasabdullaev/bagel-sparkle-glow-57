@@ -398,7 +398,7 @@ export function Team() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto p-4 sm:p-6 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-black/70 backdrop-blur-sm lg:p-6"
             onClick={() => setExpanded(null)}
             role="dialog"
             aria-modal="true"
@@ -412,18 +412,18 @@ export function Team() {
               exit={{ y: 20, opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-[90%] max-w-5xl max-h-[80vh] md:w-full md:max-h-[calc(100dvh-3rem)] overflow-y-auto rounded-[20px] md:rounded-[24px] bg-neutral-950 border border-white/10 text-white outline-none p-5 md:p-0"
+              className="relative w-[90vw] md:w-[60vw] lg:w-full max-w-5xl h-[70vh] lg:h-auto max-h-[70vh] lg:max-h-[calc(100dvh-3rem)] overflow-y-auto rounded-[20px] lg:rounded-[24px] bg-neutral-950 border border-white/10 text-white outline-none p-5 lg:p-0 shadow-2xl"
             >
               <button
                 onClick={() => setExpanded(null)}
                 aria-label="Yopish"
-                className="sticky top-0 float-right md:fixed md:top-4 md:right-4 z-[10000] w-10 h-10 md:w-11 md:h-11 rounded-full bg-white text-black shadow-lg hover:bg-white/90 border border-black/10 flex items-center justify-center"
+                className="sticky top-3 float-right lg:fixed lg:top-4 lg:right-4 z-[10000] w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-white text-black shadow-lg hover:bg-white/90 border border-black/10 flex items-center justify-center"
               >
                 <X className="w-5 h-5" strokeWidth={2.2} />
               </button>
 
-              <div className="flex flex-col md:flex-row md:items-stretch">
-                <div className="hidden md:block md:w-[42%] md:shrink-0 bg-[#799A96] relative md:self-stretch md:h-auto overflow-hidden">
+              <div className="flex flex-col lg:flex-row lg:items-stretch">
+                <div className="hidden lg:block lg:w-[42%] lg:shrink-0 bg-[#799A96] relative lg:self-stretch lg:h-auto overflow-hidden">
                   <div className="absolute inset-0">
                     <ImageWithFallback
                       src={expanded.image}
@@ -434,7 +434,7 @@ export function Team() {
                   </div>
                 </div>
 
-                <div className="flex-1 md:p-8 lg:p-10">
+                <div className="flex-1 lg:p-10">
                   <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/50">
                     Mutaxassis profili
                   </span>
