@@ -127,9 +127,10 @@ export function Hero() {
             {/* Navigation Menu */}
             <div className="hidden md:flex items-center space-x-8">
               <a href="#services" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Yo'nalishlar</a>
-              <a href="#portfolio" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Treninglar</a>
+              <a href="#portfolio" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Biz haqimizda</a>
               <a href="#about" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Jarayon</a>
-              <a href="#awards" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Formatlar</a>
+              <a href="#team" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Mutaxassislar</a>
+
               <a href="#contact" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Aloqa</a>
             </div>
 
@@ -199,9 +200,10 @@ export function Hero() {
             {/* Mobile Navigation Links */}
             <div className="flex flex-col space-y-4 text-white">
               <a href="#services" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Yo'nalishlar</a>
-              <a href="#portfolio" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Treninglar</a>
+              <a href="#portfolio" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Biz haqimizda</a>
               <a href="#about" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Jarayon</a>
-              <a href="#awards" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Formatlar</a>
+              <a href="#team" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Mutaxassislar</a>
+
               <a href="#contact" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Aloqa</a>
             </div>
 
