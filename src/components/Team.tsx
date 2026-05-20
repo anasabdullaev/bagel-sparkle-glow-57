@@ -192,12 +192,10 @@ export function Team() {
       ).filter((el) => !el.hasAttribute('aria-hidden'))
     }
 
-    // Initial focus (preventScroll so the modal stays scrolled to top)
+    // Reset scroll then focus modal container without auto-scrolling
     requestAnimationFrame(() => {
-      const focusables = getFocusable()
-      const target = focusables[0] ?? modalRef.current
-      target?.focus({ preventScroll: true })
       if (modalRef.current) modalRef.current.scrollTop = 0
+      modalRef.current?.focus({ preventScroll: true })
     })
 
     const handleKey = (e: KeyboardEvent) => {
