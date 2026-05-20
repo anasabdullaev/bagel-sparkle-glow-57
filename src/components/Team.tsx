@@ -304,14 +304,48 @@ export function Team() {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: direction > 0 ? -80 : 80, opacity: 0 }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
+                className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center"
               >
-                <div className="lg:col-span-7 order-2 lg:order-1">
-                  <h3 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-[1.05] mb-6 text-white">
+                {/* Mobile: name + tags above image */}
+                <div className="lg:hidden">
+                  <h3 className="text-3xl sm:text-4xl font-black uppercase leading-[1.05] mb-4 text-white">
+                    {t.name}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {t.specialties.map((s) => (
+                      <span
+                        key={s}
+                        className="px-3 py-1 rounded-full border border-white/25 text-xs font-semibold uppercase tracking-wider text-white/80"
+                      >
+                        {specialtyLabels[s]}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Image */}
+                <div className="lg:col-span-5 lg:order-2">
+                  <div
+                    className="relative w-full aspect-[4/5] sm:aspect-square max-h-[55vh] lg:max-h-none mx-auto rounded-[24px] overflow-hidden cursor-pointer group"
+                    style={{ backgroundColor: '#799A96', maxWidth: '420px' }}
+                    onClick={() => setExpanded(t)}
+                  >
+                    <ImageWithFallback
+                      src={t.image}
+                      alt={t.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      style={{ objectPosition: '50% 22%' }}
+                    />
+                  </div>
+                </div>
+
+                {/* Bio + CTA (desktop also has name/tags here) */}
+                <div className="lg:col-span-7 lg:order-1">
+                  <h3 className="hidden lg:block text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-[1.05] mb-6 text-white">
                     {t.name}
                   </h3>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="hidden lg:flex flex-wrap gap-2 mb-6">
                     {t.specialties.map((s) => (
                       <span
                         key={s}
@@ -322,7 +356,7 @@ export function Team() {
                     ))}
                   </div>
 
-                  <p className="text-base lg:text-lg text-white/75 leading-relaxed max-w-2xl mb-8">
+                  <p className="text-base lg:text-lg text-white/75 leading-relaxed max-w-2xl mb-6 lg:mb-8">
                     {t.bio}
                   </p>
 
@@ -333,21 +367,6 @@ export function Team() {
                     Batafsil ma'lumot
                     <ChevronRight className="w-4 h-4" strokeWidth={2} />
                   </button>
-                </div>
-
-                <div className="lg:col-span-5 order-1 lg:order-2">
-                  <div
-                    className="relative w-full aspect-square rounded-[24px] overflow-hidden cursor-pointer group"
-                    style={{ backgroundColor: '#799A96' }}
-                    onClick={() => setExpanded(t)}
-                  >
-                    <ImageWithFallback
-                      src={t.image}
-                      alt={t.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      style={{ objectPosition: '50% 22%' }}
-                    />
-                  </div>
                 </div>
               </motion.div>
             </AnimatePresence>
