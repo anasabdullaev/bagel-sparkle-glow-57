@@ -43,7 +43,7 @@ function LanguageToggle({ className = '' }: { className?: string }) {
 }
 
 export function Hero() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [currentImage, setCurrentImage] = useState(0)
@@ -231,19 +231,21 @@ export function Hero() {
       >
         <div className="max-w-2xl">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight text-white">
-            {t(
-              <>
-                <span className="block">JAMOANGIZ</span>
-                <span className="block">SALOHIYATINI</span>
-                <span className="block">KUCHAYTIRAMIZ</span>
-              </> as unknown as string,
+            {lang === 'en' ? (
               <>
                 <span className="block">EMPOWER</span>
                 <span className="block">YOUR TEAM'S</span>
                 <span className="block">POTENTIAL</span>
-              </> as unknown as string
+              </>
+            ) : (
+              <>
+                <span className="block">JAMOANGIZ</span>
+                <span className="block">SALOHIYATINI</span>
+                <span className="block">KUCHAYTIRAMIZ</span>
+              </>
             )}
           </h1>
+
           <p className="mt-4 text-base sm:text-lg text-white/80 max-w-xl">
             {t(
               'Fine Skills Academy — kompaniyalar, banklar va institutlar uchun amaliy korporativ treninglar.',
