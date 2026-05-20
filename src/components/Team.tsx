@@ -498,12 +498,6 @@ export function Team() {
                     </div>
                   )}
 
-                  <div>
-                    <div className="text-xs font-semibold tracking-[0.2em] uppercase text-white/60 mb-3">
-                      Aloqa
-                    </div>
-                    <SocialLinks socials={expanded.socials} size="md" />
-                  </div>
 
                   <button
                     onClick={() => setExpanded(null)}
