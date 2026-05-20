@@ -353,8 +353,8 @@ export function Team() {
                       <ImageWithFallback
                         src={t.image}
                         alt={t.name}
-                        className="w-full h-full object-cover lg:scale-[1.45] lg:origin-top transition-transform duration-700 ease-out group-hover:scale-[1.04] lg:group-hover:scale-[1.5]"
-                        style={{ objectPosition: '50% 0%' }}
+                        className="block w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                        style={{ objectPosition: 'center top' }}
                       />
                       <div className="pointer-events-none absolute inset-0 rounded-2xl lg:rounded-[18px] ring-1 ring-inset ring-white/40" />
                     </div>
@@ -430,8 +430,8 @@ export function Team() {
                     <ImageWithFallback
                       src={expanded.image}
                       alt={expanded.name}
-                      className="w-full h-full object-cover scale-[1.45] origin-top"
-                      style={{ objectPosition: '50% 0%' }}
+                      className="block w-full h-full object-cover"
+                      style={{ objectPosition: 'center top' }}
                     />
                   </div>
                 </div>
