@@ -306,55 +306,13 @@ export function Team() {
                 transition={{ duration: 0.4, ease: 'easeOut' }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center"
               >
-                {/* Mobile: name + tags above image */}
-                <div className="lg:hidden">
-                  <h3 className="text-3xl sm:text-4xl font-black uppercase leading-[1.05] mb-4 text-white">
-                    {t.name}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {t.specialties.map((s) => (
-                      <span
-                        key={s}
-                        className="px-3 py-1 rounded-full border border-white/25 text-xs font-semibold uppercase tracking-wider text-white/80"
-                      >
-                        {specialtyLabels[s]}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Image */}
-                <div className="lg:col-span-5 lg:order-2">
-                  <div
-                    className="relative w-[190px] h-[190px] sm:w-[230px] sm:h-[230px] lg:w-full lg:h-auto lg:aspect-square lg:max-h-none mx-auto rounded-full lg:rounded-[20px] p-[2px] cursor-pointer group transition-all duration-500 hover:shadow-[0_20px_50px_-12px_rgba(121,154,150,0.55)]"
-                    style={{
-                      maxWidth: '424px',
-                      background: 'linear-gradient(135deg, #799A96 0%, #A8C5C1 45%, #2C325E 100%)',
-                      boxShadow: '0 10px 30px -10px rgba(44,50,94,0.35)',
-                    }}
-                    onClick={() => setExpanded(t)}
-                  >
-                    <div
-                      className="relative w-full h-full rounded-full lg:rounded-[18px] overflow-hidden bg-white"
-                    >
-                      <ImageWithFallback
-                        src={t.image}
-                        alt={t.name}
-                        className="w-full h-full object-cover scale-[1.45] origin-top transition-transform duration-700 ease-out group-hover:scale-[1.5]"
-                        style={{ objectPosition: '50% 0%' }}
-                      />
-                      <div className="pointer-events-none absolute inset-0 rounded-full lg:rounded-[18px] ring-1 ring-inset ring-white/40" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bio + CTA (desktop also has name/tags here) */}
+                {/* Bio + CTA (text first on mobile, left column on desktop) */}
                 <div className="lg:col-span-7 lg:order-1">
-                  <h3 className="hidden lg:block text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-[1.05] mb-6 text-white">
+                  <h3 className="text-3xl sm:text-4xl lg:text-6xl font-black uppercase leading-[1.05] mb-4 lg:mb-6 text-white">
                     {t.name}
                   </h3>
 
-                  <div className="hidden lg:flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4 lg:mb-6">
                     {t.specialties.map((s) => (
                       <span
                         key={s}
@@ -376,6 +334,31 @@ export function Team() {
                     Batafsil ma'lumot
                     <ChevronRight className="w-4 h-4" strokeWidth={2} />
                   </button>
+                </div>
+
+                {/* Image (below text on mobile/tablet, right column on desktop) */}
+                <div className="lg:col-span-5 lg:order-2">
+                  <div
+                    className="relative w-full h-[200px] lg:w-full lg:h-auto lg:aspect-square mx-auto rounded-2xl lg:rounded-[20px] p-[2px] cursor-pointer group transition-all duration-500 hover:shadow-[0_20px_50px_-12px_rgba(121,154,150,0.55)]"
+                    style={{
+                      maxWidth: '424px',
+                      background: 'linear-gradient(135deg, #799A96 0%, #A8C5C1 45%, #2C325E 100%)',
+                      boxShadow: '0 10px 30px -10px rgba(44,50,94,0.35)',
+                    }}
+                    onClick={() => setExpanded(t)}
+                  >
+                    <div
+                      className="relative w-full h-full rounded-2xl lg:rounded-[18px] overflow-hidden bg-white"
+                    >
+                      <ImageWithFallback
+                        src={t.image}
+                        alt={t.name}
+                        className="w-full h-full object-cover lg:scale-[1.45] lg:origin-top transition-transform duration-700 ease-out group-hover:scale-[1.04] lg:group-hover:scale-[1.5]"
+                        style={{ objectPosition: '50% 0%' }}
+                      />
+                      <div className="pointer-events-none absolute inset-0 rounded-2xl lg:rounded-[18px] ring-1 ring-inset ring-white/40" />
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </AnimatePresence>
