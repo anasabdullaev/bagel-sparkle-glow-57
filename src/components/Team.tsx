@@ -339,7 +339,7 @@ export function Team() {
                 {/* Image (below text on mobile/tablet, right column on desktop) */}
                 <div className="lg:col-span-5 lg:order-2">
                   <div
-                    className="relative w-full h-[280px] lg:w-full lg:h-auto lg:aspect-square mx-auto rounded-2xl lg:rounded-[20px] p-[2px] cursor-pointer group transition-all duration-500 hover:shadow-[0_20px_50px_-12px_rgba(121,154,150,0.55)]"
+                    className="relative w-full h-auto lg:aspect-square mx-auto rounded-2xl p-[2px] cursor-pointer group transition-all duration-500 hover:shadow-[0_20px_50px_-12px_rgba(121,154,150,0.55)]"
                     style={{
                       maxWidth: '424px',
                       background: 'linear-gradient(135deg, #799A96 0%, #A8C5C1 45%, #2C325E 100%)',
@@ -347,16 +347,14 @@ export function Team() {
                     }}
                     onClick={() => setExpanded(t)}
                   >
-                    <div
-                      className="relative w-full h-full rounded-2xl lg:rounded-[18px] overflow-hidden bg-white"
-                    >
+                    <div className="relative w-full h-full rounded-2xl overflow-hidden bg-white">
                       <ImageWithFallback
                         src={t.image}
                         alt={t.name}
-                        className="block w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                        style={{ objectPosition: 'center top' }}
+                        className="block w-full h-auto lg:h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                        style={{ objectPosition: 'center top', borderRadius: '16px' }}
                       />
-                      <div className="pointer-events-none absolute inset-0 rounded-2xl lg:rounded-[18px] ring-1 ring-inset ring-white/40" />
+                      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/40" />
                     </div>
                   </div>
                 </div>
