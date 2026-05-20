@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Phone, Mail, Send } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 
 export function Contact() {
