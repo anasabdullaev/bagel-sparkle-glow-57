@@ -98,7 +98,7 @@ export function Services() {
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-2 h-2 bg-primary rounded-full" />
             <span className="text-sm font-semibold tracking-widest uppercase text-primary">
-              Trening yo'nalishlari
+              Yo'nalishlar
             </span>
             <div className="w-2 h-2 bg-primary rounded-full" />
           </div>
