@@ -113,21 +113,29 @@ export function Contact() {
           </div>
 
           {/* Direct contact */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-base">
-            <a href="tel:+998947777227" className="font-semibold text-foreground hover:text-accent-blue transition-colors">
+          <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
+            <a
+              href="tel:+998947777227"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-background border border-border text-foreground font-semibold text-sm hover:border-foreground/40 hover:shadow-sm transition-all"
+            >
+              <Phone className="w-4 h-4" strokeWidth={2.2} />
               +998 94 777 72 27
             </a>
-            <span className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground/40" />
-            <a href="mailto:support@fineskills.uz" className="font-semibold text-foreground hover:text-accent-blue transition-colors">
+            <a
+              href="mailto:support@fineskills.uz"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-background border border-border text-foreground font-semibold text-sm hover:border-foreground/40 hover:shadow-sm transition-all"
+            >
+              <Mail className="w-4 h-4" strokeWidth={2.2} />
               support@fineskills.uz
             </a>
-            <span className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground/40" />
             <a
               href="https://t.me/fineskills_support"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-blue text-background font-semibold hover:opacity-90 transition-opacity"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full font-semibold text-sm text-white hover:opacity-95 transition-opacity shadow-md hover:shadow-lg"
+              style={{ backgroundColor: '#229ED9' }}
             >
+              <Send className="w-4 h-4 fill-white" strokeWidth={2.2} />
               Support (Telegram)
             </a>
           </div>
