@@ -339,7 +339,7 @@ export function Team() {
                 {/* Image (below text on mobile/tablet, right column on desktop) */}
                 <div className="lg:col-span-5 lg:order-2">
                   <div
-                    className="relative w-full h-[200px] lg:w-full lg:h-auto lg:aspect-square mx-auto rounded-2xl lg:rounded-[20px] p-[2px] cursor-pointer group transition-all duration-500 hover:shadow-[0_20px_50px_-12px_rgba(121,154,150,0.55)]"
+                    className="relative w-full h-[280px] lg:w-full lg:h-auto lg:aspect-square mx-auto rounded-2xl lg:rounded-[20px] p-[2px] cursor-pointer group transition-all duration-500 hover:shadow-[0_20px_50px_-12px_rgba(121,154,150,0.55)]"
                     style={{
                       maxWidth: '424px',
                       background: 'linear-gradient(135deg, #799A96 0%, #A8C5C1 45%, #2C325E 100%)',
