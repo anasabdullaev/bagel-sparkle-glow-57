@@ -398,7 +398,7 @@ export function Team() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[9999] flex items-start md:items-center justify-center overflow-y-auto p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
             onClick={() => setExpanded(null)}
             role="dialog"
             aria-modal="true"
@@ -412,12 +412,12 @@ export function Team() {
               exit={{ y: 20, opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-[24px] bg-neutral-950 border border-white/10 text-white outline-none pt-16 md:pt-0"
+              className="relative w-full max-w-5xl max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-3rem)] overflow-y-auto rounded-[24px] bg-neutral-950 border border-white/10 text-white outline-none pt-16 md:pt-0"
             >
               <button
                 onClick={() => setExpanded(null)}
                 aria-label="Yopish"
-                className="fixed md:absolute top-4 right-4 z-50 w-11 h-11 rounded-full bg-white text-black shadow-lg hover:bg-white/90 border border-black/10 flex items-center justify-center"
+                className="fixed top-4 right-4 z-[10000] w-11 h-11 rounded-full bg-white text-black shadow-lg hover:bg-white/90 border border-black/10 flex items-center justify-center"
               >
                 <X className="w-5 h-5" strokeWidth={2.2} />
               </button>
