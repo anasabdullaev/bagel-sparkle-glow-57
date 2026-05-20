@@ -406,19 +406,19 @@ export function Team() {
               <button
                 onClick={() => setExpanded(null)}
                 aria-label="Yopish"
-                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center"
+                className="sticky md:absolute top-4 right-4 ml-auto z-20 w-10 h-10 -mb-10 rounded-full bg-black/60 backdrop-blur md:bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center"
               >
                 <X className="w-5 h-5" />
               </button>
 
               <div className="flex flex-col md:flex-row items-stretch">
                 <div className="md:w-[42%] md:shrink-0 bg-[#799A96] relative">
-                  <div className="aspect-[4/5] md:aspect-auto md:absolute md:inset-0 overflow-hidden">
+                  <div className="h-[36vh] md:h-auto md:absolute md:inset-0 overflow-hidden">
                     <ImageWithFallback
                       src={expanded.image}
                       alt={expanded.name}
                       className="w-full h-full object-cover"
-                      style={{ objectPosition: '50% 22%' }}
+                      style={{ objectPosition: '50% 18%' }}
                     />
                   </div>
                 </div>
