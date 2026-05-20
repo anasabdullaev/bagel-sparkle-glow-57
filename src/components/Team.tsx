@@ -423,10 +423,7 @@ export function Team() {
               </button>
 
               <div className="flex flex-col md:flex-row md:items-stretch">
-                <div
-                  className="w-full md:w-[42%] md:shrink-0 bg-[#799A96] relative md:self-stretch md:h-auto md:max-h-none overflow-hidden"
-                  style={{ height: '200px', maxHeight: '200px' }}
-                >
+                <div className="w-full md:w-[42%] md:shrink-0 bg-[#799A96] relative md:self-stretch h-[200px] max-h-[200px] md:h-auto md:max-h-none overflow-hidden">
                   <div className="absolute inset-0">
                     <ImageWithFallback
                       src={expanded.image}
