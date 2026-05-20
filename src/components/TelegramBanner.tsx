@@ -1,4 +1,5 @@
 import { Send } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const TELEGRAM_GRADIENT = "linear-gradient(135deg, #2AABEE 0%, #229ED9 100%)";
 
@@ -32,20 +33,19 @@ const TG_ANIMATIONS = `
 `;
 
 export function TelegramBanner() {
+  const { t } = useLanguage();
   return (
     <section
-      aria-label="Telegram kanalimizga qo'shiling"
+      aria-label={t("Telegram kanalimizga qo'shiling", 'Join our Telegram channel')}
       className="relative w-full overflow-hidden py-28 md:py-36"
       style={{ backgroundColor: "#2C325E" }}
     >
       <style>{TG_ANIMATIONS}</style>
-      {/* Dot/grain texture overlay */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-30 mix-blend-overlay"
         style={{
-          backgroundImage:
-            "radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px)",
           backgroundSize: "6px 6px",
         }}
       />
@@ -58,21 +58,18 @@ export function TelegramBanner() {
         }}
       />
 
-      {/* Soft Telegram-blue glow */}
       <div
         aria-hidden
         className="tg-glow pointer-events-none absolute left-1/2 top-1/2 h-[480px] w-[480px] rounded-full blur-3xl"
         style={{ background: TELEGRAM_GRADIENT }}
       />
 
-      {/* Decorative empty circle, top right */}
       <div
         aria-hidden
         className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rounded-full border border-white/25 md:h-80 md:w-80"
       />
 
       <div className="relative mx-auto max-w-5xl px-6">
-        {/* Frosted glass card */}
         <div
           className="tg-fade-up relative rounded-2xl border px-8 py-12 backdrop-blur-xl md:px-12 md:py-14"
           style={{
@@ -85,8 +82,7 @@ export function TelegramBanner() {
               <h3
                 className="mb-3 text-3xl font-extrabold tracking-tight text-white md:text-4xl"
                 style={{
-                  fontFamily:
-                    "'Manrope', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+                  fontFamily: "'Manrope', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
                   letterSpacing: "-0.02em",
                 }}
               >
@@ -100,16 +96,16 @@ export function TelegramBanner() {
                 >
                   Telegram
                 </span>{" "}
-                kanalimizga qo'shiling
+                {t("kanalimizga qo'shiling", 'channel — join us')}
               </h3>
               <p
                 className="text-base leading-relaxed text-white/85 md:text-lg"
-                style={{
-                  fontFamily:
-                    "'Manrope', 'Inter', system-ui, -apple-system, sans-serif",
-                }}
+                style={{ fontFamily: "'Manrope', 'Inter', system-ui, -apple-system, sans-serif" }}
               >
-                Fine Skills Academy kanalida treninglar, foydali materiallar va maxsus takliflar haqida birinchilardan bo'lib xabardor bo'ling.
+                {t(
+                  "Fine Skills Academy kanalida treninglar, foydali materiallar va maxsus takliflar haqida birinchilardan bo'lib xabardor bo'ling.",
+                  'Be the first to hear about new training programs, useful materials and special offers on the Fine Skills Academy channel.'
+                )}
               </p>
             </div>
             <a
@@ -118,11 +114,9 @@ export function TelegramBanner() {
               rel="noopener noreferrer"
               className="tg-shift group inline-flex shrink-0 items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.04] hover:shadow-xl md:text-base"
               style={{
-                backgroundImage:
-                  "linear-gradient(135deg, #2AABEE 0%, #229ED9 50%, #2AABEE 100%)",
+                backgroundImage: "linear-gradient(135deg, #2AABEE 0%, #229ED9 50%, #2AABEE 100%)",
                 boxShadow: "0 12px 32px -8px rgba(42,171,238,0.6)",
-                fontFamily:
-                  "'Manrope', 'Inter', system-ui, -apple-system, sans-serif",
+                fontFamily: "'Manrope', 'Inter', system-ui, -apple-system, sans-serif",
                 letterSpacing: "-0.01em",
               }}
             >
@@ -131,19 +125,17 @@ export function TelegramBanner() {
                 strokeWidth={2}
                 fill="white"
               />
-              Obuna bo'lish
+              {t("Obuna bo'lish", 'Subscribe')}
             </a>
           </div>
         </div>
 
-        {/* Smaller Telegram badge below-right */}
         <div
           aria-hidden
           className="tg-badge-float absolute -bottom-8 right-6 z-20 flex h-16 w-16 items-center justify-center rounded-full shadow-2xl md:right-24 md:h-20 md:w-20"
           style={{
             background: TELEGRAM_GRADIENT,
-            boxShadow:
-              "0 16px 40px -8px rgba(42,171,238,0.55), 0 0 0 5px rgba(255,255,255,0.05)",
+            boxShadow: "0 16px 40px -8px rgba(42,171,238,0.55), 0 0 0 5px rgba(255,255,255,0.05)",
           }}
         >
           <Send

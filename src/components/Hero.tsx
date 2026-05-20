@@ -8,15 +8,46 @@ import heroImg2 from '../assets/hero-mentorship-2.jpg'
 import heroImg3 from '../assets/hero-mentorship-3.jpg'
 import heroImg4 from '../assets/hero-mentorship-4.jpg'
 import logoFineSkills from '../assets/logo-fineskills.jpg'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const heroImages = [heroImg1, heroImg2, heroImg3, heroImg4]
 
+function LanguageToggle({ className = '' }: { className?: string }) {
+  const { lang, setLang } = useLanguage()
+  return (
+    <div
+      className={`inline-flex items-center rounded-full border border-white/25 bg-white/5 backdrop-blur-md p-0.5 text-xs font-semibold tracking-wider ${className}`}
+      role="group"
+      aria-label="Language switcher"
+    >
+      <button
+        onClick={() => setLang('uz')}
+        aria-pressed={lang === 'uz'}
+        className={`px-3 py-1.5 rounded-full transition-all ${
+          lang === 'uz' ? 'bg-white text-black' : 'text-white/80 hover:text-white'
+        }`}
+      >
+        UZ
+      </button>
+      <button
+        onClick={() => setLang('en')}
+        aria-pressed={lang === 'en'}
+        className={`px-3 py-1.5 rounded-full transition-all ${
+          lang === 'en' ? 'bg-white text-black' : 'text-white/80 hover:text-white'
+        }`}
+      >
+        EN
+      </button>
+    </div>
+  )
+}
+
 export function Hero() {
+  const { t, lang } = useLanguage()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [currentImage, setCurrentImage] = useState(0)
 
-  // Slideshow rotation
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length)
@@ -24,54 +55,36 @@ export function Hero() {
     return () => clearInterval(interval)
   }, [])
 
-  // Scroll detection
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY
-      setIsScrolled(scrollTop > 50) // Show background after 50px scroll
+      setIsScrolled(scrollTop > 50)
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-
-  // Handle body scroll lock when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'unset'
     }
-
-    // Cleanup on unmount
     return () => {
       document.body.style.overflow = 'unset'
     }
   }, [isMobileMenuOpen])
 
-  // Close mobile menu on scroll
   useEffect(() => {
     const handleScroll = () => {
-      if (isMobileMenuOpen) {
-        setIsMobileMenuOpen(false)
-      }
+      if (isMobileMenuOpen) setIsMobileMenuOpen(false)
     }
-
-    if (isMobileMenuOpen) {
-      window.addEventListener('scroll', handleScroll)
-    }
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+    if (isMobileMenuOpen) window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [isMobileMenuOpen])
-
-
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black">
-      {/* Cinematic Slideshow Background */}
       <div className="absolute inset-0">
         <AnimatePresence mode="sync">
           <motion.div
@@ -84,38 +97,33 @@ export function Hero() {
           >
             <img
               src={heroImages[currentImage]}
-              alt="Korporativ trening va mentorlik"
+              alt={t('Korporativ trening va mentorlik', 'Corporate training and mentorship')}
               className="w-full h-full object-cover"
             />
           </motion.div>
         </AnimatePresence>
-        {/* Cinematic gradient overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/60" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
       </div>
 
-      {/* Full-Width Navbar */}
       <motion.nav
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
         className="fixed top-0 left-0 right-0 w-full z-[110]"
       >
-        <div 
+        <div
           className={`w-full px-6 sm:px-8 lg:px-12 py-4 transition-all duration-300 ease-out ${
-            isScrolled 
-              ? 'bg-black/80 backdrop-blur-xl border-b border-white/10' 
+            isScrolled
+              ? 'bg-black/80 backdrop-blur-xl border-b border-white/10'
               : 'bg-transparent'
           }`}
         >
           <div className="flex items-center justify-between">
-            {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="flex items-center cursor-pointer"
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-              }}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               <img
                 src={logoFineSkills}
@@ -124,20 +132,17 @@ export function Hero() {
               />
             </motion.div>
 
-            {/* Navigation Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#services" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Yo'nalishlar</a>
-              <a href="#portfolio" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Biz haqimizda</a>
-              <a href="#about" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Jarayon</a>
-              <a href="#team" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Mutaxassislar</a>
-
-              <a href="#contact" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">Aloqa</a>
+              <a href="#services" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">{t("Yo'nalishlar", 'Directions')}</a>
+              <a href="#portfolio" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">{t('Biz haqimizda', 'About us')}</a>
+              <a href="#about" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">{t('Jarayon', 'Process')}</a>
+              <a href="#team" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">{t('Mutaxassislar', 'Trainers')}</a>
+              <a href="#contact" className="text-white hover:text-white/80 font-medium gentle-animation hover:scale-105">{t('Aloqa', 'Contact')}</a>
             </div>
 
-            {/* Right Side - CTA + Mobile Menu */}
             <div className="flex items-center space-x-3 relative">
-              
-              {/* CTA Button - Hidden on mobile */}
+              <LanguageToggle className="hidden sm:inline-flex" />
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -147,13 +152,12 @@ export function Hero() {
                 }}
                 className="hidden sm:block bg-red-600 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-md hover:bg-red-700 gentle-animation ml-4 cursor-pointer"
               >
-                Maslahat olish
+                {t('Maslahat olish', 'Request consultation')}
               </motion.button>
 
-              {/* Mobile Hamburger Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label={isMobileMenuOpen ? 'Menyuni yopish' : 'Menyuni ochish'}
+                aria-label={isMobileMenuOpen ? t('Menyuni yopish', 'Close menu') : t('Menyuni ochish', 'Open menu')}
                 aria-expanded={isMobileMenuOpen}
                 className="md:hidden glass-effect p-3 rounded-full text-white hover:bg-white/20 active:bg-white/30 gentle-animation cursor-pointer z-[120] relative"
               >
@@ -164,7 +168,6 @@ export function Hero() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -176,7 +179,6 @@ export function Hero() {
         />
       )}
 
-      {/* Mobile Menu Panel */}
       <motion.div
         initial={{ x: '100%' }}
         animate={{ x: isMobileMenuOpen ? '0%' : '100%' }}
@@ -185,29 +187,26 @@ export function Hero() {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-col h-full">
-          {/* Close Button at the top */}
-          <div className="flex justify-end p-4">
+          <div className="flex justify-between items-center p-4">
+            <LanguageToggle />
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              aria-label="Menyuni yopish"
+              aria-label={t('Menyuni yopish', 'Close menu')}
               className="glass-effect p-3 rounded-full text-white hover:bg-white/20 active:bg-white/30 gentle-animation cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
-          
-          <div className="flex flex-col px-6 pb-6 h-full">
-            {/* Mobile Navigation Links */}
-            <div className="flex flex-col space-y-4 text-white">
-              <a href="#services" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Yo'nalishlar</a>
-              <a href="#portfolio" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Biz haqimizda</a>
-              <a href="#about" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Jarayon</a>
-              <a href="#team" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Mutaxassislar</a>
 
-              <a href="#contact" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>Aloqa</a>
+          <div className="flex flex-col px-6 pb-6 h-full">
+            <div className="flex flex-col space-y-4 text-white">
+              <a href="#services" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>{t("Yo'nalishlar", 'Directions')}</a>
+              <a href="#portfolio" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>{t('Biz haqimizda', 'About us')}</a>
+              <a href="#about" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>{t('Jarayon', 'Process')}</a>
+              <a href="#team" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>{t('Mutaxassislar', 'Trainers')}</a>
+              <a href="#contact" className="mobile-menu-link px-4 py-3 hover:text-white/80 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg active:bg-white/20" onClick={() => setIsMobileMenuOpen(false)}>{t('Aloqa', 'Contact')}</a>
             </div>
 
-            {/* Mobile CTA Button */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -218,15 +217,12 @@ export function Hero() {
               }}
               className="bg-red-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-red-700 active:bg-red-800 gentle-animation mt-8 cursor-pointer"
             >
-              Maslahat olish
+              {t('Maslahat olish', 'Request consultation')}
             </motion.button>
           </div>
         </div>
       </motion.div>
 
-
-
-      {/* Big Studio Title - Lower Left */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -235,17 +231,29 @@ export function Hero() {
       >
         <div className="max-w-2xl">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight text-white">
-            <span className="block">JAMOANGIZ</span>
-            <span className="block">SALOHIYATINI</span>
-            <span className="block">KUCHAYTIRAMIZ</span>
+            {lang === 'en' ? (
+              <>
+                <span className="block">EMPOWER</span>
+                <span className="block">YOUR TEAM'S</span>
+                <span className="block">POTENTIAL</span>
+              </>
+            ) : (
+              <>
+                <span className="block">JAMOANGIZ</span>
+                <span className="block">SALOHIYATINI</span>
+                <span className="block">KUCHAYTIRAMIZ</span>
+              </>
+            )}
           </h1>
+
           <p className="mt-4 text-base sm:text-lg text-white/80 max-w-xl">
-            Fine Skills Academy — kompaniyalar, banklar va institutlar uchun amaliy korporativ treninglar.
+            {t(
+              'Fine Skills Academy — kompaniyalar, banklar va institutlar uchun amaliy korporativ treninglar.',
+              'Fine Skills Academy — practical corporate training for companies, banks, and institutions.'
+            )}
           </p>
         </div>
       </motion.div>
-
-
     </div>
   )
 }

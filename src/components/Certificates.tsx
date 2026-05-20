@@ -9,6 +9,7 @@ import cert8 from '@/assets/cert-8.png'
 import cert9 from '@/assets/cert-9.png'
 import cert10 from '@/assets/cert-10.png'
 import cert11 from '@/assets/cert-11.png'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const certificates = [
   { src: cert1, alt: 'ACCA Certificate of Achievement' },
@@ -25,6 +26,7 @@ const certificates = [
 ]
 
 export function Certificates() {
+  const { t } = useLanguage()
   const loop = [...certificates, ...certificates]
 
   return (
@@ -39,20 +41,18 @@ export function Certificates() {
             className="block text-sm font-semibold uppercase tracking-[0.2em] mb-3"
             style={{ color: '#799A96' }}
           >
-            Sertifikatlar
+            {t('Sertifikatlar', 'Certifications')}
           </span>
           <h2
             className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase leading-[1.05]"
             style={{ color: '#2C325E' }}
           >
-            Trenerlarimizning sertifikatlari
+            {t('Trenerlarimizning sertifikatlari', 'Our trainers’ certifications')}
           </h2>
         </div>
       </div>
 
-      {/* Marquee */}
       <div className="relative w-full overflow-hidden">
-        {/* Edge fades */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-[#F2F5F4] to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-[#F2F5F4] to-transparent" />
 
