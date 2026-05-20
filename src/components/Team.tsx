@@ -417,9 +417,9 @@ export function Team() {
               <button
                 onClick={() => setExpanded(null)}
                 aria-label="Yopish"
-                className="sticky md:absolute top-4 right-4 ml-auto z-20 w-10 h-10 -mb-10 rounded-full bg-black/60 backdrop-blur md:bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center"
+                className="fixed md:absolute top-4 right-4 z-50 w-11 h-11 rounded-full bg-white text-black shadow-lg hover:bg-white/90 border border-black/10 flex items-center justify-center"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5" strokeWidth={2.2} />
               </button>
 
               <div className="flex flex-col md:flex-row items-stretch">
@@ -505,6 +505,14 @@ export function Team() {
                     </div>
                     <SocialLinks socials={expanded.socials} size="md" />
                   </div>
+
+                  <button
+                    onClick={() => setExpanded(null)}
+                    className="mt-8 w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-black text-sm font-semibold uppercase tracking-wider hover:bg-white/90 transition-colors"
+                  >
+                    <ChevronLeft className="w-4 h-4" strokeWidth={2} />
+                    Orqaga
+                  </button>
                 </div>
               </div>
             </motion.div>
