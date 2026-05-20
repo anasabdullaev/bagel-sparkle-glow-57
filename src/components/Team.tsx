@@ -326,7 +326,7 @@ export function Team() {
                 {/* Image */}
                 <div className="lg:col-span-5 lg:order-2">
                   <div
-                    className="relative w-full aspect-[4/5] sm:aspect-square max-h-[55vh] lg:max-h-none mx-auto rounded-[24px] overflow-hidden cursor-pointer group"
+                    className="relative w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] lg:w-full lg:h-auto lg:aspect-square lg:max-h-none mx-auto rounded-full lg:rounded-[24px] overflow-hidden cursor-pointer group"
                     style={{ backgroundColor: '#799A96', maxWidth: '420px' }}
                     onClick={() => setExpanded(t)}
                   >
@@ -433,8 +433,8 @@ export function Team() {
               </button>
 
               <div className="flex flex-col md:flex-row items-stretch">
-                <div className="md:w-[42%] md:shrink-0 bg-[#799A96] relative">
-                  <div className="h-[220px] sm:h-[280px] md:h-auto md:absolute md:inset-0 overflow-hidden">
+                <div className="md:w-[42%] md:shrink-0 md:bg-[#799A96] relative flex justify-center md:block pt-6 md:pt-0">
+                  <div className="w-[110px] h-[110px] sm:w-[130px] sm:h-[130px] rounded-full overflow-hidden ring-4 ring-white/10 md:ring-0 md:rounded-none md:w-auto md:h-auto md:absolute md:inset-0">
                     <ImageWithFallback
                       src={expanded.image}
                       alt={expanded.name}
