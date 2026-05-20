@@ -37,23 +37,22 @@ const trainers: Trainer[] = [
   {
     name: "MAMURJON M. RAHIMOV",
     role: "Marketing Consultant, Business Trainer & Lecturer",
-    bio: "Xalqaro tajribaga ega marketing konsultanti, biznes trener va o'qituvchi. 2015 yildan beri SOE, SME va startaplarga marketing tadqiqotlari, strategiya va biznes rivojlantirishda yordam beradi. Uztelecom, Almalyk MMC, Navoi MMC, ARTEL va Caffelito Coffee kabi yirik kompaniyalar uchun korporativ treninglar olib borgan.",
+    bio: "Xalqaro tajribaga ega marketing konsultanti va biznes trener. 2015 yildan beri yirik kompaniyalar uchun korporativ treninglar olib boradi.",
     image: trainer1,
     specialties: ['marketing'],
     experience: "20+ yillik marketing va o'qituvchilik tajribasi",
     highlights: [
-      "Freelance Marketing Consultant — Uztelecom, Almalyk MMC, Navoi MMC, ARTEL",
-      "Webster University Tashkent — MBA Marketing 5000 Adjunct Lecturer (2020–hozirgi)",
-      "MDIS Tashkent — banklar uchun korporativ treninglar dizayneri (2010–hozirgi)",
-      "Westminster International University — Marketing bo'limi lektori (2009–2023)",
-      "YES loyihasi — 8–11 sinflar uchun milliy ta'lim dasturi mualliflaridan biri",
+      "Marketing Consultant — Uztelecom, ARTEL, Almalyk MMC",
+      "Webster University Tashkent — MBA Lecturer (2020–)",
+      "MDIS Tashkent — korporativ trener (2010–)",
+      "Westminster International University — lektor (2009–2023)",
     ],
     education: [
-      "MA in Economics — University of Illinois at Chicago (2005)",
-      "BBA Marketing — Emory University, Goizueta Business School (1999)",
-      "Certificate in Teaching Economics — UIC (2004)",
-      "ESMT Berlin — Specialized certificate for top managers (2017)",
+      "MA Economics — University of Illinois at Chicago",
+      "BBA Marketing — Emory University (Goizueta)",
+      "ESMT Berlin — Top managers certificate",
     ],
+
     gallery: [trainer1],
     socials: {
       linkedin: "https://www.linkedin.com/",
