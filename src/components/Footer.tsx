@@ -69,19 +69,29 @@ export function Footer() {
               </div>
 
               {/* Contacts */}
-              <div className="mt-6 space-y-2">
-                <a href="mailto:support@fineskills.uz" className="block text-background/80 hover:text-background gentle-animation text-sm">
-                  support@fineskills.uz
-                </a>
-                <a href="tel:+998947777227" className="block text-background/80 hover:text-background gentle-animation text-sm">
+              <div className="mt-6 flex flex-col items-start gap-3">
+                <a
+                  href="tel:+998947777227"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/10 border border-background/20 text-background text-sm font-semibold hover:bg-background/15 hover:border-background/40 gentle-animation"
+                >
+                  <Phone className="w-4 h-4" />
                   +998 94 777 72 27
+                </a>
+                <a
+                  href="mailto:support@fineskills.uz"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/10 border border-background/20 text-background text-sm font-semibold hover:bg-background/15 hover:border-background/40 gentle-animation"
+                >
+                  <Mail className="w-4 h-4" />
+                  support@fineskills.uz
                 </a>
                 <a
                   href="https://t.me/fineskills_support"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-2 px-4 py-2 rounded-full bg-background text-foreground text-sm font-semibold hover:opacity-90 gentle-animation"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-white text-sm font-semibold shadow-md hover:shadow-lg hover:opacity-95 gentle-animation"
+                  style={{ backgroundColor: '#229ED9' }}
                 >
+                  <Send className="w-4 h-4" />
                   Support (Telegram)
                 </a>
               </div>
