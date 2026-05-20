@@ -1,5 +1,6 @@
 'use client'
 
+import { Phone, Mail, Send } from 'lucide-react'
 import logoFineSkills from '../assets/logo-fineskills.jpg'
 
 export function Footer() {
