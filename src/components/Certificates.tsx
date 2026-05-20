@@ -60,13 +60,13 @@ export function Certificates() {
           {loop.map((c, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-[180px] sm:w-[220px] h-[240px] sm:h-[290px] bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden flex items-center justify-center p-3"
+              className="flex-shrink-0 w-[280px] sm:w-[340px] h-[210px] sm:h-[250px] bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden flex items-center justify-center p-3"
             >
               <img
                 src={c.src}
                 alt={c.alt}
                 loading="lazy"
-                className="w-full h-full object-contain"
+                className="max-w-full max-h-full w-auto h-auto object-contain"
               />
             </div>
           ))}
