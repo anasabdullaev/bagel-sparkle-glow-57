@@ -192,10 +192,12 @@ export function Team() {
       ).filter((el) => !el.hasAttribute('aria-hidden'))
     }
 
-    // Initial focus
+    // Reset scroll then focus modal container without auto-scrolling
+    const scrollY = window.scrollY
     requestAnimationFrame(() => {
-      const focusables = getFocusable()
-      ;(focusables[0] ?? modalRef.current)?.focus()
+      if (modalRef.current) modalRef.current.scrollTop = 0
+      modalRef.current?.focus({ preventScroll: true })
+      window.scrollTo(0, scrollY)
     })
 
     const handleKey = (e: KeyboardEvent) => {
@@ -406,24 +408,23 @@ export function Team() {
               <button
                 onClick={() => setExpanded(null)}
                 aria-label="Yopish"
-                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center"
+                className="sticky md:absolute top-4 right-4 ml-auto z-20 w-10 h-10 -mb-10 rounded-full bg-black/60 backdrop-blur md:bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center"
               >
                 <X className="w-5 h-5" />
               </button>
 
               <div className="flex flex-col md:flex-row items-stretch">
                 <div className="md:w-[42%] md:shrink-0 bg-[#799A96] relative">
-                  <div className="aspect-[4/5] md:aspect-auto md:absolute md:inset-0 overflow-hidden">
+                  <div className="aspect-[16/10] md:aspect-auto md:absolute md:inset-0 overflow-hidden">
                     <ImageWithFallback
                       src={expanded.image}
                       alt={expanded.name}
-                      className="w-full h-full object-cover"
-                      style={{ objectPosition: '50% 22%' }}
+                      className="w-full h-full object-cover object-top"
                     />
                   </div>
                 </div>
 
-                <div className="flex-1 p-6 sm:p-8 lg:p-10">
+                <div className="flex-1 p-5 sm:p-8 lg:p-10">
                   <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/50">
                     Mutaxassis profili
                   </span>
