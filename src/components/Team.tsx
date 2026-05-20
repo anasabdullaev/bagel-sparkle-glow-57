@@ -412,7 +412,7 @@ export function Team() {
               exit={{ y: 20, opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-[24px] bg-neutral-950 border border-white/10 text-white outline-none"
+              className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-[24px] bg-neutral-950 border border-white/10 text-white outline-none pt-16 md:pt-0"
             >
               <button
                 onClick={() => setExpanded(null)}
@@ -423,13 +423,13 @@ export function Team() {
               </button>
 
               <div className="flex flex-col md:flex-row md:items-stretch">
-                <div className="w-full md:w-[42%] md:shrink-0 bg-[#799A96] relative md:self-stretch h-[320px] sm:h-[400px] md:h-auto">
+                <div className="w-full md:w-[42%] md:shrink-0 bg-[#799A96] relative md:self-stretch h-[200px] max-h-[200px] md:h-auto md:max-h-none">
                   <div className="absolute inset-0">
                     <ImageWithFallback
                       src={expanded.image}
                       alt={expanded.name}
                       className="block w-full h-full object-cover"
-                      style={{ objectPosition: 'center top', width: '100%', height: '100%' }}
+                      style={{ objectPosition: 'top', width: '100%', height: '100%' }}
                     />
                   </div>
                 </div>
