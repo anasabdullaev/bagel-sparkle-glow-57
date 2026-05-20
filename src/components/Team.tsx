@@ -340,8 +340,8 @@ export function Team() {
                       <ImageWithFallback
                         src={t.image}
                         alt={t.name}
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                        style={{ objectPosition: '50% 22%' }}
+                        className="w-full h-full object-cover scale-[1.45] origin-top transition-transform duration-700 ease-out group-hover:scale-[1.5]"
+                        style={{ objectPosition: '50% 0%' }}
                       />
                       <div className="pointer-events-none absolute inset-0 rounded-full lg:rounded-[18px] ring-1 ring-inset ring-white/40" />
                     </div>
