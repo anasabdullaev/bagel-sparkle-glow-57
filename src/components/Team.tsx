@@ -326,16 +326,25 @@ export function Team() {
                 {/* Image */}
                 <div className="lg:col-span-5 lg:order-2">
                   <div
-                    className="relative w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] lg:w-full lg:h-auto lg:aspect-square lg:max-h-none mx-auto rounded-full lg:rounded-[24px] overflow-hidden cursor-pointer group"
-                    style={{ backgroundColor: '#799A96', maxWidth: '420px' }}
+                    className="relative w-[190px] h-[190px] sm:w-[230px] sm:h-[230px] lg:w-full lg:h-auto lg:aspect-square lg:max-h-none mx-auto rounded-full lg:rounded-[20px] p-[2px] cursor-pointer group transition-all duration-500 hover:shadow-[0_20px_50px_-12px_rgba(121,154,150,0.55)]"
+                    style={{
+                      maxWidth: '424px',
+                      background: 'linear-gradient(135deg, #799A96 0%, #A8C5C1 45%, #2C325E 100%)',
+                      boxShadow: '0 10px 30px -10px rgba(44,50,94,0.35)',
+                    }}
                     onClick={() => setExpanded(t)}
                   >
-                    <ImageWithFallback
-                      src={t.image}
-                      alt={t.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      style={{ objectPosition: '50% 22%' }}
-                    />
+                    <div
+                      className="relative w-full h-full rounded-full lg:rounded-[18px] overflow-hidden bg-white"
+                    >
+                      <ImageWithFallback
+                        src={t.image}
+                        alt={t.name}
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                        style={{ objectPosition: '50% 22%' }}
+                      />
+                      <div className="pointer-events-none absolute inset-0 rounded-full lg:rounded-[18px] ring-1 ring-inset ring-white/40" />
+                    </div>
                   </div>
                 </div>
 
