@@ -422,14 +422,14 @@ export function Team() {
                 <X className="w-5 h-5" strokeWidth={2.2} />
               </button>
 
-              <div className="flex flex-col md:flex-row items-stretch">
-                <div className="md:w-[42%] md:shrink-0 md:bg-[#799A96] relative flex justify-center md:block pt-6 md:pt-0">
-                  <div className="w-[110px] h-[110px] sm:w-[130px] sm:h-[130px] rounded-full overflow-hidden ring-4 ring-white/10 md:ring-0 md:rounded-none md:w-auto md:h-auto md:absolute md:inset-0">
+              <div className="flex flex-col md:flex-row md:items-stretch">
+                <div className="md:w-[42%] md:shrink-0 md:bg-[#799A96] relative flex justify-center md:block pt-6 md:pt-0 md:self-stretch">
+                  <div className="w-[110px] h-[110px] sm:w-[130px] sm:h-[130px] rounded-full overflow-hidden ring-4 ring-white/10 md:ring-0 md:rounded-none md:w-full md:h-full md:absolute md:inset-0">
                     <ImageWithFallback
                       src={expanded.image}
                       alt={expanded.name}
                       className="block w-full h-full object-cover"
-                      style={{ objectPosition: 'center top' }}
+                      style={{ objectPosition: 'center top', width: '100%', height: '100%' }}
                     />
                   </div>
                 </div>
