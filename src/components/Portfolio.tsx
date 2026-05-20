@@ -11,7 +11,7 @@ export function Portfolio() {
           <div className="space-y-8">
             <div className="space-y-6">
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-[0.2em] uppercase">
-                Treninglar
+                Biz haqimizda
               </span>
               <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight text-secondary">
                 Fine Skills <br />
