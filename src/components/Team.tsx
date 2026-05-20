@@ -413,12 +413,11 @@ export function Team() {
 
               <div className="flex flex-col md:flex-row items-stretch">
                 <div className="md:w-[42%] md:shrink-0 bg-[#799A96] relative">
-                  <div className="h-[42vh] md:h-auto md:absolute md:inset-0 overflow-hidden">
+                  <div className="aspect-[4/5] sm:aspect-[16/10] md:aspect-auto md:absolute md:inset-0 overflow-hidden">
                     <ImageWithFallback
                       src={expanded.image}
                       alt={expanded.name}
-                      className="w-full h-full object-cover"
-                      style={{ objectPosition: '50% 15%' }}
+                      className="w-full h-full object-cover object-top"
                     />
                   </div>
                 </div>
