@@ -1,17 +1,18 @@
 'use client'
 
 import aboutImage from '@/assets/logo-fineskills.jpg'
+import { useLanguage } from '../contexts/LanguageContext'
 
 export function Portfolio() {
+  const { t } = useLanguage()
   return (
     <section id="portfolio" className="relative py-32 bg-background overflow-hidden">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-          {/* Content Column */}
           <div className="space-y-8">
             <div className="space-y-6">
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-[0.2em] uppercase">
-                Biz haqimizda
+                {t('Biz haqimizda', 'About us')}
               </span>
               <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight text-secondary">
                 Fine Skills <br />
@@ -21,19 +22,19 @@ export function Portfolio() {
 
             <div className="space-y-6 text-base lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
               <p>
-                Fine Skills Academy 2026-yilda tashkil etilgan bo'lib, bugungi kunda O'zbekistondagi banklar, korporatsiyalar va xalqaro institutlar uchun amaliy treninglar olib boradigan yetakchi platformaga aylangan. Biz 10+ yo'nalishni — moliya, IFRS, data analytics, AI va soft skills'ni — bir joyga jamlaganmiz.
+                {t(
+                  "Fine Skills Academy 2026-yilda tashkil etilgan bo'lib, bugungi kunda O'zbekistondagi banklar, korporatsiyalar va xalqaro institutlar uchun amaliy treninglar olib boradigan yetakchi platformaga aylangan. Biz 10+ yo'nalishni — moliya, IFRS, data analytics, AI va soft skills'ni — bir joyga jamlaganmiz.",
+                  'Founded in 2026, Fine Skills Academy has grown into a leading platform delivering practical training to banks, corporations and international institutions across Uzbekistan. We bring together 10+ disciplines — finance, IFRS, data analytics, AI and soft skills — under one roof.'
+                )}
               </p>
             </div>
           </div>
 
-          {/* Visual Column — concentric squircle frames */}
           <div className="relative flex justify-center items-center min-h-[520px]">
-            {/* Soft ambient halo */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-[80%] h-[80%] rounded-[40%] bg-primary/15 blur-3xl" />
             </div>
 
-            {/* Concentric squircle rings */}
             {[
               { size: 480, opacity: 0.15 },
               { size: 420, opacity: 0.22 },
@@ -54,7 +55,6 @@ export function Portfolio() {
               />
             ))}
 
-            {/* Center logo tile */}
             <div
               className="relative z-10 w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] rounded-[28%] flex items-center justify-center group"
               style={{
