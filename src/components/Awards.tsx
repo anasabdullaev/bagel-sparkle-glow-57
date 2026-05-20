@@ -137,7 +137,7 @@ export function Awards() {
           <div className="inline-flex items-center gap-3 mb-6">
             <span className="h-px w-10 bg-primary/60" />
             <span className="text-primary text-sm tracking-[0.3em] font-medium">
-              · FORMATLAR ·
+              Formatlar
             </span>
             <span className="h-px w-10 bg-primary/60" />
           </div>
