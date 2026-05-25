@@ -7,6 +7,12 @@ COPY package.json package-lock.json* bun.lockb* bun.lock* ./
 RUN npm ci
 
 COPY . .
+
+ARG VITE_TELEGRAM_BOT_TOKEN
+ARG VITE_TELEGRAM_CHAT_ID
+ENV VITE_TELEGRAM_BOT_TOKEN=${VITE_TELEGRAM_BOT_TOKEN}
+ENV VITE_TELEGRAM_CHAT_ID=${VITE_TELEGRAM_CHAT_ID}
+
 RUN npm run build
 
 FROM nginx:1.27-alpine AS runner

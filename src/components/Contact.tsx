@@ -9,7 +9,7 @@ export function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast({
@@ -18,8 +18,54 @@ export function Contact() {
       })
       return
     }
+
+    const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN
+    const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID
+
+    if (!botToken || !chatId) {
+      toast({
+        title: t('Konfiguratsiya xatosi', 'Configuration error'),
+        description: t(
+          "Telegram bot sozlamalari topilmadi. Iltimos, administrator bilan bog'laning.",
+          'Telegram bot settings were not found. Please contact the administrator.'
+        ),
+        variant: 'destructive',
+      })
+      return
+    }
+
     setIsSubmitting(true)
-    setTimeout(() => {
+
+    const escapeHtml = (s: string) =>
+      s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+    const text =
+      `🔔 <b>Yangi ariza — fineskills.uz</b>\n\n` +
+      `👤 <b>Ism / Kompaniya:</b>\n${escapeHtml(formData.name)}\n\n` +
+      `📞 <b>Email yoki telefon:</b>\n${escapeHtml(formData.email)}\n\n` +
+      `💬 <b>Xabar:</b>\n${escapeHtml(formData.message)}\n\n` +
+      `🕒 <i>${new Date().toLocaleString('uz-UZ', { timeZone: 'Asia/Tashkent' })}</i>`
+
+    try {
+      const response = await fetch(
+        `https://api.telegram.org/bot${botToken}/sendMessage`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text,
+            parse_mode: 'HTML',
+            disable_web_page_preview: true,
+          }),
+        },
+      )
+
+      const data = await response.json()
+      if (!response.ok || !data.ok) {
+        throw new Error(data.description || 'Telegram API xatosi')
+      }
+
       toast({
         title: t('Rahmat!', 'Thank you!'),
         description: t(
@@ -28,8 +74,19 @@ export function Contact() {
         ),
       })
       setFormData({ name: '', email: '', message: '' })
+    } catch (error) {
+      console.error('Telegram yuborishda xatolik:', error)
+      toast({
+        title: t('Xatolik', 'Error'),
+        description: t(
+          "So'rovni yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko'ring yoki to'g'ridan-to'g'ri bog'laning.",
+          'Something went wrong while sending your request. Please try again or contact us directly.'
+        ),
+        variant: 'destructive',
+      })
+    } finally {
       setIsSubmitting(false)
-    }, 1000)
+    }
   }
 
   return (
