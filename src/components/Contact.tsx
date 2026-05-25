@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Phone, Mail, Send } from 'lucide-react'
+import { Phone, Mail, Send, CheckCircle2 } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 import { useLanguage } from '@/contexts/LanguageContext'
 
@@ -8,6 +8,7 @@ export function Contact() {
   const { toast } = useToast()
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -66,14 +67,8 @@ export function Contact() {
         throw new Error(data.description || 'Telegram API xatosi')
       }
 
-      toast({
-        title: t('Rahmat!', 'Thank you!'),
-        description: t(
-          "So'rovingiz qabul qilindi. Tez orada siz bilan bog'lanamiz.",
-          'Your request has been received. We will get in touch with you shortly.'
-        ),
-      })
       setFormData({ name: '', email: '', message: '' })
+      setIsSubmitted(true)
     } catch (error) {
       console.error('Telegram yuborishda xatolik:', error)
       toast({
@@ -117,89 +112,115 @@ export function Contact() {
 
         <div className="max-w-3xl mx-auto">
           <div className="bg-background clean-border rounded-3xl overflow-hidden elevated-shadow">
-            <div className="bg-card/50 px-8 py-6 border-b border-border">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-xl font-black text-foreground mb-1">
-                    {t('Maslahat olish', 'Request consultation')}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {t(
-                      "Formani to'ldiring — 24 soat ichida siz bilan bog'lanamiz",
-                      'Fill out the form — we will get back to you within 24 hours'
-                    )}
-                  </p>
+            {isSubmitted ? (
+              <div className="p-10 sm:p-14 flex flex-col items-center text-center">
+                <div className="w-20 h-20 rounded-full bg-accent-emerald/15 flex items-center justify-center mb-6">
+                  <CheckCircle2 className="w-12 h-12 text-accent-emerald" strokeWidth={2.2} />
                 </div>
-                <div className="hidden sm:flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-accent-emerald rounded-full" />
-                  <span className="text-sm text-muted-foreground font-medium">
-                    {t('Hozir mavjud', 'Available now')}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <form onSubmit={handleSubmit} className="p-8 space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
-                    {t('Ism va familiya / Kompaniya', 'Full name / Company')}
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    maxLength={100}
-                    value={formData.name}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground/60 placeholder:blur-[0.5px] focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:placeholder:blur-0 focus:placeholder:opacity-100 transition-all"
-                    placeholder={t('Ismingiz va kompaniya nomi', 'Your name and company')}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
-                    {t('Email yoki telefon', 'Email or phone')}
-                  </label>
-                  <input
-                    id="email"
-                    type="text"
-                    maxLength={255}
-                    value={formData.email}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
-                    className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground/60 placeholder:blur-[0.5px] focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:placeholder:blur-0 focus:placeholder:opacity-100 transition-all"
-                    placeholder={t('email@kompaniya.uz yoki +998...', 'email@company.com or +998...')}
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2">
+                <h3 className="text-3xl sm:text-4xl font-black text-foreground mb-4">
+                  {t('Xabar yuborildi!', 'Message sent!')}
+                </h3>
+                <p className="text-lg text-muted-foreground max-w-md mb-8 leading-relaxed">
                   {t(
-                    "Qiziqayotgan yo'nalish, xodimlar soni va izoh",
-                    'Topic of interest, number of employees and any notes'
+                    "So'rovingiz qabul qilindi. 24 soat ichida siz bilan bog'lanamiz.",
+                    'Your request has been received. We will get in touch with you within 24 hours.'
                   )}
-                </label>
-                <textarea
-                  id="message"
-                  rows={5}
-                  maxLength={1000}
-                  value={formData.message}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, message: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground/60 placeholder:blur-[0.5px] focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:placeholder:blur-0 focus:placeholder:opacity-100 transition-all resize-none"
-                  placeholder={t(
-                    "Masalan: IFRS bo'yicha 25 nafar xodim uchun korporativ trening...",
-                    'For example: IFRS corporate training for 25 employees...'
-                  )}
-                />
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setIsSubmitted(false)}
+                  className="px-8 py-3 rounded-xl bg-foreground text-background font-bold hover:opacity-90 transition-opacity"
+                >
+                  {t('Yana xabar yuborish', 'Send another message')}
+                </button>
               </div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-4 rounded-xl bg-foreground text-background font-black text-lg hover:opacity-90 transition-opacity disabled:opacity-50"
-              >
-                {isSubmitting
-                  ? t('Yuborilmoqda...', 'Sending...')
-                  : t('Taklif olish', 'Get a proposal')}
-              </button>
-            </form>
+            ) : (
+              <>
+                <div className="bg-card/50 px-8 py-6 border-b border-border">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="text-xl font-black text-foreground mb-1">
+                        {t('Maslahat olish', 'Request consultation')}
+                      </h3>
+                      <p className="text-muted-foreground">
+                        {t(
+                          "Formani to'ldiring — 24 soat ichida siz bilan bog'lanamiz",
+                          'Fill out the form — we will get back to you within 24 hours'
+                        )}
+                      </p>
+                    </div>
+                    <div className="hidden sm:flex items-center space-x-2">
+                      <div className="w-3 h-3 bg-accent-emerald rounded-full" />
+                      <span className="text-sm text-muted-foreground font-medium">
+                        {t('Hozir mavjud', 'Available now')}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <form onSubmit={handleSubmit} className="p-8 space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
+                        {t('Ism va familiya / Kompaniya', 'Full name / Company')}
+                      </label>
+                      <input
+                        id="name"
+                        type="text"
+                        maxLength={100}
+                        value={formData.name}
+                        onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
+                        className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground/60 placeholder:blur-[0.5px] focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:placeholder:blur-0 focus:placeholder:opacity-100 transition-all"
+                        placeholder={t('Ismingiz va kompaniya nomi', 'Your name and company')}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
+                        {t('Email yoki telefon', 'Email or phone')}
+                      </label>
+                      <input
+                        id="email"
+                        type="text"
+                        maxLength={255}
+                        value={formData.email}
+                        onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
+                        className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground/60 placeholder:blur-[0.5px] focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:placeholder:blur-0 focus:placeholder:opacity-100 transition-all"
+                        placeholder={t('email@kompaniya.uz yoki +998...', 'email@company.com or +998...')}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2">
+                      {t(
+                        "Qiziqayotgan yo'nalish, xodimlar soni va izoh",
+                        'Topic of interest, number of employees and any notes'
+                      )}
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={5}
+                      maxLength={1000}
+                      value={formData.message}
+                      onChange={(e) => setFormData((prev) => ({ ...prev, message: e.target.value }))}
+                      className="w-full px-4 py-3 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground/60 placeholder:blur-[0.5px] focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:placeholder:blur-0 focus:placeholder:opacity-100 transition-all resize-none"
+                      placeholder={t(
+                        "Masalan: IFRS bo'yicha 25 nafar xodim uchun korporativ trening...",
+                        'For example: IFRS corporate training for 25 employees...'
+                      )}
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-4 rounded-xl bg-foreground text-background font-black text-lg hover:opacity-90 transition-opacity disabled:opacity-50"
+                  >
+                    {isSubmitting
+                      ? t('Yuborilmoqda...', 'Sending...')
+                      : t('Taklif olish', 'Get a proposal')}
+                  </button>
+                </form>
+              </>
+            )}
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
