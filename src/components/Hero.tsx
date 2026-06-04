@@ -14,30 +14,29 @@ const heroImages = [heroImg1, heroImg2, heroImg3, heroImg4]
 
 function LanguageToggle({ className = '' }: { className?: string }) {
   const { lang, setLang } = useLanguage()
+  const langs: { code: 'uz' | 'en' | 'ru'; label: string }[] = [
+    { code: 'uz', label: 'UZ' },
+    { code: 'en', label: 'EN' },
+    { code: 'ru', label: 'RU' },
+  ]
   return (
     <div
       className={`inline-flex items-center rounded-full border border-white/25 bg-white/5 backdrop-blur-md p-0.5 text-xs font-semibold tracking-wider ${className}`}
       role="group"
       aria-label="Language switcher"
     >
-      <button
-        onClick={() => setLang('uz')}
-        aria-pressed={lang === 'uz'}
-        className={`px-3 py-1.5 rounded-full transition-all ${
-          lang === 'uz' ? 'bg-white text-black' : 'text-white/80 hover:text-white'
-        }`}
-      >
-        UZ
-      </button>
-      <button
-        onClick={() => setLang('en')}
-        aria-pressed={lang === 'en'}
-        className={`px-3 py-1.5 rounded-full transition-all ${
-          lang === 'en' ? 'bg-white text-black' : 'text-white/80 hover:text-white'
-        }`}
-      >
-        EN
-      </button>
+      {langs.map((l) => (
+        <button
+          key={l.code}
+          onClick={() => setLang(l.code)}
+          aria-pressed={lang === l.code}
+          className={`px-3 py-1.5 rounded-full transition-all ${
+            lang === l.code ? 'bg-white text-black' : 'text-white/80 hover:text-white'
+          }`}
+        >
+          {l.label}
+        </button>
+      ))}
     </div>
   )
 }
