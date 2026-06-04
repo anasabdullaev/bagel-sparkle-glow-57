@@ -40,7 +40,7 @@ export function Services() {
       {
         id: 'banking',
         number: '02',
-        title: t('Tijoriy banklar uchun', 'For Commercial Banks'),
+        title: t('Marketing', 'Marketing'),
         description: t(
           "Bank sektori uchun komplayens, MHXS/IFRS hisobot va risklarni boshqarish bo'yicha kompleks dastur.",
           'A comprehensive program on compliance, IFRS reporting and risk management for the banking sector.'
