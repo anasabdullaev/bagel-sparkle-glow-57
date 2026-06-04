@@ -24,6 +24,7 @@ import trainer3 from '../assets/trainer-3.jpg'
 import trainer4 from '../assets/trainer-4.jpg'
 import trainer5 from '../assets/trainer-5.jpg'
 import trainer6 from '../assets/trainer-6.jpg'
+import trainer7 from '../assets/trainer-7.jpg'
 
 type Specialty = 'marketing' | 'finance' | 'data' | 'acca' | 'soft-skills' | 'law'
 
@@ -339,6 +340,60 @@ export function Team() {
         socials: {
           email: 'mailto:hamdambek@gmail.com',
           linkedin: 'https://www.linkedin.com/in/khamdambek-atajanov-b60426142/',
+        },
+      },
+      {
+        name: 'UMIDJON AHUNJONOV',
+        role: t(
+          'Marketing & Management PhD Lecturer',
+          'Marketing & Management PhD Lecturer'
+        ),
+        bio: t(
+          "Xitoyda Management Science and Engineering bo'yicha PhD darajasini olgan marketing va menejment bo'yicha senior lektor. Westminster International University in Tashkent va Missouri State University (AQSh) tajribasiga ega; CEO sifatida operatsion boshqaruvda ham faoliyat yuritgan.",
+          'PhD in Management Science and Engineering (China) and a senior lecturer in marketing and management. Brings teaching experience from Westminster International University in Tashkent and Missouri State University (USA), with hands-on executive experience as a Chief Operations Manager.'
+        ),
+        image: trainer7,
+        specialties: ['marketing'],
+        experience: t(
+          "15+ yillik marketing va o'qituvchilik tajribasi",
+          '15+ years of marketing and teaching experience'
+        ),
+        highlights: [
+          t(
+            'Westminster International University in Tashkent — Senior Lecturer (2014–2021)',
+            'Westminster International University in Tashkent — Senior Lecturer (2014–2021)'
+          ),
+          t(
+            'Missouri State University (AQSh) — Visiting Lecturer',
+            'Missouri State University (USA) — Visiting Lecturer'
+          ),
+          t(
+            "Cargo Prime Overseas — Chief Operations Manager (CEO)",
+            'Cargo Prime Overseas — Chief Operations Manager (CEO)'
+          ),
+          t(
+            "INTERINTELLECT Consulting — asoschisi va boshqaruvchisi",
+            'INTERINTELLECT Consulting — Founder & Managing Director'
+          ),
+        ],
+        education: [
+          t(
+            'PhD Management Science & Engineering — Wuhan University of Technology, Xitoy (2012)',
+            'PhD in Management Science & Engineering — Wuhan University of Technology, China (2012)'
+          ),
+          t(
+            "MA Public Finance — Tashkent State University of Economics (2009)",
+            'MA in Public Finance — Tashkent State University of Economics (2009)'
+          ),
+          t(
+            'BA Marketing — Tashkent State University of Economics (2007)',
+            'BA in Marketing — Tashkent State University of Economics (2007)'
+          ),
+        ],
+        gallery: [trainer7],
+        socials: {
+          email: 'mailto:umidahun@gmail.com',
+          telegram: 'https://t.me/+998911660048',
         },
       },
     ],
