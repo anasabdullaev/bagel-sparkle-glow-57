@@ -309,6 +309,28 @@ const RU: Record<string, string> = {
   'Bakalavr — University of World Economy and Diplomacy (2006)':
     'Бакалавриат — Университет мировой экономики и дипломатии (2006)',
 
+  // New trainer: Umidjon Ahunjonov
+  'Marketing & Management PhD Lecturer':
+    'Старший преподаватель маркетинга и менеджмента (PhD)',
+  "Xitoyda Management Science and Engineering bo'yicha PhD darajasini olgan marketing va menejment bo'yicha senior lektor. Westminster International University in Tashkent va Missouri State University (AQSh) tajribasiga ega; CEO sifatida operatsion boshqaruvda ham faoliyat yuritgan.":
+    'Старший преподаватель маркетинга и менеджмента со степенью PhD в области Management Science and Engineering (Китай). Опыт преподавания в Westminster International University in Tashkent и Missouri State University (США), а также практика управления операциями в должности CEO.',
+  "15+ yillik marketing va o'qituvchilik tajribasi":
+    '15+ лет опыта в маркетинге и преподавании',
+  'Westminster International University in Tashkent — Senior Lecturer (2014–2021)':
+    'Westminster International University in Tashkent — старший преподаватель (2014–2021)',
+  'Missouri State University (AQSh) — Visiting Lecturer':
+    'Missouri State University (США) — приглашённый преподаватель',
+  'Cargo Prime Overseas — Chief Operations Manager (CEO)':
+    'Cargo Prime Overseas — операционный директор (CEO)',
+  'INTERINTELLECT Consulting — asoschisi va boshqaruvchisi':
+    'INTERINTELLECT Consulting — основатель и управляющий директор',
+  'PhD Management Science & Engineering — Wuhan University of Technology, Xitoy (2012)':
+    'PhD в области Management Science & Engineering — Wuhan University of Technology, Китай (2012)',
+  'MA Public Finance — Tashkent State University of Economics (2009)':
+    'Магистр государственных финансов — Ташкентский государственный экономический университет (2009)',
+  'BA Marketing — Tashkent State University of Economics (2007)':
+    'Бакалавр маркетинга — Ташкентский государственный экономический университет (2007)',
+
   // Telegram banner
   "Telegram kanalimizga qo'shiling": 'Присоединяйтесь к нашему Telegram-каналу',
   "kanalimizga qo'shiling": 'канал — присоединяйтесь',
