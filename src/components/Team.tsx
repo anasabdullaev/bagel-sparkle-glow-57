@@ -101,7 +101,7 @@ export function Team() {
           'Xalqaro tajribaga ega marketing konsultanti va biznes trener. 2015 yildan beri yirik kompaniyalar uchun korporativ treninglar olib boradi.',
           'An internationally experienced marketing consultant and business trainer. Has delivered corporate training for leading companies since 2015.'
         ),
-        image: trainer1,
+        image: trainer2,
         specialties: ['marketing'],
         experience: t(
           "20+ yillik marketing va o'qituvchilik tajribasi",
@@ -137,7 +137,7 @@ export function Team() {
           "Webster University va University of Digital Economics and Agrotechnologies'da Python va Software Design bo'yicha o'qituvchi. MDIS Tashkent'da banklar uchun Data Analytics treninglarini olib borgan.",
           'Lecturer in Python and Software Design at Webster University and the University of Digital Economics and Agrotechnologies. Has delivered Data Analytics training for banks at MDIS Tashkent.'
         ),
-        image: trainer2,
+        image: trainer1,
         specialties: ['data'],
         experience: t('15+ yillik IT tajribasi', '15+ years of IT experience'),
         highlights: [
