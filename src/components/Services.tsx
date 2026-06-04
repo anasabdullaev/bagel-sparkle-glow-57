@@ -52,7 +52,7 @@ export function Services() {
           'Basel Concepts',
         ],
         icon: Landmark,
-        image: serviceBanking,
+        image: serviceMarketing,
       },
       {
         id: 'data',
