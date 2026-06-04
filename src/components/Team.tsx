@@ -287,6 +287,60 @@ export function Team() {
           linkedin: 'https://www.linkedin.com/',
         },
       },
+      {
+        name: 'KHAMDAMBEK ATAJANOV',
+        role: t(
+          'Corporate & Business Law Lecturer (PhD)',
+          'Corporate & Business Law Lecturer (PhD)'
+        ),
+        bio: t(
+          "Korporativ huquq, biznes huquqi va kapital bozorlari huquqi bo'yicha yuridik fanlar doktori (PhD). TSUL va MDIST Tashkent'da o'qituvchi, qonunchilik loyihalarini ishlab chiqish va parlament tadqiqotlarida tajribaga ega amaliyotchi yurist.",
+          'PhD in Law specializing in Corporate Law, Business Law and Capital Markets Law. Lecturer at TSUL and MDIS Tashkent and practicing lawyer with a strong background in legislative drafting and parliamentary research.'
+        ),
+        image: trainer6,
+        specialties: ['law'],
+        experience: t(
+          "15+ yillik huquqshunoslik va o'qituvchilik tajribasi",
+          '15+ years of legal and teaching experience'
+        ),
+        highlights: [
+          t(
+            "TSUL — Biznes huquqi kafedrasi o'qituvchisi (2023–)",
+            'TSUL — Lecturer at the Business Law Department (2023–present)'
+          ),
+          t(
+            "MDIS Tashkent — yuridik fanlar bo'yicha o'qituvchi",
+            'MDIS Tashkent — Lecturer in law'
+          ),
+          t(
+            "Oliy Majlis qoshidagi Qonunchilik va Parlament tadqiqotlari instituti — Iqtisodiy qonunchilik bo'limi boshlig'i (2018–2020)",
+            'Head of the Economic Legislation Department — Legislation and Parliamentary Research Institute under the Oliy Majlis (2018–2020)'
+          ),
+          t(
+            "UNDP loyihasi — \"Hunarmandchilik to'g'risida\" qonun loyihasini RIA bo'yicha jamoa rahbari (2019–2020)",
+            'UNDP Project — Team Leader for the Regulatory Impact Assessment of the draft Law “On Craftsmanship” (2019–2020)'
+          ),
+        ],
+        education: [
+          t(
+            "PhD huquqshunoslik — Tashkent State University of Law (2025)",
+            'PhD in Law — Tashkent State University of Law (2025)'
+          ),
+          t(
+            'Magistratura — Tashkent State University of Law (2016)',
+            "Master’s Degree — Tashkent State University of Law (2016)"
+          ),
+          t(
+            'Bakalavr — University of World Economy and Diplomacy (2006)',
+            "Bachelor’s Degree — University of World Economy and Diplomacy (2006)"
+          ),
+        ],
+        gallery: [trainer6],
+        socials: {
+          email: 'mailto:hamdambek@gmail.com',
+          linkedin: 'https://www.linkedin.com/in/khamdambek-atajanov-b60426142/',
+        },
+      },
     ],
     [t]
   )
