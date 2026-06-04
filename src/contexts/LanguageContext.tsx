@@ -287,6 +287,28 @@ const RU: Record<string, string> = {
   'AI Literacy Certificate — Ministry of Higher Education (2026)':
     'Сертификат AI Literacy — Министерство высшего образования (2026)',
 
+  // New trainer: Khamdambek Atajanov
+  'Corporate & Business Law Lecturer (PhD)':
+    'Преподаватель корпоративного и бизнес-права (PhD)',
+  "Korporativ huquq, biznes huquqi va kapital bozorlari huquqi bo'yicha yuridik fanlar doktori (PhD). TSUL va MDIST Tashkent'da o'qituvchi, qonunchilik loyihalarini ishlab chiqish va parlament tadqiqotlarida tajribaga ega amaliyotchi yurist.":
+    'Доктор юридических наук (PhD) в области корпоративного права, бизнес-права и права рынков капитала. Преподаватель TSUL и MDIS Tashkent, практикующий юрист с богатым опытом в законотворчестве и парламентских исследованиях.',
+  "15+ yillik huquqshunoslik va o'qituvchilik tajribasi":
+    '15+ лет опыта в юриспруденции и преподавании',
+  "TSUL — Biznes huquqi kafedrasi o'qituvchisi (2023–)":
+    'TSUL — преподаватель кафедры бизнес-права (с 2023)',
+  "MDIS Tashkent — yuridik fanlar bo'yicha o'qituvchi":
+    'MDIS Tashkent — преподаватель юридических дисциплин',
+  "Oliy Majlis qoshidagi Qonunchilik va Parlament tadqiqotlari instituti — Iqtisodiy qonunchilik bo'limi boshlig'i (2018–2020)":
+    'Институт законодательства и парламентских исследований при Олий Мажлисе — руководитель отдела экономического законодательства (2018–2020)',
+  "UNDP loyihasi — \"Hunarmandchilik to'g'risida\" qonun loyihasini RIA bo'yicha jamoa rahbari (2019–2020)":
+    'Проект ПРООН — руководитель группы по оценке регуляторного воздействия проекта закона «О ремесленничестве» (2019–2020)',
+  'PhD huquqshunoslik — Tashkent State University of Law (2025)':
+    'PhD по юриспруденции — Ташкентский государственный юридический университет (2025)',
+  'Magistratura — Tashkent State University of Law (2016)':
+    'Магистратура — Ташкентский государственный юридический университет (2016)',
+  'Bakalavr — University of World Economy and Diplomacy (2006)':
+    'Бакалавриат — Университет мировой экономики и дипломатии (2006)',
+
   // Telegram banner
   "Telegram kanalimizga qo'shiling": 'Присоединяйтесь к нашему Telegram-каналу',
   "kanalimizga qo'shiling": 'канал — присоединяйтесь',
