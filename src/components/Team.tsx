@@ -22,6 +22,7 @@ import trainer1 from '../assets/trainer-1.jpg'
 import trainer2 from '../assets/trainer-2.jpg'
 import trainer3 from '../assets/trainer-3.jpg'
 import trainer4 from '../assets/trainer-4.jpg'
+import trainer5 from '../assets/trainer-5.jpg'
 
 type Specialty = 'marketing' | 'finance' | 'data' | 'acca' | 'soft-skills'
 
