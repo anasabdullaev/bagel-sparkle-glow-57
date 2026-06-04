@@ -47,7 +47,7 @@ export function Certificates() {
             className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase leading-[1.05]"
             style={{ color: '#2C325E' }}
           >
-            {t('Trenerlarimizning sertifikatlari', 'Our trainers’ certifications')}
+            {t("Professorlarimizning sertifikatlari", "Our professors' certifications")}
           </h2>
         </div>
       </div>
