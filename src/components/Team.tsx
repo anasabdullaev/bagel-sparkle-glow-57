@@ -22,6 +22,7 @@ import trainer1 from '../assets/trainer-1.jpg'
 import trainer2 from '../assets/trainer-2.jpg'
 import trainer3 from '../assets/trainer-3.jpg'
 import trainer4 from '../assets/trainer-4.jpg'
+import trainer5 from '../assets/trainer-5.jpg'
 
 type Specialty = 'marketing' | 'finance' | 'data' | 'acca' | 'soft-skills'
 
@@ -228,6 +229,61 @@ export function Team() {
         ],
         gallery: [trainer4],
         socials: { linkedin: 'https://www.linkedin.com/', email: 'mailto:info@fineskills.uz' },
+      },
+      {
+        name: 'AZIZJON RIKHSIBOYEV',
+        role: t(
+          'English, IELTS & IT Senior Lecturer',
+          'English, IELTS & IT Senior Lecturer'
+        ),
+        bio: t(
+          "MDIST Senior Lecturer; 8+ yillik ingliz tili, IELTS va IT yo'nalishlarida o'qituvchilik tajribasiga ega. Foundation va bakalavr talabalariga Fundamentals of IT, akademik ingliz tili va matematika fanlarini olib boradi.",
+          'Senior Lecturer at MDIST with 8+ years of teaching experience across English, IELTS and IT. Delivers Fundamentals of IT, academic English and mathematics tutorials to Foundation and undergraduate students.'
+        ),
+        image: trainer5,
+        specialties: ['data', 'soft-skills'],
+        experience: t(
+          "8+ yillik o'qituvchilik va IT tajribasi",
+          '8+ years of teaching and IT experience'
+        ),
+        highlights: [
+          t(
+            'MDIST — Fundamentals of IT, English Plus va Mathematics bo‘yicha Senior Lecturer',
+            'MDIST — Senior Lecturer in Fundamentals of IT, English Plus and Mathematics'
+          ),
+          t(
+            'Cambridge LC — IELTS instruktori (2020–2025)',
+            'Cambridge LC — IELTS Instructor (2020–2025)'
+          ),
+          t(
+            'IELTS 8.0 (Listening 9.0, Reading 8.5) · C2 Proficient',
+            'IELTS 8.0 (Listening 9.0, Reading 8.5) · C2 Proficient'
+          ),
+          t(
+            'Sobiq iOS dasturchi — DataSite Technologies (Swift, Objective-C)',
+            'Former iOS developer — DataSite Technologies (Swift, Objective-C)'
+          ),
+        ],
+        education: [
+          t(
+            'MA Education with TESOL — Teesside University, UK (2025)',
+            'MA Education with TESOL — Teesside University, UK (2025)'
+          ),
+          t(
+            'BSc Computer Engineering — Politecnico di Torino, Tashkent (2016)',
+            'BSc Computer Engineering — Politecnico di Torino, Tashkent (2016)'
+          ),
+          t(
+            'AI Literacy Certificate — Ministry of Higher Education (2026)',
+            'AI Literacy Certificate — Ministry of Higher Education (2026)'
+          ),
+        ],
+        gallery: [trainer5],
+        socials: {
+          email: 'mailto:abdulazizrikhsiboyev@gmail.com',
+          telegram: 'https://t.me/',
+          linkedin: 'https://www.linkedin.com/',
+        },
       },
     ],
     [t]

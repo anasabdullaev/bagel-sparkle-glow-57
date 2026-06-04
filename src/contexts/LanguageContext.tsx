@@ -265,6 +265,28 @@ const RU: Record<string, string> = {
   Galereya: 'Галерея',
   Orqaga: 'Назад',
 
+  // New trainer: Azizjon Rikhsiboyev
+  'English, IELTS & IT Senior Lecturer':
+    'Старший преподаватель английского, IELTS и IT',
+  "MDIST Senior Lecturer; 8+ yillik ingliz tili, IELTS va IT yo'nalishlarida o'qituvchilik tajribasiga ega. Foundation va bakalavr talabalariga Fundamentals of IT, akademik ingliz tili va matematika fanlarini olib boradi.":
+    'Старший преподаватель MDIST с более чем 8-летним опытом преподавания английского языка, IELTS и IT. Ведёт курсы Fundamentals of IT, академический английский и математику для студентов Foundation и бакалавриата.',
+  "8+ yillik o'qituvchilik va IT tajribasi":
+    '8+ лет опыта преподавания и работы в IT',
+  'MDIST — Fundamentals of IT, English Plus va Mathematics bo‘yicha Senior Lecturer':
+    'MDIST — старший преподаватель курсов Fundamentals of IT, English Plus и Mathematics',
+  'Cambridge LC — IELTS instruktori (2020–2025)':
+    'Cambridge LC — преподаватель IELTS (2020–2025)',
+  'IELTS 8.0 (Listening 9.0, Reading 8.5) · C2 Proficient':
+    'IELTS 8.0 (Listening 9.0, Reading 8.5) · C2 Proficient',
+  'Sobiq iOS dasturchi — DataSite Technologies (Swift, Objective-C)':
+    'Бывший iOS-разработчик — DataSite Technologies (Swift, Objective-C)',
+  'MA Education with TESOL — Teesside University, UK (2025)':
+    'MA Education with TESOL — Teesside University, Великобритания (2025)',
+  'BSc Computer Engineering — Politecnico di Torino, Tashkent (2016)':
+    'BSc Computer Engineering — Politecnico di Torino, Ташкент (2016)',
+  'AI Literacy Certificate — Ministry of Higher Education (2026)':
+    'Сертификат AI Literacy — Министерство высшего образования (2026)',
+
   // Telegram banner
   "Telegram kanalimizga qo'shiling": 'Присоединяйтесь к нашему Telegram-каналу',
   "kanalimizga qo'shiling": 'канал — присоединяйтесь',
