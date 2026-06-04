@@ -236,6 +236,12 @@ export function Hero() {
                 <span className="block">YOUR TEAM'S</span>
                 <span className="block">POTENTIAL</span>
               </>
+            ) : lang === 'ru' ? (
+              <>
+                <span className="block">РАСКРОЙТЕ</span>
+                <span className="block">ПОТЕНЦИАЛ</span>
+                <span className="block">ВАШЕЙ КОМАНДЫ</span>
+              </>
             ) : (
               <>
                 <span className="block">JAMOANGIZ</span>
