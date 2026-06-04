@@ -54,6 +54,7 @@ const specialtyLabels: Record<Specialty, string> = {
   data: 'Data',
   acca: 'ACCA',
   'soft-skills': 'Soft Skills',
+  law: 'Law',
 }
 
 // (Unused but kept for future) SocialLinks component
