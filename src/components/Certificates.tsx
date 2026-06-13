@@ -60,7 +60,7 @@ export function Certificates() {
           {loop.map((c, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-[240px] sm:w-[280px] h-[340px] sm:h-[396px] bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden flex items-center justify-center p-3"
+              className="flex-shrink-0 w-[340px] sm:w-[396px] h-[240px] sm:h-[280px] bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden flex items-center justify-center p-3"
             >
               <img
                 src={c.src}
